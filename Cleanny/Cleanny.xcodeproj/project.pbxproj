@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EB0F328521B62003BD148 /* CircularProgressView.swift */; };
 		9A39345A2850892800393B19 /* CleannyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934592850892800393B19 /* CleannyApp.swift */; };
 		9A39345C2850892800393B19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A39345B2850892800393B19 /* ContentView.swift */; };
 		9A39345E2850892A00393B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A39345D2850892A00393B19 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A0EB0F328521B62003BD148 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		9A3934562850892800393B19 /* Cleanny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleanny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3934592850892800393B19 /* CleannyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleannyApp.swift; sourceTree = "<group>"; };
 		9A39345B2850892800393B19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				9A3934742850B5C100393B19 /* CalendarView.swift */,
 				9A3934762850B61700393B19 /* RecordView.swift */,
 				9A3934782850B67F00393B19 /* CharacterView.swift */,
+				9A0EB0F328521B62003BD148 /* CircularProgressView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			files = (
 				9A3934752850B5C100393B19 /* CalendarView.swift in Sources */,
 				9A3934772850B61700393B19 /* RecordView.swift in Sources */,
+				9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */,
 				9A3934632850892A00393B19 /* Persistence.swift in Sources */,
 				9A39345C2850892800393B19 /* ContentView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
