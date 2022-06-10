@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Cleaning : Hashable{
+struct Cleaning: Hashable {
     var name : String
     var cycle: Int
     var decreaseRate: Double
