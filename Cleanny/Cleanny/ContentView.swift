@@ -24,9 +24,9 @@ struct ContentView: View {
                 AxisTabView(selection: $selection, constant: constant) { state in
                     if constant.axisMode == .bottom {
                         ATBeadStyle(state,
-                                      color: color,
+                                    color: Color("MBlue"),
                                       cornerRadius: cornerRadius,
-                                      marbleColor: marbleColor,
+                                      marbleColor: Color("MBlue"),
                                       radius: radius,
                                       depth: depth)
                     }
