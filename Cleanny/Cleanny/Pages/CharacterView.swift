@@ -12,13 +12,13 @@ struct CharacterView: View {
         VStack{
             //캐릭터자리
             HStack{
+                CircularProgress(progress: .constant(24))
                 CircularProgress(progress: .constant(50))
-                CircularProgress(progress: .constant(50))
-                CircularProgress(progress: .constant(50))
+                CircularProgress(progress: .constant(99))
             }
             HStack{
                 CircularProgress(progress: .constant(50))
-                CircularProgress(progress: .constant(50))
+                CircularProgress(progress: .constant(15))
                 CircularProgress(progress: .constant(50))
             }
             

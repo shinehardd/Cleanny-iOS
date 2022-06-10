@@ -11,8 +11,8 @@ import SwiftUI
 
 
 struct CircularProgress: View {
-    let minSize: CGFloat = 2;
-    var lineWidth: CGFloat = 20
+    let minSize: CGFloat = 1;
+    var lineWidth: CGFloat = 10
     @Binding var progress: Double
     
     var body: some View {
@@ -22,7 +22,7 @@ struct CircularProgress: View {
                 .frame(width: 80, height: 80)
             Circle()
                 .trim(from: 0, to: progress * 0.01)
-                .stroke(progress == 100 ? Color("Primary") : Color("Secondary"), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
+                .stroke(progress <= 25 ? Color("Primary") : Color("Secondary"), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                 .rotationEffect(.degrees(-90))
                 .frame(width: 80, height: 80)
 //            GeometryReader { proxy in
