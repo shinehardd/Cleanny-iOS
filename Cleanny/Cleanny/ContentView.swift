@@ -49,7 +49,7 @@ struct ContentView: View {
                                 color: $color,
                                 marbleColor: $marbleColor,
                                 tag: 1,
-                                systemName: "Calendar",
+                                systemName: "Chart",
                                 safeArea: proxy.safeAreaInsets)
                     ControlView(selection: $selection,
                                 constant: $constant,
