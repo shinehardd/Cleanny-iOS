@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CharacterView: View {
+    @State private var complateText = ""
     
     // 임시 데이터
     var CleaningData : [[Cleaning]] = [
@@ -29,6 +30,9 @@ struct CharacterView: View {
         VStack {
             Spacer()
             
+            Text("\(complateText)")
+                .padding(.bottom)
+            
             Image(systemName: "plus").resizable()
                 .frame(width: 320, height: 200)
             
@@ -40,7 +44,7 @@ struct CharacterView: View {
                         ForEach(row, id:\.self) { cleaningItem in
                             ZStack {
                                 CircularProgress(progress: .constant(Double(Int.random(in: 0...100))))
-                                CleaningButtonView(cleaningItem: cleaningItem)
+                                CleaningButtonView(complateText: $complateText, cleaningItem: cleaningItem)
                             }
                         }
                     }
