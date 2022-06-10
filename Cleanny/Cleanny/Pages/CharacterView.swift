@@ -40,19 +40,7 @@ struct CharacterView: View {
                         ForEach(row, id:\.self) { cleaningItem in
                             ZStack {
                                 CircularProgress(progress: .constant(Double(Int.random(in: 0...100))))
-                                Button(action: {
-                                    // 임시 확인
-                                    print(cleaningItem.name)
-                                }) {
-                                    Circle()
-                                        .foregroundColor(.white)
-                                        .frame(width: 60, height: 60)
-                                        .shadow(color: Color("ShadowB"), radius: 5, x: 1, y: 1)
-                                        .overlay(
-                                            Image(cleaningItem.name)
-                                                .foregroundColor(Color("MBlue"))
-                                        )
-                                }
+                                CleaningButtonView(cleaningItem: cleaningItem)
                             }
                         }
                     }
