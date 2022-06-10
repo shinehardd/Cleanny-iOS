@@ -31,10 +31,12 @@ struct Cleaning: Hashable {
     mutating func changeSpeed(){
         decreaseRate = 1/(Double(self.cycle)*864)
     }
-    mutating func getPercentage(){
+    mutating func setPercentage(){
         percentage = percentage - decreaseRate
     }
-    
+    func getPrecentage() -> Double{
+        return percentage
+    }
 }
     
 var Cleanings : [Cleaning] = [Cleaning(name:"DisposeTrash",cycle: 3, decreaseRate:0.0003858, percentage: 100, activated: true),
