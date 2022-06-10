@@ -128,7 +128,7 @@ struct ContentView: View {
                         .font(.system(size: 24))
                         .padding(10)
                 }
-                .foregroundColor(isSelection ? Color.white : Color(UIColor(named: "Unselected")!))
+                .foregroundColor(isSelection ? Color.white : Color("Unselected"))
                 .clipShape(Capsule())
                 .offset(y: y)
                 .onAppear {
@@ -151,7 +151,6 @@ struct ContentView: View {
     
 
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
