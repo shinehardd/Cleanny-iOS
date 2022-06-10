@@ -93,9 +93,9 @@ struct ContentView: View {
                     case 0 :
                         CharacterView()
                     case 1:
-                      RecordView()
+                        RecordView()
                     case 2 :
-                       CharacterView()
+                       ShareView()
                     default:
                         CharacterView()
                     }
