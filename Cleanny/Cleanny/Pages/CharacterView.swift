@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CharacterView: View {
     @State private var complateText = ""
+    @State private var showModal = false
     
     // 임시 데이터
     var CleaningData : [[Cleaning]] = [
@@ -28,6 +29,20 @@ struct CharacterView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.showModal = true
+                })
+                {
+                    Image("Setting")
+                        .foregroundColor(Color("MBlue"))
+                        .padding()
+                }
+                .sheet(isPresented: self.$showModal) {
+                    SettingModalView()
+                }
+            }
             Spacer()
             
             Text("\(complateText)")
