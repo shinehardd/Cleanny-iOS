@@ -43,7 +43,7 @@ struct CharacterView: View {
                     HStack (spacing: 20) {
                         ForEach(row, id:\.self) { cleaningItem in
                             ZStack {
-                                CircularProgress(progress: .constant(Double(Int.random(in: 0...100))))
+                                CircularProgress()
                                 CleaningButtonView(complateText: $complateText, cleaningItem: cleaningItem)
                             }
                         }
