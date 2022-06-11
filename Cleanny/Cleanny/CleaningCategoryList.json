@@ -1,0 +1,32 @@
+[
+    {
+        "id" : 1001,
+        "name": "분리수거",
+        "imageName" : "DisposeTrash",
+    },
+    {
+        "id" : 1002,
+        "name": "세탁",
+        "imageName" : "Laundary",
+    },
+    {
+        "id" : 1003,
+        "name": "욕실청소",
+        "imageName" : "ToiletCleaning",
+    },
+    {
+        "id" : 1004,
+        "name": "바닥청소",
+        "imageName" : "FloorCleaning",
+    },
+    {
+        "id" : 1005,
+        "name": "설거지",
+        "imageName" : "DishWashing",
+    },
+    {
+        "id" : 1006,
+        "name": "정리정돈",
+        "imageName" : "TidyUp",
+    }
+]

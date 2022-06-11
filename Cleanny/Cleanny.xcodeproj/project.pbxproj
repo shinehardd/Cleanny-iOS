@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34A30AB0285487F400DFFB3F /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AAF285487F400DFFB3F /* ModelData.swift */; };
+		34A30AB22854882000DFFB3F /* CleaningCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB12854882000DFFB3F /* CleaningCategory.swift */; };
+		34A30AB4285488CF00DFFB3F /* CleaningCategoryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 34A30AB3285488CF00DFFB3F /* CleaningCategoryList.json */; };
+		34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */; };
+		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		736A696E28532131001D0D44 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736A696D28532131001D0D44 /* ShareView.swift */; };
 		9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EB0F328521B62003BD148 /* CircularProgressView.swift */; };
 		9A39345A2850892800393B19 /* CleannyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934592850892800393B19 /* CleannyApp.swift */; };
@@ -23,14 +28,19 @@
 		9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7145D528532B3200AD9B45 /* Cleaning.swift */; };
 		9A93370C2852B64100F7C587 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9A93370B2852B64100F7C587 /* SwiftUICharts */; };
 		9A93370E2852B67600F7C587 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A93370D2852B67600F7C587 /* ChartView.swift */; };
+		9AE62C282853349700FEDB9C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE62C272853349700FEDB9C /* User.swift */; };
+		A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3318C552853646500B5166F /* CleaningButtonView.swift */; };
 		A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E82854703800B7B645 /* SettingSlider.swift */; };
 		A36369EC2854703800B7B645 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E92854703800B7B645 /* SettingCard.swift */; };
 		A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369EA2854703800B7B645 /* SettingModalView.swift */; };
-		9AE62C282853349700FEDB9C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE62C272853349700FEDB9C /* User.swift */; };
-		A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3318C552853646500B5166F /* CleaningButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34A30AAF285487F400DFFB3F /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		34A30AB12854882000DFFB3F /* CleaningCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategory.swift; sourceTree = "<group>"; };
+		34A30AB3285488CF00DFFB3F /* CleaningCategoryList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CleaningCategoryList.json; sourceTree = "<group>"; };
+		34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryView.swift; sourceTree = "<group>"; };
+		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		736A696D28532131001D0D44 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		9A0EB0F328521B62003BD148 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		9A3934562850892800393B19 /* Cleanny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleanny.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,11 +55,11 @@
 		9A3934782850B67F00393B19 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		9A7145D528532B3200AD9B45 /* Cleaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cleaning.swift; sourceTree = "<group>"; };
 		9A93370D2852B67600F7C587 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		9AE62C272853349700FEDB9C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A3318C552853646500B5166F /* CleaningButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningButtonView.swift; sourceTree = "<group>"; };
 		A36369E82854703800B7B645 /* SettingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSlider.swift; sourceTree = "<group>"; };
 		A36369E92854703800B7B645 /* SettingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		A36369EA2854703800B7B645 /* SettingModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModalView.swift; sourceTree = "<group>"; };
-		9AE62C272853349700FEDB9C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A3318C552853646500B5166F /* CleaningButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +100,9 @@
 				9A3934732850B5AC00393B19 /* Pages */,
 				9A3934592850892800393B19 /* CleannyApp.swift */,
 				9A39345B2850892800393B19 /* ContentView.swift */,
+				34A30AAF285487F400DFFB3F /* ModelData.swift */,
+				34A30AB12854882000DFFB3F /* CleaningCategory.swift */,
+				34A30AB3285488CF00DFFB3F /* CleaningCategoryList.json */,
 				9A39345D2850892A00393B19 /* Assets.xcassets */,
 				9A3934622850892A00393B19 /* Persistence.swift */,
 				9A3934642850892A00393B19 /* Cleanny.xcdatamodeld */,
@@ -123,7 +136,9 @@
 				9A93370D2852B67600F7C587 /* ChartView.swift */,
 				736A696D28532131001D0D44 /* ShareView.swift */,
 				A36369EA2854703800B7B645 /* SettingModalView.swift */,
+				34A30AB72854932A00DFFB3F /* SettingSliderView.swift */,
 				A36369E92854703800B7B645 /* SettingCard.swift */,
+				34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */,
 				A36369E82854703800B7B645 /* SettingSlider.swift */,
 				A3318C552853646500B5166F /* CleaningButtonView.swift */,
 			);
@@ -207,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A30AB4285488CF00DFFB3F /* CleaningCategoryList.json in Resources */,
 				9A3934612850892A00393B19 /* Preview Assets.xcassets in Resources */,
 				9A39345E2850892A00393B19 /* Assets.xcassets in Resources */,
 			);
@@ -219,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A30AB0285487F400DFFB3F /* ModelData.swift in Sources */,
 				736A696E28532131001D0D44 /* ShareView.swift in Sources */,
 				9A3934752850B5C100393B19 /* CalendarView.swift in Sources */,
 				9A3934772850B61700393B19 /* RecordView.swift in Sources */,
@@ -229,9 +246,12 @@
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
 				A36369EC2854703800B7B645 /* SettingCard.swift in Sources */,
 				A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */,
+				34A30AB22854882000DFFB3F /* CleaningCategory.swift in Sources */,
 				9A93370E2852B67600F7C587 /* ChartView.swift in Sources */,
 				9AE62C282853349700FEDB9C /* User.swift in Sources */,
+				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */,
+				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
@@ -363,7 +383,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
-				DEVELOPMENT_TEAM = K6B59X6MS9;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

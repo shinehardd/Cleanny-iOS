@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SettingCard: View {
+    
+    var cleaningCategory: CleaningCategory
     @State var activated: Bool = true
-    @State var name: String = "분리수거"
-    @State var iconName: String = "DisposeTrash"
     
     var body: some View {
         
@@ -19,10 +19,12 @@ struct SettingCard: View {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(activated ? Color.white : Color("LGray"))
             // MARK: 컬러 변경 필요
-                .shadow(color: activated ? Color("MBlue") : Color("DGray"), radius:3 , y:2 )
+                .shadow(color: activated ? Color("SBlue").opacity(0.4) : Color("MBlack").opacity(0.2),
+                        radius:4 , y:2
+                )
             
             //청소 아이콘
-            Image("\(iconName)") //데이터 바꾸기
+            Image("\(cleaningCategory.imageName)") //데이터 바꾸기
                 .renderingMode(.template)
                 .resizable()
                 .foregroundColor(activated ? /*@START_MENU_TOKEN@*/Color("MBlue")/*@END_MENU_TOKEN@*/ : Color("DGray"))
@@ -30,7 +32,7 @@ struct SettingCard: View {
                 .position(x: 57, y: 64)
             
             //청소 이름
-            Text("\(name)") //데이터 바꾸기
+            Text("\(cleaningCategory.name)") //데이터 바꾸기
                 .font(.body)
                 .fontWeight(.semibold)
                 .foregroundColor(Color("DGray"))
@@ -41,7 +43,7 @@ struct SettingCard: View {
             Image(systemName: "checkmark.circle.fill")
                 .resizable(resizingMode: .tile)
             // MARK: 컬러 변경 필요
-                .foregroundColor(activated ? /*@START_MENU_TOKEN@*/Color("MBlue")/*@END_MENU_TOKEN@*/ : Color("DGray"))
+                .foregroundColor(activated ? Color("MBlue").opacity(0.8) : Color("DGray"))
                 .frame(width: /*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/, height: 20)
                 .position(x: 97, y: 17)
             
@@ -58,7 +60,7 @@ struct SettingCard: View {
 
 struct SettingCard_Previews: PreviewProvider {
     static var previews: some View {
-        SettingCard()
+        SettingCard(cleaningCategory: cleaningCategories[0])
     }
 }
 
