@@ -137,9 +137,9 @@
 				736A696D28532131001D0D44 /* ShareView.swift */,
 				A36369EA2854703800B7B645 /* SettingModalView.swift */,
 				34A30AB72854932A00DFFB3F /* SettingSliderView.swift */,
-				A36369E92854703800B7B645 /* SettingCard.swift */,
-				34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */,
 				A36369E82854703800B7B645 /* SettingSlider.swift */,
+				34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */,
+				A36369E92854703800B7B645 /* SettingCard.swift */,
 				A3318C552853646500B5166F /* CleaningButtonView.swift */,
 			);
 			path = Pages;

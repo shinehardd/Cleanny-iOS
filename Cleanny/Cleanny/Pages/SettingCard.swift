@@ -9,30 +9,27 @@ import SwiftUI
 
 struct SettingCard: View {
     
-    var cleaningCategory: CleaningCategory
-    @State var activated: Bool = true
+    @State var cleaningCategory: CleaningCategory
     
     var body: some View {
         
         ZStack {
             //배경 박스
             RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(activated ? Color.white : Color("LGray"))
-            // MARK: 컬러 변경 필요
-                .shadow(color: activated ? Color("SBlue").opacity(0.4) : Color("MBlack").opacity(0.2),
-                        radius:4 , y:2
+                .foregroundColor(cleaningCategory.activated ? Color.white : Color("LGray"))
+                .shadow(color: cleaningCategory.activated ? Color("SBlue").opacity(0.4) : Color("MBlack").opacity(0.2), radius:4 , y:2
                 )
             
             //청소 아이콘
-            Image("\(cleaningCategory.imageName)") //데이터 바꾸기
+            Image("\(cleaningCategory.imageName)")
                 .renderingMode(.template)
                 .resizable()
-                .foregroundColor(activated ? /*@START_MENU_TOKEN@*/Color("MBlue")/*@END_MENU_TOKEN@*/ : Color("DGray"))
+                .foregroundColor(cleaningCategory.activated ? /*@START_MENU_TOKEN@*/Color("MBlue")/*@END_MENU_TOKEN@*/ : Color("DGray"))
                 .frame(width: 45, height: 45)
                 .position(x: 57, y: 64)
             
             //청소 이름
-            Text("\(cleaningCategory.name)") //데이터 바꾸기
+            Text("\(cleaningCategory.name)")
                 .font(.body)
                 .fontWeight(.semibold)
                 .foregroundColor(Color("DGray"))
@@ -43,7 +40,7 @@ struct SettingCard: View {
             Image(systemName: "checkmark.circle.fill")
                 .resizable(resizingMode: .tile)
             // MARK: 컬러 변경 필요
-                .foregroundColor(activated ? Color("MBlue").opacity(0.8) : Color("DGray"))
+                .foregroundColor(cleaningCategory.activated ? Color("MBlue").opacity(0.8) : Color("DGray"))
                 .frame(width: /*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/, height: 20)
                 .position(x: 97, y: 17)
             
@@ -52,7 +49,7 @@ struct SettingCard: View {
         .gesture(
             TapGesture()
                 .onEnded{ _ in
-                    activated.toggle()
+                    cleaningCategory.activated.toggle()
                 }
         )
     }

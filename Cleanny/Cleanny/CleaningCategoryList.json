@@ -3,30 +3,42 @@
         "id" : 1001,
         "name": "분리수거",
         "imageName" : "DisposeTrash",
+        "cycle": 4.0,
+        "activated": true
     },
     {
         "id" : 1002,
         "name": "세탁",
         "imageName" : "Laundary",
+        "cycle": 3.0,
+        "activated": true
     },
     {
         "id" : 1003,
         "name": "욕실청소",
         "imageName" : "ToiletCleaning",
+        "cycle": 7.0,
+        "activated": false
     },
     {
         "id" : 1004,
         "name": "바닥청소",
         "imageName" : "FloorCleaning",
+        "cycle": 2.0,
+        "activated": true
     },
     {
         "id" : 1005,
         "name": "설거지",
         "imageName" : "DishWashing",
+        "cycle": 1.0,
+        "activated": false
     },
     {
         "id" : 1006,
         "name": "정리정돈",
         "imageName" : "TidyUp",
+        "cycle": 2.0,
+        "activated": true
     }
 ]

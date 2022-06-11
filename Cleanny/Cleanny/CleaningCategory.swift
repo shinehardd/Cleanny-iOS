@@ -12,4 +12,6 @@ struct CleaningCategory: Identifiable, Decodable {
     var id: Int
     var name: String
     var imageName: String
+    var cycle: Double
+    var activated: Bool
 }
