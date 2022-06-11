@@ -11,7 +11,7 @@ struct SettingSliderView: View {
     var body: some View {
         VStack {
             ForEach(cleaningCategories) {category in
-                SettingSlider(cleaningCategory: .constant(category))
+                SettingSlider(cleaningCategory: category)
             }
         }
     }

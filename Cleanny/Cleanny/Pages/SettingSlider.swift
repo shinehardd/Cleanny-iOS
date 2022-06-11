@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingSlider: View {
     
-    @Binding var cleaningCategory: CleaningCategory
+    @State var cleaningCategory: CleaningCategory
         
     var body: some View {
         HStack {
@@ -37,6 +37,6 @@ struct SettingSlider: View {
 
 struct SettingSlider_Previews: PreviewProvider {
     static var previews: some View {
-        SettingSlider(cleaningCategory: .constant(cleaningCategories[0]))
+        SettingSlider(cleaningCategory: cleaningCategories[0])
     }
 }
