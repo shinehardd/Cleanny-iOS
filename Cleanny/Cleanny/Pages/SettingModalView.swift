@@ -9,16 +9,20 @@ import SwiftUI
 
 struct SettingModalView: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
                 HStack {
                     Spacer()
-                    Text("완료")
-                        .modalButton()
-                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("완료")
+                            .modalButton()
+                    })
                 }
-                .padding(.bottom, 10)
                 
                 Text("청소 선택")
                     .modalTitle()

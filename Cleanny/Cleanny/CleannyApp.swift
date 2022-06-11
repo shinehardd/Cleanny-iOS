@@ -13,8 +13,7 @@ struct CleannyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SettingModalView()
-//            ContentView()
+            ContentView()
                // .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
