@@ -15,9 +15,9 @@ struct ShareView: View {
     @State var friendCount = 9
     
     let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 0, alignment: nil),
-        GridItem(.flexible(), spacing: 0, alignment: nil)
-    ]
+        GridItem(.flexible(), spacing: -18, alignment: nil),
+        GridItem(.flexible(), spacing: -18, alignment: nil)]
+    
     
     var body: some View {
         NavigationView {
