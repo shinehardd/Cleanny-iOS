@@ -28,44 +28,45 @@ struct CharacterView: View {
     ]
     
     var body: some View {
-        VStack {
-            HStack {
+        ZStack {
+            Color("MBackground").ignoresSafeArea()
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: { self.showModal = true })
+                    {
+                        Image("Setting")
+                            .foregroundColor(Color("MBlue"))
+                            .padding()
+                    }
+                    .sheet(isPresented: self.$showModal) {
+                        SettingModalView()
+                    }
+                }
                 Spacer()
-                Button(action: {
-                    self.showModal = true
-                })
-                {
-                    Image("Setting")
-                        .foregroundColor(Color("MBlue"))
-                        .padding()
-                }
-                .sheet(isPresented: self.$showModal) {
-                    SettingModalView()
-                }
-            }
-            Spacer()
-            
-            Text("\(complateText)")
-                .padding(.bottom)
-            
-            Image(systemName: "plus").resizable()
-                .frame(width: 320, height: 200)
-            
-            Spacer()
-            
-            VStack (spacing: 20){
-                ForEach(CleaningData, id:\.self) { row in
-                    HStack (spacing: 20) {
-                        ForEach(row, id:\.self) { cleaningItem in
-                            ZStack {
-                                CircularProgress()
-                                CleaningButtonView(complateText: $complateText, cleaningItem: cleaningItem)
+                
+                Text("\(complateText)")
+                    .padding(.bottom)
+                
+                Image(systemName: "plus").resizable()
+                    .frame(width: 320, height: 200)
+                
+                Spacer()
+                
+                VStack (spacing: 20){
+                    ForEach(CleaningData, id:\.self) { row in
+                        HStack (spacing: 20) {
+                            ForEach(row, id:\.self) { cleaningItem in
+                                ZStack {
+                                    CircularProgress()
+                                    CleaningButtonView(complateText: $complateText, cleaningItem: cleaningItem)
+                                }
                             }
                         }
                     }
                 }
+                Spacer(minLength:  150)
             }
-            Spacer(minLength:  150)
         }
     }
 }
