@@ -48,8 +48,7 @@ struct CharacterView: View {
                 Text("\(complateText)")
                     .padding(.bottom)
                 
-                Image(systemName: "plus").resizable()
-                    .frame(width: 320, height: 200)
+                LottieView("Best")
                 
                 Spacer()
                 
