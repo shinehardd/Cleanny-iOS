@@ -39,7 +39,7 @@ struct CircularProgressBarView: View {
                 )
             Circle() // progress bar inner circle
                 .trim(from: 0, to: CGFloat(self.progress * 0.01))
-                .foregroundColor(.white)
+                .foregroundColor(Color("MBackground"))
                 .rotationEffect(Angle(degrees: -90))
                 .shadow(color: .white.opacity(0.4), radius: 2, x: 3, y: 4)
                 .frame(width: CGFloat(95.5 - lineWidth), height: CGFloat(95.5 - lineWidth))

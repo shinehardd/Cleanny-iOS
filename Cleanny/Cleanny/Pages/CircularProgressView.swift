@@ -20,16 +20,16 @@ struct CircularProgress: View {
                 .foregroundColor(Color("LGray"))
                 .overlay(
                     Circle() // main circle innerShadow
-                        .stroke(.white, lineWidth: 4)
+                        .stroke(Color("MBackground"), lineWidth: 4)
                         .shadow(color: Color("MBlack").opacity(0.2), radius: 4, x: 3, y: 4)
                         .clipShape(Circle())
                         .shadow(color: .white.opacity(0.3), radius: 4, x: -3, y: -4)
                         .clipShape(Circle())
                 )
             Circle() // main inner circle
-                .foregroundColor(.white)
+                .foregroundColor(Color("MBackground"))
                 .shadow(color: Color("MBlack").opacity(0.1), radius: 4, x: 2, y: 4)
-                .frame(width: CGFloat(95.5 - lineWidth), height: CGFloat(95.5 - lineWidth))
+                .frame(width: CGFloat(96 - lineWidth), height: CGFloat(96 - lineWidth))
             
             CircularProgressBarView(
                 progress: .constant(Double(Int.random(in: 0...100))),
