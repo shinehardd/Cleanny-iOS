@@ -13,6 +13,7 @@ struct SettingModalView: View {
     
     var body: some View {
         ZStack {
+            Color("MBackground").ignoresSafeArea()
             VStack(alignment: .leading) {
                 HStack {
                     Spacer()
