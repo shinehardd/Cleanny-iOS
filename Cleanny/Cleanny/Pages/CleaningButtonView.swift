@@ -36,7 +36,7 @@ struct CleaningButtonView: View {
 
 struct CleaningButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0),  complateText: .constant("분리수거 완료 ✅"))
+        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0), complateText: .constant("분리수거 완료 ✅"))
             .previewLayout(.sizeThatFits)
     }
 }

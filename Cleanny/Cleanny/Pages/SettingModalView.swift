@@ -11,6 +11,7 @@ struct SettingModalView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    
     var body: some View {
         ZStack {
             Color("MBackground").ignoresSafeArea()
@@ -19,6 +20,7 @@ struct SettingModalView: View {
                     Spacer()
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
+                        
                     }, label: {
                         Text("완료")
                             .modalButton()

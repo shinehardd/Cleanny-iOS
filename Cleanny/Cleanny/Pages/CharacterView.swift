@@ -9,22 +9,9 @@ import SwiftUI
 
 struct CharacterView: View {
     
-    @EnvironmentObject var cleaning: CleaningDataStore
-    
     @State private var complateText = ""
     @State private var showModal = false
     
-    var filteredCleaning: [Cleaning] {
-        cleaning.list.filter {category in
-            category.activated
-        }
-    }
-    
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
     let charcterArr = ["Cry", "Laugh", "Heit", "Love"]
     
     var body: some View {
@@ -52,14 +39,7 @@ struct CharacterView: View {
                 
                 Spacer()
                 
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(filteredCleaning) {category in
-                        ZStack {
-                            CircularProgress()
-                            CleaningButtonView(cleaning: category, complateText: $complateText)
-                        }
-                    }
-                }
+                CleaningCategoryProgress(complateText: $complateText)
                 Spacer(minLength:  150)
             }
         }
