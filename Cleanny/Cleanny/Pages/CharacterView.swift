@@ -12,6 +12,9 @@ struct CharacterView: View {
     @State private var showModal = false
     
     // 임시 데이터
+    
+    let charcterArr = ["Cry", "Laugh", "Heit", "Love"]
+    
     var CleaningData : [[Cleaning]] = [
         
         [
@@ -48,7 +51,7 @@ struct CharacterView: View {
                 Text("\(complateText)")
                     .padding(.bottom)
                 
-                LottieView("Best")
+                LottieView(charcterArr.randomElement()!)
                 
                 Spacer()
                 
