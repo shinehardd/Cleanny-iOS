@@ -60,6 +60,7 @@ extension Text {
 struct SettingModalView_Previews: PreviewProvider {
     static var previews: some View {
         SettingModalView()
+            .environmentObject(CleaningDataStore())
     }
 }
 
