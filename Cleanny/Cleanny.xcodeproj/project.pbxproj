@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		344600FB2855D91E00B2E740 /* Cry.json in Resources */ = {isa = PBXBuildFile; fileRef = 344600F82855D91E00B2E740 /* Cry.json */; };
+		344600FC2855D91E00B2E740 /* Heit.json in Resources */ = {isa = PBXBuildFile; fileRef = 344600F92855D91E00B2E740 /* Heit.json */; };
+		344600FD2855D91E00B2E740 /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = 344600FA2855D91E00B2E740 /* Love.json */; };
 		34662BA52854FFEE0088A4B2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 34662BA42854FFEE0088A4B2 /* Lottie */; };
-		34662BA8285508F90088A4B2 /* Best.json in Resources */ = {isa = PBXBuildFile; fileRef = 34662BA7285508F90088A4B2 /* Best.json */; };
+		34662BA8285508F90088A4B2 /* Laugh.json in Resources */ = {isa = PBXBuildFile; fileRef = 34662BA7285508F90088A4B2 /* Laugh.json */; };
 		34662BAA285509380088A4B2 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34662BA9285509380088A4B2 /* LottieView.swift */; };
 		34A30AB0285487F400DFFB3F /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AAF285487F400DFFB3F /* ModelData.swift */; };
 		34A30AB22854882000DFFB3F /* CleaningCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB12854882000DFFB3F /* CleaningCategory.swift */; };
@@ -40,7 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		34662BA7285508F90088A4B2 /* Best.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Best.json; sourceTree = "<group>"; };
+		344600F82855D91E00B2E740 /* Cry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cry.json; sourceTree = "<group>"; };
+		344600F92855D91E00B2E740 /* Heit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heit.json; sourceTree = "<group>"; };
+		344600FA2855D91E00B2E740 /* Love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Love.json; sourceTree = "<group>"; };
+		34662BA7285508F90088A4B2 /* Laugh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Laugh.json; sourceTree = "<group>"; };
 		34662BA9285509380088A4B2 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		34A30AAF285487F400DFFB3F /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		34A30AB12854882000DFFB3F /* CleaningCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategory.swift; sourceTree = "<group>"; };
@@ -87,7 +93,10 @@
 		34662BA6285500250088A4B2 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				34662BA7285508F90088A4B2 /* Best.json */,
+				34662BA7285508F90088A4B2 /* Laugh.json */,
+				344600F82855D91E00B2E740 /* Cry.json */,
+				344600F92855D91E00B2E740 /* Heit.json */,
+				344600FA2855D91E00B2E740 /* Love.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -246,7 +255,10 @@
 				34A30AB4285488CF00DFFB3F /* CleaningCategoryList.json in Resources */,
 				9A3934612850892A00393B19 /* Preview Assets.xcassets in Resources */,
 				9A39345E2850892A00393B19 /* Assets.xcassets in Resources */,
-				34662BA8285508F90088A4B2 /* Best.json in Resources */,
+				344600FC2855D91E00B2E740 /* Heit.json in Resources */,
+				344600FD2855D91E00B2E740 /* Love.json in Resources */,
+				34662BA8285508F90088A4B2 /* Laugh.json in Resources */,
+				344600FB2855D91E00B2E740 /* Cry.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +420,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K6B59X6MS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -438,7 +450,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K6B59X6MS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
