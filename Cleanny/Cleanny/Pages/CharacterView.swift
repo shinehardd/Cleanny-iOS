@@ -14,6 +14,12 @@ struct CharacterView: View {
     @State private var complateText = ""
     @State private var showModal = false
     
+    var filteredCleaning: [Cleaning] {
+        cleaning.list.filter {category in
+            category.activated
+        }
+    }
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -47,7 +53,7 @@ struct CharacterView: View {
                 Spacer()
                 
                 LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(cleaning.list) {category in
+                    ForEach(filteredCleaning) {category in
                         ZStack {
                             CircularProgress()
                             CleaningButtonView(cleaning: category, complateText: $complateText)
