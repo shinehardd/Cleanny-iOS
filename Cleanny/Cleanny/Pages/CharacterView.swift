@@ -27,7 +27,7 @@ struct CharacterView: View {
                             .padding()
                     }
                     .sheet(isPresented: self.$showModal) {
-                        SettingModalView()
+                        SettingModalView(showModal: $showModal)
                     }
                 }
                 Spacer()

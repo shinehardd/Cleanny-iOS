@@ -9,7 +9,7 @@ import Foundation
 
 class CleaningDataStore: ObservableObject {
     @Published var list: [Cleaning]
-    
+    @Published var isUpdate = false
     init() {
         list = [
             Cleaning(name: "분리수거", imageName:"DisposeTrash", activated: true, cycle: 3, decreaseRate:0.0003858),
