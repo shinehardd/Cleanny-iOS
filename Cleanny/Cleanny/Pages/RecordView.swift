@@ -5,55 +5,31 @@
 //  Created by 종건 on 2022/06/08.
 //
 
-
 import SwiftUI
 
 struct RecordView: View {
+    let arrays : [[String]]=[["DisposeTrash","Laundary","ToiletCleaning"],
+                             ["FloorCleaning","DishWashing","TidyUp"]]
     
     var body: some View {
         VStack{
             Spacer()
             ChartView()
             Spacer()
-            HStack{
-                Button(action:{}){
-                    Circle().frame(width: 60, height: 60)
-                        .foregroundColor(Color.white)
-                        .overlay(Image("DisposeTrash").foregroundColor(Color("MBlue")))
-                }
-                Button(action:{}){
-                    Circle().frame(width: 60, height: 60)
-                        .foregroundColor(Color.white)
-                        .overlay(Image("Laundary").foregroundColor(Color("MBlue")))
-                    
-                }
-
-                Button(action:{}){
-                    Circle().frame(width: 60, height: 60)
-                        .foregroundColor(Color.white)
-                        .overlay(Image("ToiletCleaning").foregroundColor(Color("MBlue")))
-                }
-
+            ForEach(arrays,id:\.self){
+                cleanings in
+                HStack{
+                ForEach(cleanings,id:\.self){
+                    temp in
+                   
+                        Button(action:{}){
+                            Circle().frame(width: 85, height: 85)
+                                .foregroundColor(Color.white)
+                                .overlay(Image(temp).foregroundColor(Color("MBlue")))
+                        }
+                    }}
             }
-            HStack{
-                Button(action:{}){
-                    Circle().frame(width: 60, height: 60)
-                        .foregroundColor(Color.white)
-                        .overlay(Image("FloorCleaning").foregroundColor(Color("MBlue")))
-                }
-                Button(action:{}){
-                    Circle().frame(width: 60, height: 60)
-                        .foregroundColor(Color.white)
-                        .overlay(Image("DishWashing").foregroundColor(Color("MBlue")))
-                }
-
-                Button(action:{}){
-                    Circle().frame(width: 60, height: 60)
-                        .foregroundColor(Color.white)
-                        .overlay(Image("TidyUp").foregroundColor(Color("MBlue")))
-                }
-
-            }
+           
             HStack{Spacer()}
             Spacer(minLength: 150)
             
