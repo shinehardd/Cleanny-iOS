@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct CircularProgress: View {
-    
+    @ObservedObject var cleaning:Cleaning
     let lineWidth: Double = 20
     
     var body: some View {
@@ -32,15 +32,15 @@ struct CircularProgress: View {
                 .frame(width: CGFloat(96 - lineWidth), height: CGFloat(96 - lineWidth))
             
             CircularProgressBarView(
-                progress: .constant(Double(Int.random(in: 0...100))),
+                progress: .constant(cleaning.currentPercent),
                 lineWidth: .constant(20)
             )
         }
     }
 }
 
-struct CircularProgress_Previews: PreviewProvider {
-    static var previews: some View {
-        CircularProgress()
-    }
-}
+//struct CircularProgress_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CircularProgress()
+//    }
+//}
