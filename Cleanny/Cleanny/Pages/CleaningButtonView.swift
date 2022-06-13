@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+class HapticManager {
+    
+    static let instance = HapticManager()
+    
+    func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
+        
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(type)
+    }
+    
+    func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.impactOccurred()
+    }
+}
+
 struct CleaningButtonView: View {
     
     @ObservedObject var cleaning: Cleaning
@@ -26,8 +42,7 @@ struct CleaningButtonView: View {
                 .gesture(
                     LongPressGesture(minimumDuration: 2)
                         .onEnded { _ in
-                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                            impactMed.impactOccurred()
+                            HapticManager.instance.notification(type: .warning)
                             withAnimation {
                                 complateText = cleaning.name + " 완료 ✅"
                             }
