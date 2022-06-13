@@ -29,7 +29,7 @@ struct CleaningCategoryProgress: View {
             ForEach(filteredCleaning) {category in
                 ZStack {
                     CircularProgress()
-                    CleaningButtonView(cleaning: category, complateText: $complateText)
+                    CleaningButtonView(cleaning: category, complateText: $complateText, progress: category.currentPercent)
                 }
             }
         }

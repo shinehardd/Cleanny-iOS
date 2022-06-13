@@ -55,8 +55,8 @@ struct SettingCard: View {
     }
 }
 
-struct SettingCard_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingCard(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0))
-    }
-}
+//struct SettingCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SettingCard(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0))
+//    }
+//}

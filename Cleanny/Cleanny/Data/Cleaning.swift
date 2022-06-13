@@ -16,13 +16,15 @@ class Cleaning: Identifiable, ObservableObject {
     @Published var activated: Bool
     @Published var cycle: Double
     @Published var decreaseRate: Double
+    @Published var currentPercent: Double
     
-    init(name: String, imageName: String, activated: Bool, cycle: Double, decreaseRate: Double) {
+    init(name: String, imageName: String, activated: Bool, cycle: Double, decreaseRate: Double, currentPercent: Double) {
         id = UUID()
         self.name = name
         self.imageName = imageName
         self.activated = activated
         self.cycle = cycle
         self.decreaseRate = decreaseRate
+        self.currentPercent = currentPercent
     }
 }
