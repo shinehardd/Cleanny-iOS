@@ -9,14 +9,17 @@ import SwiftUI
 
 struct CharacterView: View {
    
-    
+    @Binding var index: Int
     @State private var complateText = ""
     @State private var showModal = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var userData: UserDataStore
-
-    let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
     
+    @State private var isUpdatingView: Bool = true
+
+   
+    let charcterArr = [LottieView("Cry"), LottieView("Heit"), LottieView("Laugh"), LottieView("Love")]
+        
     var body: some View {
         ZStack {
             Color("MBackground").ignoresSafeArea()
@@ -38,7 +41,7 @@ struct CharacterView: View {
                 Text("\(complateText)")
                     .padding(.bottom)
                  
-                LottieView(charcterArr[Int(userData.totalPercentage)/25])
+                charcterArr[index]
                  
                     
                        
@@ -47,6 +50,9 @@ struct CharacterView: View {
                 CleaningCategoryProgress(complateText: $complateText)
                 Spacer(minLength:  150)
             }
+        }
+        .onChange(of: userData.totalPercentage) { newValue in
+            isUpdatingView.toggle()
         }
     }
 }

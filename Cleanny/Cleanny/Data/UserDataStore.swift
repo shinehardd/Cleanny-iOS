@@ -8,11 +8,11 @@
 import SwiftUI
 import Foundation
 
-class UserDataStore: Identifiable,ObservableObject {
+class UserDataStore: Identifiable, ObservableObject {
    
     
        var name : String
-       var totalPercentage : Double
+       @Published var totalPercentage : Double
        //분자
        var numerator : Double
        //분모
@@ -29,6 +29,7 @@ class UserDataStore: Identifiable,ObservableObject {
         self.numerator = 0
         self.denominator = 0
         for oneCleaing in cleaning.list{
+            print("------> \(oneCleaing)")
             if(oneCleaing.activated){
                 self.numerator += oneCleaing.currentPercent
                 self.denominator += 1

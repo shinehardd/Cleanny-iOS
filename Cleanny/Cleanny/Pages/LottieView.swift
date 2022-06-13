@@ -8,11 +8,12 @@
 import SwiftUI
 import Lottie
 
-struct LottieView: View,UIViewRepresentable {
+struct LottieView: UIViewRepresentable {
+
    
     typealias UIViewType = UIView
     var filename: String
-    var loopMode: LottieLoopMode 
+    var loopMode: LottieLoopMode
    
     init(_ jsonName: String = "Best",
          _ loopMode: LottieLoopMode = .loop) {
