@@ -14,12 +14,12 @@ struct SettingCard: View {
     var body: some View {
         
         Button(action: {
-            cleaningCategory.activated.toggle()
+            cleaning.activated.toggle()
         }, label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(cleaningCategory.activated ? Color.white : Color("LGray"))
-                    .shadow(color: cleaningCategory.activated ? Color("SBlue").opacity(0.4) : Color("MBlack").opacity(0.2), radius:4 , y:2
+                    .foregroundColor(cleaning.activated ? Color.white : Color("LGray"))
+                    .shadow(color: cleaning.activated ? Color("SBlue").opacity(0.4) : Color("MBlack").opacity(0.2), radius:4 , y:2
                     )
                 
                 VStack {
@@ -28,16 +28,16 @@ struct SettingCard: View {
                         Image(systemName: "checkmark.circle.fill")
                             .resizable()
                             .frame(width: /*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/, height: 20)
-                            .foregroundColor(cleaningCategory.activated ? Color("MBlue").opacity(0.8) : Color("DGray"))
+                            .foregroundColor(cleaning.activated ? Color("MBlue").opacity(0.8) : Color("DGray"))
                             .padding(7)
                     }
-                    Image("\(cleaningCategory.imageName)")
+                    Image("\(cleaning.imageName)")
                         .renderingMode(.template)
                         .resizable()
-                        .foregroundColor(cleaningCategory.activated ? /*@START_MENU_TOKEN@*/Color("MBlue")/*@END_MENU_TOKEN@*/ : Color("DGray"))
+                        .foregroundColor(cleaning.activated ? /*@START_MENU_TOKEN@*/Color("MBlue")/*@END_MENU_TOKEN@*/ : Color("DGray"))
                         .frame(width: 45, height: 45)
                     Spacer()
-                    Text("\(cleaningCategory.name)")
+                    Text("\(cleaning.name)")
                         .fontWeight(.semibold)
                         .foregroundColor(Color("DGray"))
                     Spacer()
@@ -50,6 +50,6 @@ struct SettingCard: View {
 
 struct SettingCard_Previews: PreviewProvider {
     static var previews: some View {
-        SettingCard(cleaningCategory: cleaningCategories[0])
+        SettingCard(cleaning: Cleaning(name: "분리수거", imageName:"DisposeTrash", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 100))
     }
 }
