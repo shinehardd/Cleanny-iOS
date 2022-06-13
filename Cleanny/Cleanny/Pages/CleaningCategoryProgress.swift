@@ -28,7 +28,7 @@ struct CleaningCategoryProgress: View {
         LazyVGrid(columns: columns) {
             ForEach(filteredCleaning) {category in
                 ZStack {
-                    CircularProgress()
+                    CircularProgress(cleaning: category)
                     CleaningButtonView(cleaning: category, complateText: $complateText, progress: category.currentPercent)
                 }
             }
