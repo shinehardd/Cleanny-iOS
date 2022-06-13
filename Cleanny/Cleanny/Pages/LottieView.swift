@@ -9,15 +9,15 @@ import SwiftUI
 import Lottie
 
 struct LottieView: UIViewRepresentable {
-    
+    @Binding var index: Int
+    let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
     typealias UIViewType = UIView
-    
-    var filename: String
+    var filename: String{charcterArr[index]}
     var loopMode: LottieLoopMode
-    
+   
     init(_ jsonName: String = "Best",
          _ loopMode: LottieLoopMode = .loop) {
-        self.filename = jsonName
+        self.filename="Best"
         self.loopMode = loopMode
     }
     

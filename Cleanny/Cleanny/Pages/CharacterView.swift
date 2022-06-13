@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct CharacterView: View {
+    @Binding var check : Bool
+    @Binding var index : Int
     
     @State private var complateText = ""
     @State private var showModal = false
-    
-    let charcterArr = ["Cry", "Laugh", "Heit", "Love"]
+    @EnvironmentObject var userData: UserDataStore
+    var characterIndex : Int{self.index}
+    var temp = -10
+
+//    let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
     
     var body: some View {
         ZStack {
@@ -34,9 +39,11 @@ struct CharacterView: View {
                 
                 Text("\(complateText)")
                     .padding(.bottom)
-                
-                LottieView(charcterArr.randomElement()!)
-                
+                  Text("\(index)")
+                LottieView(index: $index, loopMode: loop)
+                 
+                    
+                       
                 Spacer()
                 
                 CleaningCategoryProgress(complateText: $complateText)
@@ -46,9 +53,9 @@ struct CharacterView: View {
     }
 }
 
-struct CharacterView_Previews: PreviewProvider {
-    static var previews: some View {
-        CharacterView()
-            .environmentObject(CleaningDataStore())
-    }
-}
+//struct CharacterView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CharacterView()
+//            .environmentObject(CleaningDataStore())
+//    }
+//}
