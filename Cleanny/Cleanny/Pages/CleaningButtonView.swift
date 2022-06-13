@@ -57,6 +57,8 @@ struct CleaningButtonView: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 withAnimation {
                                     complateText = ""
+                                    cleaning.currentPercent = 100
+
                                 }
                                 
                             }
