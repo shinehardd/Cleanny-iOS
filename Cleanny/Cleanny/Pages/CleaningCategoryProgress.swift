@@ -19,9 +19,9 @@ struct CleaningCategoryProgress: View {
     }
     
     let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: -30),
+        GridItem(.flexible(), spacing: -30),
+        GridItem(.flexible(), spacing: -30)
     ]
     
     var body: some View {
