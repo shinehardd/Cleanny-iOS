@@ -24,7 +24,7 @@ struct RecordView: View {
                             Circle()
                                 .foregroundColor(.white)
                                 .frame(width: 85, height: 85)
-                                .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
+                                .shadow(color: Color("SBlue").opacity(0.3), radius: 5, x: 1, y: 1)
                                 .overlay(Image(temp).foregroundColor(Color("MBlue")))
                         }
                     }
