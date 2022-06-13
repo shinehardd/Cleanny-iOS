@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingCard: View {
     
-    @State var cleaningCategory: CleaningCategory
+    @ObservedObject var cleaning: Cleaning
     
     var body: some View {
         

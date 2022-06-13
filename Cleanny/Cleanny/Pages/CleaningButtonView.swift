@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct CleaningButtonView: View {
+    
+    @ObservedObject var cleaning: Cleaning
     @Binding var complateText: String
-    
-    let cleaningItem: Cleaning
-    
+    let progress: Double
+
     var body: some View {
         Button(action: {}) {
             Circle()
@@ -19,17 +20,24 @@ struct CleaningButtonView: View {
                 .frame(width: 60, height: 60)
                 .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
                 .overlay(
-                    Image(cleaningItem.name)
-                        .foregroundColor(Color("MBlue"))
+                    Image(cleaning.imageName)
+                        .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
                 .gesture(
                     LongPressGesture(minimumDuration: 2)
                         .onEnded { _ in
                             let impactMed = UIImpactFeedbackGenerator(style: .heavy)
                             impactMed.impactOccurred()
-                            complateText = cleaningItem.name + " 완료 ✅"
+                            complateText = cleaning.name + " 완료 ✅"
                         }
                 )
         }
     }
 }
+//
+//struct CleaningButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0), complateText: .constant("분리수거 완료 ✅"))
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

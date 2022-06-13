@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct SettingSliderView: View {
+    
+    @EnvironmentObject var cleaning: CleaningDataStore
+    
     var body: some View {
         VStack {
-            ForEach(cleaningCategories) {category in
-                SettingSlider(cleaningCategory: category)
+            ForEach(cleaning.list) {category in
+                SettingSlider(cleaning: category)
             }
         }
     }
