@@ -11,7 +11,8 @@ struct CleaningButtonView: View {
     
     @ObservedObject var cleaning: Cleaning
     @Binding var complateText: String
-    
+    let progress: Double
+
     var body: some View {
         Button(action: {}) {
             Circle()
@@ -20,7 +21,7 @@ struct CleaningButtonView: View {
                 .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
                 .overlay(
                     Image(cleaning.imageName)
-                        .foregroundColor(Color("MBlue"))
+                        .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
                 .gesture(
                     LongPressGesture(minimumDuration: 2)
@@ -33,10 +34,10 @@ struct CleaningButtonView: View {
         }
     }
 }
-
-struct CleaningButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0), complateText: .constant("분리수거 완료 ✅"))
-            .previewLayout(.sizeThatFits)
-    }
-}
+//
+//struct CleaningButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0), complateText: .constant("분리수거 완료 ✅"))
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
