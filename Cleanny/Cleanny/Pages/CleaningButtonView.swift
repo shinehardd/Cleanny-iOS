@@ -43,13 +43,18 @@ struct CleaningButtonView: View {
                     Image(cleaning.imageName)
                         .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
+
                 .gesture(
+                    
                     LongPressGesture(minimumDuration: 2).updating($tap) { currentState, gestureState, transaction in
                         gestureState = currentState
                         
                     }
+                        .onChanged({ _ in
+                            HapticManager.instance.impact(style: .heavy)
+                        })
                         .onEnded { _ in
-                            HapticManager.instance.notification(type: .warning)
+                            HapticManager.instance.notification(type: .success)
                             withAnimation {
                                 complateText = cleaning.name + " 완료 ✅"
                                 cleaning.currentPercent = 100
