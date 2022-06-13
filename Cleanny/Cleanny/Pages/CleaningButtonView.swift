@@ -52,12 +52,12 @@ struct CleaningButtonView: View {
                             HapticManager.instance.notification(type: .warning)
                             withAnimation {
                                 complateText = cleaning.name + " 완료 ✅"
+                                cleaning.currentPercent = 100
                             }
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 withAnimation {
                                     complateText = ""
-                                    cleaning.currentPercent = 100
 
                                 }
                                 
