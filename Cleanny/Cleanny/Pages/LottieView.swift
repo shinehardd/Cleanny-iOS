@@ -8,19 +8,18 @@
 import SwiftUI
 import Lottie
 
-struct LottieView: UIViewRepresentable {
-    @Binding var index: Int
-    let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
+struct LottieView: View,UIViewRepresentable {
+   
     typealias UIViewType = UIView
-    var filename: String{charcterArr[index]}
-    var loopMode: LottieLoopMode
+    var filename: String
+    var loopMode: LottieLoopMode 
    
     init(_ jsonName: String = "Best",
          _ loopMode: LottieLoopMode = .loop) {
-        self.filename="Best"
+        self.filename = jsonName
         self.loopMode = loopMode
     }
-    
+
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         let view = UIView(frame: .zero)
         let animationView = AnimationView()

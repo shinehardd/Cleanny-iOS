@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct CharacterView: View {
-    @Binding var check : Bool
-    @Binding var index : Int
+   
     
     @State private var complateText = ""
     @State private var showModal = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var userData: UserDataStore
-    var characterIndex : Int{self.index}
-    var temp = -10
 
-//    let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
+    let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
     
     var body: some View {
         ZStack {
@@ -39,8 +37,8 @@ struct CharacterView: View {
                 
                 Text("\(complateText)")
                     .padding(.bottom)
-                  Text("\(index)")
-                LottieView(index: $index, loopMode: loop)
+                 
+                LottieView(charcterArr[Int(userData.totalPercentage)/25])
                  
                     
                        
