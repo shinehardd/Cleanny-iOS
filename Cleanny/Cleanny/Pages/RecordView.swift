@@ -18,20 +18,20 @@ struct RecordView: View {
             Spacer()
             ForEach(arrays,id:\.self){
                 cleanings in
-                HStack{
-                ForEach(cleanings,id:\.self){
-                    temp in
-                   
+                HStack (spacing: 30){
+                    ForEach(cleanings,id:\.self){ temp in
                         Button(action:{}){
-                            Circle().frame(width: 85, height: 85)
-                                .foregroundColor(Color.white)
+                            Circle()
+                                .foregroundColor(.white)
+                                .frame(width: 85, height: 85)
+                                .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
                                 .overlay(Image(temp).foregroundColor(Color("MBlue")))
                         }
-                    }}
+                    }
+                }
+                Spacer()
             }
-           
-            HStack{Spacer()}
-            Spacer(minLength: 150)
+            Spacer(minLength: 120)
             
         }.background(Color("MBackground"))
     }
