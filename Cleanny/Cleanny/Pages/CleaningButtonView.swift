@@ -7,10 +7,29 @@
 
 import SwiftUI
 
+// https://github.com/Seogun95/HapticsView/blob/main/HapticsView/ContentView.swift
+class HapticManager {
+    
+    static let instance = HapticManager()
+    
+    func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
+        
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(type)
+    }
+    
+    func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.impactOccurred()
+    }
+}
+
 struct CleaningButtonView: View {
     
     @ObservedObject var cleaning: Cleaning
     @Binding var complateText: String
+    @GestureState var tap = false
+    
     let progress: Double
     
     var body: some View {
@@ -19,15 +38,18 @@ struct CleaningButtonView: View {
                 .foregroundColor(.white)
                 .frame(width: 60, height: 60)
                 .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
+                .scaleEffect(tap ? 1.1 : 1)
                 .overlay(
                     Image(cleaning.imageName)
                         .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
                 .gesture(
-                    LongPressGesture(minimumDuration: 2)
+                    LongPressGesture(minimumDuration: 2).updating($tap) { currentState, gestureState, transaction in
+                        gestureState = currentState
+                        
+                    }
                         .onEnded { _ in
-                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                            impactMed.impactOccurred()
+                            HapticManager.instance.notification(type: .warning)
                             withAnimation {
                                 complateText = cleaning.name + " 완료 ✅"
                             }
