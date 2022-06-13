@@ -10,7 +10,10 @@ import CoreData
 import AxisTabView  
 
 struct ContentView: View {
+    @EnvironmentObject var cleaning: CleaningDataStore
     
+    @State private var isUpdatingView: Bool = false
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var selection: Int = 0
     @State private var constant = ATConstant(axisMode: .bottom, screen: .init(activeSafeArea: false), tab: .init(normalSize: CGSize(width: 50, height: 80)))
     @State private var cornerRadius: CGFloat = 26
@@ -69,6 +72,13 @@ struct ContentView: View {
             .animation(.easeInOut, value: marbleColor)
             .animation(.easeInOut, value: cornerRadius)
             .navigationTitle("Screen \(selection + 1)")
+            .onReceive(timer) { time in
+                for index in 0...5 {
+                    cleaning.list[index].percentCalculator()
+                   
+                }
+                isUpdatingView.toggle()
+            }
         }
     
     struct ControlView: View {
