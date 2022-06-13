@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CleaningCategoryView: View {
     
+    @EnvironmentObject var cleaning: CleaningDataStore
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -17,8 +19,8 @@ struct CleaningCategoryView: View {
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
-            ForEach(cleaningCategories) {category in
-                SettingCard(cleaningCategory: category)
+            ForEach(cleaning.list) {category in
+                SettingCard(cleaning: category)
             }
         }
     }
