@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		344600FB2855D91E00B2E740 /* Cry.json in Resources */ = {isa = PBXBuildFile; fileRef = 344600F82855D91E00B2E740 /* Cry.json */; };
-		344600FC2855D91E00B2E740 /* Heit.json in Resources */ = {isa = PBXBuildFile; fileRef = 344600F92855D91E00B2E740 /* Heit.json */; };
-		344600FD2855D91E00B2E740 /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = 344600FA2855D91E00B2E740 /* Love.json */; };
 		344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */; };
 		3446010228562E1600B2E740 /* CleaningCategoryProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3446010128562E1600B2E740 /* CleaningCategoryProgress.swift */; };
 		34662BA52854FFEE0088A4B2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 34662BA42854FFEE0088A4B2 /* Lottie */; };
-		34662BA8285508F90088A4B2 /* Laugh.json in Resources */ = {isa = PBXBuildFile; fileRef = 34662BA7285508F90088A4B2 /* Laugh.json */; };
 		34662BAA285509380088A4B2 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34662BA9285509380088A4B2 /* LottieView.swift */; };
+		348A4EFA285756F10058D53A /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF6285756F10058D53A /* Love.json */; };
+		348A4EFB285756F10058D53A /* Cry.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF7285756F10058D53A /* Cry.json */; };
+		348A4EFC285756F10058D53A /* Laugh.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF8285756F10058D53A /* Laugh.json */; };
+		348A4EFD285756F10058D53A /* Heit.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF9285756F10058D53A /* Heit.json */; };
 		34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */; };
 		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */; };
@@ -43,13 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		344600F82855D91E00B2E740 /* Cry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cry.json; sourceTree = "<group>"; };
-		344600F92855D91E00B2E740 /* Heit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heit.json; sourceTree = "<group>"; };
-		344600FA2855D91E00B2E740 /* Love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Love.json; sourceTree = "<group>"; };
 		344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningDataStore.swift; sourceTree = "<group>"; };
 		3446010128562E1600B2E740 /* CleaningCategoryProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryProgress.swift; sourceTree = "<group>"; };
-		34662BA7285508F90088A4B2 /* Laugh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Laugh.json; sourceTree = "<group>"; };
 		34662BA9285509380088A4B2 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		348A4EF6285756F10058D53A /* Love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Love.json; sourceTree = "<group>"; };
+		348A4EF7285756F10058D53A /* Cry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cry.json; sourceTree = "<group>"; };
+		348A4EF8285756F10058D53A /* Laugh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Laugh.json; sourceTree = "<group>"; };
+		348A4EF9285756F10058D53A /* Heit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heit.json; sourceTree = "<group>"; };
 		34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryView.swift; sourceTree = "<group>"; };
 		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
@@ -102,10 +102,10 @@
 		34662BA6285500250088A4B2 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				34662BA7285508F90088A4B2 /* Laugh.json */,
-				344600F82855D91E00B2E740 /* Cry.json */,
-				344600F92855D91E00B2E740 /* Heit.json */,
-				344600FA2855D91E00B2E740 /* Love.json */,
+				348A4EF7285756F10058D53A /* Cry.json */,
+				348A4EF9285756F10058D53A /* Heit.json */,
+				348A4EF8285756F10058D53A /* Laugh.json */,
+				348A4EF6285756F10058D53A /* Love.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -262,10 +262,10 @@
 			files = (
 				9A3934612850892A00393B19 /* Preview Assets.xcassets in Resources */,
 				9A39345E2850892A00393B19 /* Assets.xcassets in Resources */,
-				344600FC2855D91E00B2E740 /* Heit.json in Resources */,
-				344600FD2855D91E00B2E740 /* Love.json in Resources */,
-				34662BA8285508F90088A4B2 /* Laugh.json in Resources */,
-				344600FB2855D91E00B2E740 /* Cry.json in Resources */,
+				348A4EFB285756F10058D53A /* Cry.json in Resources */,
+				348A4EFD285756F10058D53A /* Heit.json in Resources */,
+				348A4EFA285756F10058D53A /* Love.json in Resources */,
+				348A4EFC285756F10058D53A /* Laugh.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,10 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */,
-
 				9A890C582855F4A00013248D /* BarChartView.swift in Sources */,
-				34A30AB0285487F400DFFB3F /* ModelData.swift in Sources */,
-
 				736A696E28532131001D0D44 /* ShareView.swift in Sources */,
 				9A3934752850B5C100393B19 /* CalendarView.swift in Sources */,
 				9A3934772850B61700393B19 /* RecordView.swift in Sources */,
