@@ -12,7 +12,7 @@ struct CleaningButtonView: View {
     @ObservedObject var cleaning: Cleaning
     @Binding var complateText: String
     let progress: Double
-
+    
     var body: some View {
         Button(action: {}) {
             Circle()
@@ -28,7 +28,16 @@ struct CleaningButtonView: View {
                         .onEnded { _ in
                             let impactMed = UIImpactFeedbackGenerator(style: .heavy)
                             impactMed.impactOccurred()
-                            complateText = cleaning.name + " 완료 ✅"
+                            withAnimation {
+                                complateText = cleaning.name + " 완료 ✅"
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                withAnimation {
+                                    complateText = ""
+                                }
+                                
+                            }
                         }
                 )
         }
