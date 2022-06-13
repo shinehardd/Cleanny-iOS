@@ -14,6 +14,7 @@ struct ChartView: View {
     var body: some View {
         
         BarChartView(data: ChartData(values: [("1",37), ("2",73), ("3",51), ("4",22), ("5",39), ("6",47)]), title: "Sales")
+            .padding()
         //, legend: "Quarterly"
        // BarChartView(data: demoData, title: "chart")
             
