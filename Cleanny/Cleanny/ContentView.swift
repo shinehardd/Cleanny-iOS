@@ -11,7 +11,8 @@ import AxisTabView
 
 struct ContentView: View {
     @EnvironmentObject var cleaning: CleaningDataStore
-    
+    @EnvironmentObject var userData: UserDataStore
+    @State var index: Int = 3
     @State private var isUpdatingView: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var selection: Int = 0
@@ -34,7 +35,8 @@ struct ContentView: View {
                                       depth: depth)
                     }
                 } content: {
-                    ControlView(selection: $selection,
+                    ControlView(index: $index,
+                                selection: $selection,
                                 constant: $constant,
                                 cornerRadius: $cornerRadius,
                                 radius: $radius,
@@ -44,7 +46,8 @@ struct ContentView: View {
                                 tag: 0,
                                 systemName: "Home",
                                 safeArea: proxy.safeAreaInsets)
-                    ControlView(selection: $selection,
+                    ControlView(index: $index,
+                                selection: $selection,
                                 constant: $constant,
                                 cornerRadius: $cornerRadius,
                                 radius: $radius,
@@ -54,7 +57,8 @@ struct ContentView: View {
                                 tag: 1,
                                 systemName: "Chart",
                                 safeArea: proxy.safeAreaInsets)
-                    ControlView(selection: $selection,
+                    ControlView(index: $index,
+                        selection: $selection,
                                 constant: $constant,
                                 cornerRadius: $cornerRadius,
                                 radius: $radius,
@@ -77,12 +81,14 @@ struct ContentView: View {
                     cleaning.list[index].percentCalculator()
                    
                 }
+                self.index = userData.update(cleaning: cleaning)
+                print(userData.totalPercentage)
                 isUpdatingView.toggle()
             }
         }
     
     struct ControlView: View {
-            
+        @Binding var index:Int
             @Binding var selection: Int
             @Binding var constant: ATConstant
             @Binding var cornerRadius: CGFloat
@@ -101,13 +107,13 @@ struct ContentView: View {
                         .fill(.white)
                     switch(tag){
                     case 0 :
-                        CharacterView()
+                        CharacterView(index: $index)
                     case 1:
                         RecordView()
                     case 2 :
                        ShareView()
                     default:
-                        CharacterView()
+                        CharacterView(index: $index)
                     }
                 }
                 .tabItem(tag: tag, normal: {
@@ -161,10 +167,11 @@ struct ContentView: View {
     
 
 }
-
+/*
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+*/
