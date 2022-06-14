@@ -16,6 +16,7 @@
 		348A4F03285853EE0058D53A /* Cleaning.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4F02285853EE0058D53A /* Cleaning.json */; };
 		348A4F142858E7A90058D53A /* Cry.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4F122858E7A90058D53A /* Cry.json */; };
 		348A4F152858E7A90058D53A /* Laugh.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4F132858E7A90058D53A /* Laugh.json */; };
+		348A4F172858E8960058D53A /* TabStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A4F162858E8960058D53A /* TabStyle.swift */; };
 		34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */; };
 		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */; };
@@ -56,6 +57,7 @@
 		348A4F02285853EE0058D53A /* Cleaning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cleaning.json; sourceTree = "<group>"; };
 		348A4F122858E7A90058D53A /* Cry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cry.json; sourceTree = "<group>"; };
 		348A4F132858E7A90058D53A /* Laugh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Laugh.json; sourceTree = "<group>"; };
+		348A4F162858E8960058D53A /* TabStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStyle.swift; sourceTree = "<group>"; };
 		34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryView.swift; sourceTree = "<group>"; };
 		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				9A3934592850892800393B19 /* CleannyApp.swift */,
 				9A39345B2850892800393B19 /* ContentView.swift */,
 				A372BB8A28587EBA0083E2FC /* OnboardingView.swift */,
+				348A4F162858E8960058D53A /* TabStyle.swift */,
 				9A39345D2850892A00393B19 /* Assets.xcassets */,
 				9A39345F2850892A00393B19 /* Preview Content */,
 			);
@@ -317,6 +320,7 @@
 				A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */,
 				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
+				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
 			);

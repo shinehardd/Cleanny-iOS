@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct CharacterView: View {
-   
-    @Binding var isCleaning: Bool
-    @Binding var index: Int
-    @State private var complateText = ""
-    @State private var showModal = false
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var userData: UserDataStore
     @EnvironmentObject var cleaning: CleaningDataStore
-
+    
+    @Binding var index: Int
+    @Binding var isCleaning: Bool
+    
     @State private var isUpdatingView: Bool = true
-
-   
-//    let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
-        
+    @State private var complateText = ""
+    @State private var showModal = false
+    
+    let screenHeight = UIScreen.main.bounds.size.height
+    
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             Color("MBackground").ignoresSafeArea()
             VStack {
                 HStack {
@@ -38,17 +38,16 @@ struct CharacterView: View {
                         SettingModalView(showModal: $showModal)
                     }
                 }
-                Spacer()
                 
-                Text("\(complateText)")
-                    .padding(.bottom)
-                
-                LottieView(name: isCleaning ? "Cleaning" : cleaning.charcterArr[index])
-                
-                Spacer()
-                
+                ZStack {
+                    LottieView(name: isCleaning ? "Cleaning" : cleaning.charcterArr[index])
+                    Text("\(complateText)")
+                        .offset(y: -screenHeight/5)
+                }
+                .frame(maxHeight: screenHeight/2.5)
+
                 CleaningCategoryProgress(isCleaning: $isCleaning, index: $index, complateText: $complateText)
-                Spacer(minLength:  150)
+                Spacer(minLength: screenHeight/6)
             }
         }
         .onChange(of: userData.totalPercentage) { newValue in
@@ -57,9 +56,10 @@ struct CharacterView: View {
     }
 }
 
-//struct CharacterView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CharacterView()
-//            .environmentObject(CleaningDataStore())
-//    }
-//}
+struct CharacterView_Previews: PreviewProvider {
+    static var previews: some View {
+        CharacterView(index: .constant(0), isCleaning: .constant(true))
+            .environmentObject(CleaningDataStore())
+            .environmentObject(UserDataStore())
+    }
+}

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CleaningCategoryProgress: View {
+    
     @Binding var isCleaning: Bool
     @Binding var index: Int
     @Binding var complateText: String
@@ -20,9 +21,9 @@ struct CleaningCategoryProgress: View {
     }
     
     let columns = [
-        GridItem(.flexible(), spacing: -30),
-        GridItem(.flexible(), spacing: -30),
-        GridItem(.flexible(), spacing: -30)
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
     ]
     
     var body: some View {
@@ -34,6 +35,7 @@ struct CleaningCategoryProgress: View {
                 }
             }
         }
+        .padding(.horizontal)
     }
 }
 
