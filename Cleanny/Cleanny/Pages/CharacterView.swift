@@ -18,7 +18,7 @@ struct CharacterView: View {
     @State private var isUpdatingView: Bool = true
 
    
-    let charcterArr = [LottieView("Cry"), LottieView("Heit"), LottieView("Laugh"), LottieView("Love")]
+    let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
         
     var body: some View {
         ZStack {
@@ -40,8 +40,8 @@ struct CharacterView: View {
                 
                 Text("\(complateText)")
                     .padding(.bottom)
-                 
-                charcterArr[index]
+                 LottieView(name: charcterArr[index])
+               
                  
                     
                        
