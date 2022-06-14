@@ -25,7 +25,8 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-    
+    @Binding var isCleaning: Bool
+    @Binding var index: Int
     @ObservedObject var cleaning: Cleaning
     @Binding var complateText: String
     @GestureState var tap = false
@@ -52,6 +53,8 @@ struct CleaningButtonView: View {
                     }
                         .onChanged({ _ in
                             HapticManager.instance.impact(style: .heavy)
+                            isCleaning = true
+                            index = 4
                         })
                         .onEnded { _ in
                             HapticManager.instance.notification(type: .success)
@@ -63,7 +66,7 @@ struct CleaningButtonView: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 withAnimation {
                                     complateText = ""
-
+                                    isCleaning = false
                                 }
                                 
                             }
