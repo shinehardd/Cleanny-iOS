@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct SettingModalView: View {
     @Binding var showModal: Bool
@@ -22,7 +23,13 @@ struct SettingModalView: View {
                     Button(action: {
 //                        self.presentationMode.wrappedValue.dismiss()
                         showModal.toggle()
-                        cleaning.isUpdate.toggle()
+                        var arrTest = cleaning.list.filter { item in
+                            return item.activated
+                        }
+                        arrTest.forEach{
+                            ttt in cleaning.update(cleaning: ttt)
+                        }
+
                         
                     }, label: {
                         Text("완료")
