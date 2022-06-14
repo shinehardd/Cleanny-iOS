@@ -23,7 +23,7 @@ struct ContentView: View {
     @State private var depth: CGFloat = 0.8
     @State private var color: Color = .accentColor
     @State private var marbleColor: Color = .accentColor
-
+    
     //Onboarding용 AppStorage Bool값
     @AppStorage("firstLaunching") var firstLaunching: Bool = true
     
@@ -105,7 +105,7 @@ struct ContentView: View {
             @Binding var depth: CGFloat
             @Binding var color: Color
             @Binding var marbleColor: Color
-            
+        @State var isCleaning = false
             let tag: Int
             let systemName: String
             let safeArea: EdgeInsets
@@ -116,13 +116,13 @@ struct ContentView: View {
                         .fill(.white)
                     switch(tag){
                     case 0 :
-                        CharacterView(index: $index)
+                        CharacterView(isCleaning: $isCleaning, index: $index)
                     case 1:
                         RecordView()
                     case 2 :
                        ShareView()
                     default:
-                        CharacterView(index: $index)
+                        CharacterView(isCleaning: $isCleaning, index: $index)
                     }
                 }
                 .tabItem(tag: tag, normal: {
