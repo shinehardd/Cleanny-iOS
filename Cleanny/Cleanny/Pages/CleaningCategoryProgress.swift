@@ -9,10 +9,11 @@ import SwiftUI
 
 struct CleaningCategoryProgress: View {
     
+    @EnvironmentObject var cleaning: CleaningDataStore
+    
     @Binding var isCleaning: Bool
     @Binding var index: Int
     @Binding var complateText: String
-    @EnvironmentObject var cleaning: CleaningDataStore
     
     var filteredCleaning: [Cleaning] {
             cleaning.list.filter {category in
