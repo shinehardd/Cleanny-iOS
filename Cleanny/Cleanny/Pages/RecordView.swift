@@ -27,8 +27,8 @@ struct RecordView: View {
                     temp in
 
                         Button(action:{
-                            index = arrays.index(of: cleanings)! * 3
-                            index += cleanings.index(of: temp)!
+                            index = arrays.firstIndex(of: cleanings)! * 3
+                            index += cleanings.firstIndex(of: temp)!
 
                         }
                         ){
