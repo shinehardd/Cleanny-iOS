@@ -12,6 +12,7 @@ import AxisTabView
 struct ContentView: View {
     @EnvironmentObject var cleaning: CleaningDataStore
     @EnvironmentObject var userData: UserDataStore
+   
     @State var index: Int = 3
     @State private var isUpdatingView: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -83,6 +84,7 @@ struct ContentView: View {
                 }
                 self.index = userData.update(cleaning: cleaning)
                 print(userData.totalPercentage)
+              
                 isUpdatingView.toggle()
             }
         }

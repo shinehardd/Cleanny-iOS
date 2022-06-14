@@ -29,7 +29,6 @@ class UserDataStore: Identifiable, ObservableObject {
         self.numerator = 0
         self.denominator = 0
         for oneCleaing in cleaning.list{
-            print("------> \(oneCleaing)")
             if(oneCleaing.activated){
                 self.numerator += oneCleaing.currentPercent
                 self.denominator += 1
