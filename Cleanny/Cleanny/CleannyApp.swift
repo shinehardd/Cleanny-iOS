@@ -16,6 +16,7 @@ struct CleannyApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(cleaning)
+//                .environmentObject(CloudkitUserViewModel())
                // .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

@@ -6,17 +6,27 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ShareView: View {
     
-    var friends = ["주주", "쿠키", "치콩", "엘리", "할로겐", "네이스", "버킬", "창브로", "밀키"]
-    var percentageDic = ["주주": 0.8, "쿠키": 0.6, "치콩": 0.3, "엘리": 0.2, "할로겐": 1, "네이스": 0.7, "버킬": 0.5, "창브로": 0.1, "밀키": 0.9]
+    @EnvironmentObject private var vm: CloudkitUserViewModel
+    @State private var isSharing = false
+    @State private var activeShare: CKShare?
+    @State private var activeContainer: CKContainer?
     
-    @State var friendCount = 9
+    @State private var friends: [String] = []
+    @State private var percentageDic: [String:Double] = [:]
+    @State var friendCount = 1
+    
+//    var friends = ["주주", "쿠키", "치콩", "엘리", "할로겐", "네이스", "버킬", "창브로", "밀키"]
+//    var percentageDic = ["주주": 0.8, "쿠키": 0.6, "치콩": 0.3, "엘리": 0.2, "할로겐": 1, "네이스": 0.7, "버킬": 0.5, "창브로": 0.1, "밀키": 0.9]
+
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: -18, alignment: nil),
-        GridItem(.flexible(), spacing: -18, alignment: nil)]
+        GridItem(.flexible(), spacing: -18, alignment: nil)
+    ]
     
     
     var body: some View {
@@ -32,9 +42,31 @@ struct ShareView: View {
                                     spacing: nil,
                                     pinnedViews: [],
                                     content: {
-                            ForEach(friends[0..<friendCount], id: \.self) {
+//                                switch vm.state {
+//                                case let .loaded(me, friends):
+//                                    let _ = DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+//                                        CardView(name: me[0].name, percentage: me[0].totalPercentage)
+//                                            .aspectRatio(10/13, contentMode: .fit)
+//                                            .padding(.horizontal)
+//                                            .padding(.top)
+//                                        ForEach(friends) {
+//                                            friend in CardView(name: friend.name, percentage: friend.totalPercentage)
+//                                                .aspectRatio(10/13, contentMode: .fit)
+//                                                .padding(.horizontal)
+//                                                .padding(.top)
+//                                        }
+//                                    }
+//                                case .error(let error):
+//                                    VStack {
+//                                        Text("ERROR \(error.localizedDescription)")
+//                                    }
+//                                case .loading:
+//                                    VStack { EmptyView() }
+//                                }
+                            ForEach(friends, id: \.self) {
                                 friend in
-                                CardView(name: friend, percentage: percentageDic[friend]!).aspectRatio(10/13, contentMode: .fit)
+                                CardView(name: friend, percentage: percentageDic[friend]!)
+                                    .aspectRatio(10/13, contentMode: .fit)
                                     .padding(.horizontal)
                                     .padding(.top)
                             }
@@ -60,7 +92,39 @@ struct ShareView: View {
             }
             
         }
+        .onAppear {
+            Task {
+                try await vm.initialize()
+                try await vm.refresh()
+                loadFriends()
+            }
+        }
     }
+    
+    private func loadFriends() {
+        switch vm.state {
+
+        case let .loaded(me, friends):
+            me.forEach { me in
+                self.friends.append(me.name)
+                self.percentageDic[me.name] = me.totalPercentage
+            }
+//            self.friends.append(me[0].name)
+//            self.percentageDic[me[0].name] = me[0].totalPercentage
+            friends.forEach({ friend in
+                self.friends.append(friend.name)
+                self.percentageDic[friend.name] = friend.totalPercentage
+                friendCount+=1
+            })
+
+        case .error(_):
+            return
+
+        case .loading:
+            VStack { EmptyView() }
+        }
+    }
+    
 }
 
 struct CardView: View {
@@ -124,11 +188,11 @@ struct ProgressBar: View {
                 )
             if percentage > 0.25 {
                 RoundedRectangle(cornerRadius: 9)
-                    .fill(LinearGradient(gradient: Gradient(colors: [.white, Color("MBlue")]), startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color("GMBlue"), Color("MBlue")]), startPoint: .leading, endPoint: .trailing))
                     .frame(width: 130 *  CGFloat(percentage), height: 10)
             } else {
                 RoundedRectangle(cornerRadius: 9)
-                    .fill(LinearGradient(gradient: Gradient(colors: [.white, Color("MRed")]), startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color("GMRed"), Color("MRed")]), startPoint: .leading, endPoint: .trailing))
                     .frame(width: 130 *  CGFloat(percentage), height: 10)
             }
             
