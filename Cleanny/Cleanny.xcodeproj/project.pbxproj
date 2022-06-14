@@ -15,6 +15,7 @@
 		348A4EFB285756F10058D53A /* Cry.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF7285756F10058D53A /* Cry.json */; };
 		348A4EFC285756F10058D53A /* Laugh.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF8285756F10058D53A /* Laugh.json */; };
 		348A4EFD285756F10058D53A /* Heit.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF9285756F10058D53A /* Heit.json */; };
+		348A4F03285853EE0058D53A /* Cleaning.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4F02285853EE0058D53A /* Cleaning.json */; };
 		34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */; };
 		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */; };
@@ -51,6 +52,7 @@
 		348A4EF7285756F10058D53A /* Cry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cry.json; sourceTree = "<group>"; };
 		348A4EF8285756F10058D53A /* Laugh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Laugh.json; sourceTree = "<group>"; };
 		348A4EF9285756F10058D53A /* Heit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heit.json; sourceTree = "<group>"; };
+		348A4F02285853EE0058D53A /* Cleaning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cleaning.json; sourceTree = "<group>"; };
 		34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryView.swift; sourceTree = "<group>"; };
 		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		34662BA6285500250088A4B2 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				348A4F02285853EE0058D53A /* Cleaning.json */,
 				348A4EF7285756F10058D53A /* Cry.json */,
 				348A4EF9285756F10058D53A /* Heit.json */,
 				348A4EF8285756F10058D53A /* Laugh.json */,
@@ -268,6 +271,7 @@
 				348A4EFB285756F10058D53A /* Cry.json in Resources */,
 				348A4EFD285756F10058D53A /* Heit.json in Resources */,
 				348A4EFA285756F10058D53A /* Love.json in Resources */,
+				348A4F03285853EE0058D53A /* Cleaning.json in Resources */,
 				348A4EFC285756F10058D53A /* Laugh.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
