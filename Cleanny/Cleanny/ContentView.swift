@@ -24,6 +24,9 @@ struct ContentView: View {
     @State private var color: Color = .accentColor
     @State private var marbleColor: Color = .accentColor
 
+    //Onboarding용 AppStorage Bool값
+    @AppStorage("firstLaunching") var firstLaunching: Bool = true
+    
     var body: some View {
             GeometryReader { proxy in
                 AxisTabView(selection: $selection, constant: constant) { state in
@@ -87,6 +90,10 @@ struct ContentView: View {
               
                 isUpdatingView.toggle()
             }
+        //앱 최초 실행 시 OnBoardingView 보이기
+                .fullScreenCover(isPresented: $firstLaunching) {
+                    OnboardingView(firstLaunching: $firstLaunching)
+                }
         }
     
     struct ControlView: View {
