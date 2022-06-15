@@ -20,7 +20,13 @@
 		34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */; };
 		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */; };
+		735198F72858548A0017A098 /* CloudkitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198F62858548A0017A098 /* CloudkitUser.swift */; };
+		735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198F82858555C0017A098 /* CloudkitUserViewModel.swift */; };
+		735198FB2858613B0017A098 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198FA2858613B0017A098 /* SceneDelegate.swift */; };
+		735198FD285861450017A098 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198FC285861450017A098 /* AppDelegate.swift */; };
+		735198FF2858625E0017A098 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198FE2858625E0017A098 /* CreateUserView.swift */; };
 		736A696E28532131001D0D44 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736A696D28532131001D0D44 /* ShareView.swift */; };
+		739488EA285713360088DE1E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739488E9285713360088DE1E /* CloudKit.framework */; };
 		9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EB0F328521B62003BD148 /* CircularProgressView.swift */; };
 		9A39345A2850892800393B19 /* CleannyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934592850892800393B19 /* CleannyApp.swift */; };
 		9A39345C2850892800393B19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A39345B2850892800393B19 /* ContentView.swift */; };
@@ -61,7 +67,14 @@
 		34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryView.swift; sourceTree = "<group>"; };
 		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		735198F62858548A0017A098 /* CloudkitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUser.swift; sourceTree = "<group>"; };
+		735198F82858555C0017A098 /* CloudkitUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUserViewModel.swift; sourceTree = "<group>"; };
+		735198FA2858613B0017A098 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../../../Downloads/SceneDelegate.swift; sourceTree = "<group>"; };
+		735198FC285861450017A098 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../../../Downloads/AppDelegate.swift; sourceTree = "<group>"; };
+		735198FE2858625E0017A098 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		736A696D28532131001D0D44 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		739488E8285713240088DE1E /* Cleanny.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cleanny.entitlements; sourceTree = "<group>"; };
+		739488E9285713360088DE1E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		9A0EB0F328521B62003BD148 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		9A3934562850892800393B19 /* Cleanny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleanny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3934592850892800393B19 /* CleannyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleannyApp.swift; sourceTree = "<group>"; };
@@ -92,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739488EA285713360088DE1E /* CloudKit.framework in Frameworks */,
 				9A93370C2852B64100F7C587 /* SwiftUICharts in Frameworks */,
 				9A3934722850B33200393B19 /* AxisTabView in Frameworks */,
 				9A39346F28508CEB00393B19 /* AxisTabView in Frameworks */,
@@ -144,6 +158,9 @@
 		9A3934582850892800393B19 /* Cleanny */ = {
 			isa = PBXGroup;
 			children = (
+				735198FC285861450017A098 /* AppDelegate.swift */,
+				735198FA2858613B0017A098 /* SceneDelegate.swift */,
+				739488E8285713240088DE1E /* Cleanny.entitlements */,
 				344600FE2855DD9300B2E740 /* CoreData */,
 				9A7145D428532B2100AD9B45 /* Data */,
 				9A3934732850B5AC00393B19 /* Pages */,
@@ -168,6 +185,7 @@
 		9A39346C28508BFA00393B19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				739488E9285713360088DE1E /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,6 +193,7 @@
 		9A3934732850B5AC00393B19 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				735198FE2858625E0017A098 /* CreateUserView.swift */,
 				9A3934742850B5C100393B19 /* CalendarView.swift */,
 				9A3934762850B61700393B19 /* RecordView.swift */,
 				9A3934782850B67F00393B19 /* CharacterView.swift */,
@@ -201,6 +220,8 @@
 				9A7145D528532B3200AD9B45 /* Cleaning.swift */,
 				344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */,
 				9AE62C272853349700FEDB9C /* User.swift */,
+				735198F62858548A0017A098 /* CloudkitUser.swift */,
+				735198F82858555C0017A098 /* CloudkitUserViewModel.swift */,
 				9A961109285746E60028C7C8 /* UserDataStore.swift */,
 				9AF3F484285863C200A7590D /* Month.swift */,
 				9AF3F4862858645400A7590D /* MonthDataStore.swift */,
@@ -296,8 +317,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */,
+				735198FF2858625E0017A098 /* CreateUserView.swift in Sources */,
 				9A890C582855F4A00013248D /* BarChartView.swift in Sources */,
 				736A696E28532131001D0D44 /* ShareView.swift in Sources */,
+				735198F72858548A0017A098 /* CloudkitUser.swift in Sources */,
 				9A3934752850B5C100393B19 /* CalendarView.swift in Sources */,
 				9A3934772850B61700393B19 /* RecordView.swift in Sources */,
 				A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */,
@@ -314,10 +337,13 @@
 				9A93370E2852B67600F7C587 /* ChartView.swift in Sources */,
 				9AE62C282853349700FEDB9C /* User.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
+				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
 				A372BB8B28587EBA0083E2FC /* OnboardingView.swift in Sources */,
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,
 				9AF3F4872858645400A7590D /* MonthDataStore.swift in Sources */,
 				A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */,
+				735198FD285861450017A098 /* AppDelegate.swift in Sources */,
+				735198FB2858613B0017A098 /* SceneDelegate.swift in Sources */,
 				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
 				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
@@ -448,11 +474,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cleanny/Cleanny.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
-				DEVELOPMENT_TEAM = K6B59X6MS9;
+				DEVELOPMENT_TEAM = 99K458V69X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -465,7 +492,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.juju;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -478,11 +505,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cleanny/Cleanny.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
-				DEVELOPMENT_TEAM = K6B59X6MS9;
+				DEVELOPMENT_TEAM = 99K458V69X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -495,7 +523,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.juju;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
