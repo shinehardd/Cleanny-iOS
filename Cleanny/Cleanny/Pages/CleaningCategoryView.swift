@@ -19,17 +19,10 @@ struct CleaningCategoryView: View {
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
-            ForEach(cleaning.list) {category in
+            ForEach(cleaning.list) { category in
                 SettingCard(cleaning: category)
                     .frame(height: 140.0)
             }
         }
-    }
-}
-
-struct CleaningCategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        CleaningCategoryView()
-            .environmentObject(CleaningDataStore())
     }
 }

@@ -63,7 +63,7 @@ final class CloudkitUserViewModel: ObservableObject {
         let userRecord = CKRecord(recordType: "CloudkitUser", recordID: id)
         userRecord["name"] = name
         userRecord["totalPercentage"] = totalPercentage
-
+        
         try await database.save(userRecord)
     }
     

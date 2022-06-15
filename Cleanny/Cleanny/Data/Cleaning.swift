@@ -5,12 +5,9 @@
 //  Created by 종건 on 2022/06/10.
 //
 
-
-import Foundation
 import SwiftUI
 
 class Cleaning: Identifiable, ObservableObject {
-    let id: UUID
     @Published var name: String
     @Published var imageName: String
     @Published var activated: Bool
@@ -18,7 +15,9 @@ class Cleaning: Identifiable, ObservableObject {
     @Published var decreaseRate: Double
     @Published var currentPercent: Double
     @Published var savedTime : Date
+    
     let index: Int
+    let id: UUID
     
     init(name: String, imageName: String, activated: Bool, cycle: Double, decreaseRate: Double, currentPercent: Double, index: Int) {
         id = UUID()

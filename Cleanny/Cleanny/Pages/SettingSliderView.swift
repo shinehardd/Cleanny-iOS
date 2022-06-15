@@ -13,16 +13,9 @@ struct SettingSliderView: View {
     
     var body: some View {
         VStack {
-            ForEach(cleaning.list) {category in
+            ForEach(cleaning.list) { category in
                 SettingSlider(cleaning: category)
             }
         }
-    }
-}
-
-struct SettingSliderView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingSliderView()
-            .environmentObject(CleaningDataStore())
     }
 }

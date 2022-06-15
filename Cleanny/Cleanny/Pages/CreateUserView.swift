@@ -16,15 +16,15 @@ struct CreateUserView: View {
     var body: some View {
         NavigationView {
             TextField("이름을 입력하세요", text: $nameInput)
-                        .textContentType(.name)
-                        .toolbar {
-                            ToolbarItem(placement: .confirmationAction) {
-                                Button("Save", action: { Task { try? await onAdd?(nameInput, totalPerInput)}})
-                                    .disabled(nameInput.isEmpty)
-                            }
-                        }
-                        
+                .textContentType(.name)
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Save", action: {
+                            Task { try? await onAdd?(nameInput, totalPerInput)}
+                        })
+                        .disabled(nameInput.isEmpty)
+                    }
+                }
         }
-        
     }
 }

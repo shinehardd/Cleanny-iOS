@@ -13,12 +13,10 @@ struct OnboardingView: View {
     
     var body: some View {
         VStack {
-            if selection<10 {
+            if selection < 10 {
                 HStack {
                     Spacer()
-                    Button("건너뛰기") {
-                        selection = 10
-                    }
+                    Button("건너뛰기") { selection = 10 }
                     .foregroundColor(Color("MBlue"))
                 }
                 .padding(.horizontal)
@@ -27,10 +25,10 @@ struct OnboardingView: View {
                 Spacer()
                     .frame(height: 50.0)
             }
+            
             TabView(selection: $selection) {
-                FirstOnboradingView(number:1, firstLaunching: $firstLaunching) .tag(0)
-                FirstOnboradingView(number:2, firstLaunching: $firstLaunching) .tag(1)
-//                FirstOnboradingView(number:3, firstLaunching: $firstLaunching) .tag(2)
+                FirstOnboradingView(firstLaunching: $firstLaunching, number:1) .tag(0)
+                FirstOnboradingView(firstLaunching: $firstLaunching, number:2) .tag(1)
                 LastOnboardingView(firstLaunching: $firstLaunching) .tag(10)
             }
             .tabViewStyle(PageTabViewStyle())

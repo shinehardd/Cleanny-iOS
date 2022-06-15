@@ -16,22 +16,25 @@ struct SettingModalView: View {
     var body: some View {
         ZStack {
             Color("MBackground").ignoresSafeArea()
+            
             ScrollView() {
                 VStack(alignment: .leading) {
                     HStack {
                         Spacer()
                         Button(action: {
                             showModal.toggle()
-                            let arrTest = cleaning.list.filter { item in
-                                return item.activated
+                            let filterArr = cleaning.list.filter { filterItem in
+                                return filterItem.activated
                             }
-                            arrTest.forEach{
-                                ttt in cleaning.update(cleaning: ttt)
+                            
+                            filterArr.forEach { item in
+                                cleaning.update(cleaning: item)
                             }
-                        }, label: {
+                            
+                        }) {
                             Text("완료")
                                 .modalButton()
-                        })
+                        }
                     }
                     
                     Text("청소 선택")
@@ -53,7 +56,6 @@ struct SettingModalView: View {
 }
 
 extension Text {
-    
     func modalTitle() -> some View {
         self.foregroundColor(Color("MBlack"))
             .font(.system(size: 24))
@@ -64,12 +66,5 @@ extension Text {
         self.foregroundColor(Color("SBlue"))
             .font(.system(size: 16))
             .fontWeight(.semibold)
-    }
-}
-
-struct SettingModalView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingModalView(showModal: .constant(true))
-            .environmentObject(CleaningDataStore())
     }
 }

@@ -11,7 +11,6 @@ import SwiftUI
 struct RecordView: View {
     
     @EnvironmentObject var cleaning: CleaningDataStore
-    
     @State var index: Int = 0
     
     let columns = [
@@ -20,15 +19,12 @@ struct RecordView: View {
         GridItem(.flexible())
     ]
     
-    //    let arrays : [[String]]=[["DisposeTrash","Laundary","ToiletCleaning"],
-    //                             ["FloorCleaning","DishWashing","TidyUp"]]
-    
     var body: some View {
         VStack{
             Spacer()
             switch index {
             case 0:
-               ChartPage1()
+                ChartPage1()
             case 1:
                 ChartPage2()
             case 2:
@@ -40,6 +36,7 @@ struct RecordView: View {
             default:
                 ChartPage6()
             }
+            
             Spacer()
             
             LazyVGrid(columns: columns) {
@@ -50,14 +47,7 @@ struct RecordView: View {
             .padding(.horizontal)
             Spacer(minLength: 120)
             
-        }.background(Color("MBackground"))
-    }
-}
-
-struct RecordView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecordView()
-            .environmentObject(CleaningDataStore())
-            .environmentObject(MonthDataStore())
+        }
+        .background(Color("MBackground"))
     }
 }

@@ -11,7 +11,6 @@ import AxisTabView
 
 struct ContentView: View {
     
-    //Onboarding용 AppStorage Bool값
     @AppStorage("firstLaunching") var firstLaunching: Bool = true
     
     @EnvironmentObject var cleaning: CleaningDataStore
@@ -88,11 +87,10 @@ struct ContentView: View {
                 cleaning.list[index].percentCalculator()
             }
             self.index = userData.update(cleaning: cleaning)
-            print(userData.totalPercentage)
             isUpdatingView.toggle()
         }
         .fullScreenCover(isPresented: $firstLaunching) {
-           OnboardingView(firstLaunching: $firstLaunching)
+            OnboardingView(firstLaunching: $firstLaunching)
         }
     }
     
@@ -124,7 +122,7 @@ struct ContentView: View {
                     RecordView()
                 case 2 :
                     ShareView(onAdd: empty)
-                      .environmentObject(CloudkitUserViewModel())
+                        .environmentObject(CloudkitUserViewModel())
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
                 }
@@ -136,8 +134,7 @@ struct ContentView: View {
             })
         }
         
-        private func empty(name: String, totalPercentage: Double) async throws {
-        }
+        private func empty(name: String, totalPercentage: Double) async throws {}
         
     }
     
@@ -145,12 +142,12 @@ struct ContentView: View {
         
         @Binding var constant: ATConstant
         @Binding var selection: Int
-        
+                
+        @State private var y: CGFloat = 0
+
         let tag: Int
         let isSelection: Bool
         let systemName: String
-        
-        @State private var y: CGFloat = 0
         
         var content: some View {
             ZStack(alignment: .leading) {
@@ -171,24 +168,14 @@ struct ContentView: View {
                     withAnimation(.easeInOut(duration: 0.3).delay(0.4)) {
                         y = constant.axisMode == .top ? -15 : 15
                     }
-                }else {
+                } else {
                     y = 0
                 }
             }
         }
+        
         var body: some View {
             content
         }
-    }
-    
-    
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            .environmentObject(CleaningDataStore())
-            .environmentObject(UserDataStore())
     }
 }
