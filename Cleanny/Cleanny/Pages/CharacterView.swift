@@ -47,7 +47,7 @@ struct CharacterView: View {
                 
                 Spacer()
                 
-                CleaningCategoryProgress(isCleaning: $isCleaning, index: $index, complateText: $complateText)
+                CleaningCategoryProgress(isCleaning: $isCleaning, complateText: $complateText)
                 Spacer(minLength:  150)
             }
         }
