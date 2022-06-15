@@ -48,12 +48,8 @@
 		9A93370C2852B64100F7C587 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9A93370B2852B64100F7C587 /* SwiftUICharts */; };
 		9A93370E2852B67600F7C587 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A93370D2852B67600F7C587 /* ChartView.swift */; };
 		9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A961109285746E60028C7C8 /* UserDataStore.swift */; };
-		9ABDCC172859FA3C00225587 /* ChartPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDCC162859FA3C00225587 /* ChartPage1.swift */; };
-		9ABDCC192859FA4700225587 /* ChartPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDCC182859FA4700225587 /* ChartPage2.swift */; };
-		9ABDCC1B2859FA4F00225587 /* ChartPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDCC1A2859FA4F00225587 /* ChartPage3.swift */; };
-		9ABDCC1D2859FA5800225587 /* ChartPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDCC1C2859FA5800225587 /* ChartPage4.swift */; };
-		9ABDCC1F2859FA6100225587 /* ChartPage5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDCC1E2859FA6100225587 /* ChartPage5.swift */; };
-		9ABDCC212859FA6A00225587 /* ChartPage6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDCC202859FA6A00225587 /* ChartPage6.swift */; };
+		//9ABDCC192859FA4700225587 /* ChartPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDCC182859FA4700225587 /* ChartPage2.swift */; };
+		//9ABDCC1D2859FA5800225587 /* ChartPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDCC1C2859FA5800225587 /* ChartPage4.swift */; };
 		9AE62C282853349700FEDB9C /* _User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE62C272853349700FEDB9C /* _User.swift */; };
 		9AF3F485285863C200A7590D /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3F484285863C200A7590D /* Month.swift */; };
 		9AF3F4872858645400A7590D /* MonthDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3F4862858645400A7590D /* MonthDataStore.swift */; };
@@ -107,12 +103,8 @@
 		9A890C572855F4A00013248D /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		9A93370D2852B67600F7C587 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		9A961109285746E60028C7C8 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
-		9ABDCC162859FA3C00225587 /* ChartPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPage1.swift; sourceTree = "<group>"; };
-		9ABDCC182859FA4700225587 /* ChartPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPage2.swift; sourceTree = "<group>"; };
-		9ABDCC1A2859FA4F00225587 /* ChartPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPage3.swift; sourceTree = "<group>"; };
-		9ABDCC1C2859FA5800225587 /* ChartPage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPage4.swift; sourceTree = "<group>"; };
-		9ABDCC1E2859FA6100225587 /* ChartPage5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPage5.swift; sourceTree = "<group>"; };
-		9ABDCC202859FA6A00225587 /* ChartPage6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPage6.swift; sourceTree = "<group>"; };
+		//9ABDCC182859FA4700225587 /* ChartPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPage2.swift; sourceTree = "<group>"; };
+		//9ABDCC1C2859FA5800225587 /* ChartPage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPage4.swift; sourceTree = "<group>"; };
 		9AE62C272853349700FEDB9C /* _User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _User.swift; sourceTree = "<group>"; };
 		9AF3F484285863C200A7590D /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		9AF3F4862858645400A7590D /* MonthDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDataStore.swift; sourceTree = "<group>"; };
@@ -181,6 +173,7 @@
 				9A3934582850892800393B19 /* Cleanny */,
 				9A3934572850892800393B19 /* Products */,
 				9A39346C28508BFA00393B19 /* Frameworks */,
+				ECDD4621285A2C7A00EC69EB /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,6 +313,15 @@
 			path = Record;
 			sourceTree = "<group>";
 		};
+		ECDD4621285A2C7A00EC69EB /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				//9ABDCC1C2859FA5800225587 /* ChartPage4.swift */,
+				//9ABDCC182859FA4700225587 /* ChartPage2.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -436,10 +438,10 @@
 				A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */,
 				9A93370E2852B67600F7C587 /* ChartView.swift in Sources */,
 				9AE62C282853349700FEDB9C /* _User.swift in Sources */,
-				9ABDCC1D2859FA5800225587 /* ChartPage4.swift in Sources */,
+				//9ABDCC1D2859FA5800225587 /* ChartPage4.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
-				9ABDCC192859FA4700225587 /* ChartPage2.swift in Sources */,
+				//9ABDCC192859FA4700225587 /* ChartPage2.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,
@@ -597,7 +599,6 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.elie;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.chaemin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -629,7 +630,6 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.elie;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.chaemin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

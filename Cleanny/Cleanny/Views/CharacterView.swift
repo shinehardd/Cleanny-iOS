@@ -9,7 +9,17 @@ import SwiftUI
 
 struct CharacterView: View {
     
-    @EnvironmentObject var userData: UserDataStore
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
+        animation: .default)
+    private var users: FetchedResults<User>
+    
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
+//        animation: .default)
+//    private var cleans: FetchedResults<Clean>
+    
+//    @EnvironmentObject var userData: UserDataStore
     @EnvironmentObject var cleaning: CleaningDataStore
     
     @Binding var index: Int
@@ -50,8 +60,11 @@ struct CharacterView: View {
                 Spacer(minLength: screenHeight / 6)
             }
         }
-        .onChange(of: userData.totalPercentage) { newValue in
+        .onChange(of: users[0].totalPercentage) { newValue in
             isUpdatingView.toggle()
         }
+//        .onChange(of: userData.totalPercentage) { newValue in
+//            isUpdatingView.toggle()
+//        }
     }
 }
