@@ -52,7 +52,9 @@
 		A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E82854703800B7B645 /* SettingSlider.swift */; };
 		A36369EC2854703800B7B645 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E92854703800B7B645 /* SettingCard.swift */; };
 		A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369EA2854703800B7B645 /* SettingModalView.swift */; };
-		A372BB8B28587EBA0083E2FC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372BB8A28587EBA0083E2FC /* OnboardingView.swift */; };
+		A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E02859FB590069B805 /* OnboardingView.swift */; };
+		A3F850E42859FB590069B805 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E12859FB590069B805 /* LastOnboardingView.swift */; };
+		A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E22859FB590069B805 /* FirstOnboradingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,7 +101,9 @@
 		A36369E82854703800B7B645 /* SettingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSlider.swift; sourceTree = "<group>"; };
 		A36369E92854703800B7B645 /* SettingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		A36369EA2854703800B7B645 /* SettingModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModalView.swift; sourceTree = "<group>"; };
-		A372BB8A28587EBA0083E2FC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A3F850E02859FB590069B805 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A3F850E12859FB590069B805 /* LastOnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
+		A3F850E22859FB590069B805 /* FirstOnboradingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstOnboradingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +170,6 @@
 				9A3934732850B5AC00393B19 /* Pages */,
 				9A3934592850892800393B19 /* CleannyApp.swift */,
 				9A39345B2850892800393B19 /* ContentView.swift */,
-				A372BB8A28587EBA0083E2FC /* OnboardingView.swift */,
 				348A4F162858E8960058D53A /* TabStyle.swift */,
 				9A39345D2850892A00393B19 /* Assets.xcassets */,
 				9A39345F2850892A00393B19 /* Preview Content */,
@@ -210,6 +213,9 @@
 				34662BA9285509380088A4B2 /* LottieView.swift */,
 				A3318C552853646500B5166F /* CleaningButtonView.swift */,
 				9A890C572855F4A00013248D /* BarChartView.swift */,
+				A3F850E22859FB590069B805 /* FirstOnboradingView.swift */,
+				A3F850E12859FB590069B805 /* LastOnboardingView.swift */,
+				A3F850E02859FB590069B805 /* OnboardingView.swift */,
 				34662BA6285500250088A4B2 /* Lottie */,
 			);
 			path = Pages;
@@ -334,20 +340,22 @@
 				9A39345C2850892800393B19 /* ContentView.swift in Sources */,
 				34662BAA285509380088A4B2 /* LottieView.swift in Sources */,
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
+				A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */,
 				73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */,
 				9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */,
+				A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */,
 				A36369EC2854703800B7B645 /* SettingCard.swift in Sources */,
 				A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */,
 				9A93370E2852B67600F7C587 /* ChartView.swift in Sources */,
 				9AE62C282853349700FEDB9C /* User.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
-				A372BB8B28587EBA0083E2FC /* OnboardingView.swift in Sources */,
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,
 				9AF3F4872858645400A7590D /* MonthDataStore.swift in Sources */,
 				34ABDFE42859A3E300E596FB /* RecordButton.swift in Sources */,
 				A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */,
 				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
+				A3F850E42859FB590069B805 /* LastOnboardingView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
 				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,

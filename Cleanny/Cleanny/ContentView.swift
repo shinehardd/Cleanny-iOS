@@ -92,6 +92,9 @@ struct ContentView: View {
             print(userData.totalPercentage)
             isUpdatingView.toggle()
         }
+        .fullScreenCover(isPresented: $firstLaunching) {
+           OnboardingView(firstLaunching: $firstLaunching)
+        }
     }
     
     struct ControlView: View {
