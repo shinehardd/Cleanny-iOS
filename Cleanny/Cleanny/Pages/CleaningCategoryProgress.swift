@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CleaningCategoryProgress: View {
-
+    
     @EnvironmentObject var cleaning: CleaningDataStore
     
     @Binding var index: Int
@@ -33,17 +33,11 @@ struct CleaningCategoryProgress: View {
                 ZStack {
                     CircularProgress(cleaning: category)
                     CleaningButtonView(
-                        cleaning: category,isCleaning: $isCleaning,  complateText: $complateText, progress: category.currentPercent)
+                        cleaning: category,isCleaning: $isCleaning,  complateText: $complateText, progress: category.currentPercent
+                    )
                 }
             }
         }
         .padding(.horizontal)
-    }
-}
-
-struct MainCleaningCategory_Previews: PreviewProvider {
-    static var previews: some View {
-        CleaningCategoryProgress(index: .constant(0), isCleaning: .constant(true), complateText: .constant("분리수거 완료 ✅"))
-            .environmentObject(CleaningDataStore())
     }
 }

@@ -35,14 +35,10 @@ fileprivate extension Calendar {
             matchingPolicy: .nextTime
         ) { date, _, stop in
             if let date = date {
-                if date < interval.end {
-                    dates.append(date)
-                } else {
-                    stop = true
-                }
+                if date < interval.end { dates.append(date) }
+                else { stop = true }
             }
         }
-        
         return dates
     }
 }
@@ -85,8 +81,8 @@ struct WeekView<DateView>: View where DateView: View {
 
 struct MonthView<DateView>: View where DateView: View {
     @Environment(\.calendar) var calendar
-    
     @State private var month: Date
+    
     let showHeader: Bool
     let content: (Date) -> DateView
     
@@ -156,9 +152,8 @@ struct MonthView<DateView>: View where DateView: View {
     
     var body: some View {
         VStack {
-            if showHeader {
-                header
-            }
+            if showHeader { header }
+            
             HStack{
                 ForEach(0..<7, id: \.self) {index in
                     Text("30")
@@ -167,7 +162,8 @@ struct MonthView<DateView>: View where DateView: View {
                         .clipShape(Circle())
                         .padding(.horizontal, 4)
                         .overlay(
-                            Text(getWeekDaysSorted()[index].uppercased()))
+                            Text(getWeekDaysSorted()[index].uppercased())
+                        )
                 }
             }
             
@@ -203,10 +199,8 @@ struct CalendarView<DateView>: View where DateView: View {
     }
     
     var body: some View {
-        
         ForEach(months, id: \.self) { month in
             MonthView(month: month, content: self.content)
         }
-        
     }
 }

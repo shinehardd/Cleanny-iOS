@@ -18,9 +18,7 @@ struct CloudkitUser: Identifiable {
 extension CloudkitUser {
     init?(record: CKRecord) {
         guard let name = record["name"] as? String,
-              let totalPercentage = record["totalPercentage"] as? Double else {
-            return nil
-        }
+              let totalPercentage = record["totalPercentage"] as? Double else { return nil }
         
         self.id = record.recordID.recordName
         self.name = name
@@ -28,5 +26,5 @@ extension CloudkitUser {
         self.associatedRecord = record
     }
 }
-    
-    
+
+

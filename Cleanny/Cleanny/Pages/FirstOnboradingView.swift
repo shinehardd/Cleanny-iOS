@@ -8,21 +8,15 @@
 import SwiftUI
 
 struct FirstOnboradingView: View {
-    var number = 1
     @Binding var firstLaunching: Bool
+
+    var number = 1
     
     var body: some View {
-        Button("\(number)") {
-        }
+        Button("\(number)") {}
         .foregroundColor(.white)
         .frame(width: 300, height: 50)
         .background(Color("MBlue"))
         .cornerRadius(10)
     }
 }
-
-//struct FirstOnboradingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FirstOnboradingView()
-//    }
-//}

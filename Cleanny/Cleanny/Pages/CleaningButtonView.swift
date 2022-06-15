@@ -13,7 +13,6 @@ class HapticManager {
     static let instance = HapticManager()
     
     func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
-        
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(type)
     }
@@ -29,7 +28,7 @@ struct CleaningButtonView: View {
     @ObservedObject var cleaning: Cleaning
     
     @GestureState var tap = false
-
+    
     @Binding var isCleaning: Bool
     @Binding var complateText: String
     
@@ -46,7 +45,6 @@ struct CleaningButtonView: View {
                     Image(cleaning.imageName)
                         .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
-            
                 .gesture(
                     LongPressGesture(minimumDuration: 1.5)
                         .updating($tap) { currentState, gestureState, transaction in
@@ -69,17 +67,9 @@ struct CleaningButtonView: View {
                                     complateText = ""
                                     isCleaning = false
                                 }
-                                
                             }
                         }
                 )
         }
     }
 }
-
-//struct CleaningButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0, currentPercent: 3.0), complateText: .constant("분리수거 완료 ✅"), progress: 3.0)
-//            .previewLayout(.sizeThatFits)
-//    }
-//}
