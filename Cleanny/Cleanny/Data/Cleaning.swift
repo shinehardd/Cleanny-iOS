@@ -18,8 +18,9 @@ class Cleaning: Identifiable, ObservableObject {
     @Published var decreaseRate: Double
     @Published var currentPercent: Double
     @Published var savedTime : Date
+    let index: Int
     
-    init(name: String, imageName: String, activated: Bool, cycle: Double, decreaseRate: Double, currentPercent: Double) {
+    init(name: String, imageName: String, activated: Bool, cycle: Double, decreaseRate: Double, currentPercent: Double, index: Int) {
         id = UUID()
         self.name = name
         self.imageName = imageName
@@ -28,6 +29,7 @@ class Cleaning: Identifiable, ObservableObject {
         self.decreaseRate = decreaseRate
         self.currentPercent = currentPercent
         self.savedTime = Date()
+        self.index = index
     }
     func percentCalculator(){
         let useTime = Int(Date().timeIntervalSince(self.savedTime))
