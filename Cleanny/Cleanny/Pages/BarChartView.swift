@@ -111,7 +111,7 @@ public struct BarChartCell : View {
         .onAppear(){
             self.scaleValue = self.value
         }
-        .animation(Animation.spring().delay(self.touchLocation < 0 ?  Double(self.index) * 0.04 : 0))
+        .animation(.spring().delay(self.touchLocation < 0 ?  Double(self.index) * 0.04 : 0), value: scaleValue)
     }
 }
 
@@ -171,14 +171,15 @@ public struct BarChartRow : View {
     var month : [String]
     var accentColor: Color
     var gradient: GradientColor?
-    
     var maxValue: Double {
         guard let max = data.max() else {
             return 1
         }
         return max != 0 ? max : 1
     }
+    
     @Binding var touchLocation: CGFloat
+    
     public var body: some View {
         GeometryReader { geometry in
             HStack(alignment: .bottom, spacing: (geometry.frame(in: .local).width-22)/CGFloat(self.data.count * 3)){
@@ -192,7 +193,7 @@ public struct BarChartRow : View {
                                  gradient: self.gradient,
                                  touchLocation: self.$touchLocation)
                     .scaleEffect(self.touchLocation > CGFloat(i)/CGFloat(self.data.count) && self.touchLocation < CGFloat(i+1)/CGFloat(self.data.count) ? CGSize(width: 1.4, height: 1.1) : CGSize(width: 1, height: 1), anchor: .bottom)
-                    .animation(.spring())
+                    .animation(.spring(), value: touchLocation)
                     
                 }
             }
@@ -388,7 +389,7 @@ public struct BarChartView : View {
                             .font(.callout)
                             .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.accentColor : self.style.accentColor)
                             .transition(.opacity)
-                            .animation(.easeOut)
+                            .animation(.easeOut, value: formSize)
                     }
                     Spacer()
                     self.cornerImage

@@ -30,7 +30,7 @@ class Cleaning: Identifiable, ObservableObject {
         self.savedTime = Date()
     }
     func percentCalculator(){
-        var useTime = Int(Date().timeIntervalSince(self.savedTime))
+        let useTime = Int(Date().timeIntervalSince(self.savedTime))
         self.currentPercent = self.currentPercent - (Double(useTime)*self.decreaseRate)
         savedTime=Date()
         if(self.currentPercent < 0) {self.currentPercent = 0}
