@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class Month: Identifiable, ObservableObject {
+    
     let id: UUID
     @Published var name: String
     @Published var arr: Array<(String,Double)> = [("",0),("",0),("",0),("",0),("",0),("",0)]
@@ -25,8 +26,6 @@ class Month: Identifiable, ObservableObject {
             if(temp < 1) {temp += 12}
             arr[5-i] = ("\(temp)",1)
         }
-       
+        
     }
-  
-    
 }

@@ -27,8 +27,12 @@ class HapticManager {
 struct CleaningButtonView: View {
     @Binding var isCleaning: Bool
     @ObservedObject var cleaning: Cleaning
-    @Binding var complateText: String
+    
     @GestureState var tap = false
+    
+    @Binding var index: Int
+    @Binding var isCleaning: Bool
+    @Binding var complateText: String
     
     let progress: Double
     
@@ -37,12 +41,13 @@ struct CleaningButtonView: View {
             Circle()
                 .foregroundColor(.white)
                 .frame(width: 60, height: 60)
-                .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
+                .shadow(color: Color("SBlue").opacity(0.3), radius: 4, x: 1, y: 1)
                 .scaleEffect(tap ? 1.1 : 1)
                 .overlay(
                     Image(cleaning.imageName)
                         .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
+            
                 .gesture(
                     LongPressGesture(minimumDuration: 1.5)
                         .updating($tap) { currentState, gestureState, transaction in
@@ -71,10 +76,10 @@ struct CleaningButtonView: View {
         }
     }
 }
-//
+
 //struct CleaningButtonView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0), complateText: .constant("분리수거 완료 ✅"))
+//        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0, currentPercent: 3.0), complateText: .constant("분리수거 완료 ✅"), progress: 3.0)
 //            .previewLayout(.sizeThatFits)
 //    }
 //}

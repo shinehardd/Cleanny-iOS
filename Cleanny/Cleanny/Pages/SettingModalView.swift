@@ -6,50 +6,48 @@
 //
 
 import SwiftUI
-import Foundation
 
 struct SettingModalView: View {
-    @Binding var showModal: Bool
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @EnvironmentObject var cleaning: CleaningDataStore
-
+    
+    @Binding var showModal: Bool
     
     var body: some View {
         ZStack {
             Color("MBackground").ignoresSafeArea()
-            VStack(alignment: .leading) {
-                HStack {
+            ScrollView() {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            showModal.toggle()
+                            let arrTest = cleaning.list.filter { item in
+                                return item.activated
+                            }
+                            arrTest.forEach{
+                                ttt in cleaning.update(cleaning: ttt)
+                            }
+                        }, label: {
+                            Text("완료")
+                                .modalButton()
+                        })
+                    }
+                    
+                    Text("청소 선택")
+                        .modalTitle()
+                    
+                    CleaningCategoryView()
+                    Spacer(minLength: 30)
+                    
+                    Text("주기 설정")
+                        .modalTitle()
+                    
+                    SettingSliderView()
                     Spacer()
-                    Button(action: {
-//                        self.presentationMode.wrappedValue.dismiss()
-                        showModal.toggle()
-                        var arrTest = cleaning.list.filter { item in
-                            return item.activated
-                        }
-                        arrTest.forEach{
-                            ttt in cleaning.update(cleaning: ttt)
-                        }
-
-                        
-                    }, label: {
-                        Text("완료")
-                            .modalButton()
-                    })
                 }
-                
-                Text("청소 선택")
-                    .modalTitle()
-                
-                CleaningCategoryView()
-                Spacer(minLength: 30)
-                
-                Text("주기 설정")
-                    .modalTitle()
-                
-                SettingSliderView()
-                Spacer()
+                .padding()
             }
-            .padding()
         }
     }
 }
@@ -69,10 +67,9 @@ extension Text {
     }
 }
 
-//struct SettingModalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingModalView()
-//            .environmentObject(CleaningDataStore())
-//    }
-//}
-
+struct SettingModalView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingModalView(showModal: .constant(true))
+            .environmentObject(CleaningDataStore())
+    }
+}
