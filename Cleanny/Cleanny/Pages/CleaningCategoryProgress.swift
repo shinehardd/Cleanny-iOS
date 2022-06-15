@@ -11,12 +11,12 @@ struct CleaningCategoryProgress: View {
     
     @EnvironmentObject var cleaning: CleaningDataStore
     
-    @Binding var isCleaning: Bool
     @Binding var index: Int
+    @Binding var isCleaning: Bool
     @Binding var complateText: String
     
     var filteredCleaning: [Cleaning] {
-            cleaning.list.filter {category in
+        cleaning.list.filter {category in
             category.activated
         }
     }
@@ -32,7 +32,7 @@ struct CleaningCategoryProgress: View {
             ForEach(filteredCleaning) {category in
                 ZStack {
                     CircularProgress(cleaning: category)
-                    CleaningButtonView(isCleaning: $isCleaning, index: $index, cleaning: category, complateText: $complateText, progress: category.currentPercent)
+                    CleaningButtonView(cleaning: category, index: $index, isCleaning: $isCleaning, complateText: $complateText, progress: category.currentPercent)
                 }
             }
         }
@@ -40,9 +40,9 @@ struct CleaningCategoryProgress: View {
     }
 }
 
-//struct MainCleaningCategory_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CleaningCategoryProgress(complateText: .constant("분리수거 완료 ✅"))
-//            .environmentObject(CleaningDataStore())
-//    }
-//}
+struct MainCleaningCategory_Previews: PreviewProvider {
+    static var previews: some View {
+        CleaningCategoryProgress(index: .constant(0), isCleaning: .constant(true), complateText: .constant("분리수거 완료 ✅"))
+            .environmentObject(CleaningDataStore())
+    }
+}

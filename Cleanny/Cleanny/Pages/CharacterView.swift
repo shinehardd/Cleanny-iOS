@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CharacterView: View {
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var userData: UserDataStore
     @EnvironmentObject var cleaning: CleaningDataStore
     
@@ -45,8 +44,9 @@ struct CharacterView: View {
                         .offset(y: -screenHeight/5)
                 }
                 .frame(maxHeight: screenHeight/2.5)
-
-                CleaningCategoryProgress(isCleaning: $isCleaning, index: $index, complateText: $complateText)
+                
+                CleaningCategoryProgress(index: $index,isCleaning: $isCleaning, complateText: $complateText)
+                
                 Spacer(minLength: screenHeight/6)
             }
         }

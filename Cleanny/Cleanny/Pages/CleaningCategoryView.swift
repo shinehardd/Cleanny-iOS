@@ -30,5 +30,6 @@ struct CleaningCategoryView: View {
 struct CleaningCategoryView_Previews: PreviewProvider {
     static var previews: some View {
         CleaningCategoryView()
+            .environmentObject(CleaningDataStore())
     }
 }

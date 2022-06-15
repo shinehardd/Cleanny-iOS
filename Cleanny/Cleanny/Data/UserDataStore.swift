@@ -9,15 +9,14 @@ import SwiftUI
 import Foundation
 
 class UserDataStore: Identifiable, ObservableObject {
-   
     
-       var name : String
-       @Published var totalPercentage : Double
-       //분자
-       var numerator : Double
-       //분모
-       var denominator : Int
- 
+    var name : String
+    @Published var totalPercentage : Double
+    //분자
+    var numerator : Double
+    //분모
+    var denominator : Int
+    
     init() {
         self.name = ""
         self.totalPercentage = 99
@@ -26,22 +25,20 @@ class UserDataStore: Identifiable, ObservableObject {
     }
     
     func update(cleaning : CleaningDataStore) -> Int{
+        
         self.numerator = 0
         self.denominator = 0
+        
         for oneCleaing in cleaning.list{
             if(oneCleaing.activated){
                 self.numerator += oneCleaing.currentPercent
                 self.denominator += 1
-            }
-            else{
-                
-            }
-            
+            } else { }
         }
-        if(denominator == 0){
+        
+        if(denominator == 0) {
             self.totalPercentage = -1
-        }
-        else{
+        } else {
             self.totalPercentage = (self.numerator / Double(self.denominator))
         }
         return (Int(totalPercentage) / 25)

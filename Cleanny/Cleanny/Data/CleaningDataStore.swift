@@ -8,6 +8,7 @@
 import Foundation
 
 class CleaningDataStore: ObservableObject {
+    
     @Published var list: [Cleaning]
     @Published var isUpdate = false
     @Published var charcterArr = ["Cry", "Heit", "Laugh", "Love"]
@@ -29,6 +30,6 @@ class CleaningDataStore: ObservableObject {
         }
         
         cleaning.decreaseRate =  1/(cleaning.cycle*864)
-
+        
     }
 }
