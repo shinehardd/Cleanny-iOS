@@ -25,7 +25,7 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-    
+    @Binding var isCleaning: Bool
     @ObservedObject var cleaning: Cleaning
     
     @GestureState var tap = false
@@ -49,16 +49,14 @@ struct CleaningButtonView: View {
                 )
             
                 .gesture(
-                    
-                    LongPressGesture(minimumDuration: 2).updating($tap) { currentState, gestureState, transaction in
-                        gestureState = currentState
-                        
-                    }
-                        .onChanged({ _ in
+                    LongPressGesture(minimumDuration: 1.5)
+                        .updating($tap) { currentState, gestureState, transaction in
+                            gestureState = currentState
+                        }
+                        .onChanged { _ in
                             HapticManager.instance.impact(style: .heavy)
                             isCleaning = true
-                            index = 4
-                        })
+                        }
                         .onEnded { _ in
                             HapticManager.instance.notification(type: .success)
                             withAnimation {
