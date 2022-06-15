@@ -11,17 +11,16 @@ import CloudKit
 struct ShareView: View {
     
     @EnvironmentObject private var vm: CloudkitUserViewModel
+    @EnvironmentObject var myData: UserDataStore
     @State private var isSharing = false
     @State private var activeShare: CKShare?
     @State private var activeContainer: CKContainer?
     
     @State private var friends: [String] = []
     @State private var percentageDic: [String:Double] = [:]
-    @State var friendCount = 1
     
-//    var friends = ["주주", "쿠키", "치콩", "엘리", "할로겐", "네이스", "버킬", "창브로", "밀키"]
-//    var percentageDic = ["주주": 0.8, "쿠키": 0.6, "치콩": 0.3, "엘리": 0.2, "할로겐": 1, "네이스": 0.7, "버킬": 0.5, "창브로": 0.1, "밀키": 0.9]
-
+    @State private var showAlert: Bool = false
+    
     let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -40,6 +39,10 @@ struct ShareView: View {
                                     spacing: nil,
                                     pinnedViews: [],
                                     content: {
+                            CardView(name: myData.name, percentage: myData.totalPercentage)
+                                .aspectRatio(10/13, contentMode: .fit)
+                                .padding(.horizontal)
+                                .padding(.top)
                             ForEach(friends, id: \.self) {
                                 friend in
                                 CardView(name: friend, percentage: percentageDic[friend]!)
@@ -81,16 +84,9 @@ struct ShareView: View {
         switch vm.state {
 
         case let .loaded(me, friends):
-            me.forEach { me in
-                self.friends.append(me.name)
-                self.percentageDic[me.name] = me.totalPercentage
-            }
-//            self.friends.append(me[0].name)
-//            self.percentageDic[me[0].name] = me[0].totalPercentage
             friends.forEach({ friend in
                 self.friends.append(friend.name)
                 self.percentageDic[friend.name] = friend.totalPercentage
-                friendCount+=1
             })
 
         case .error(_):
