@@ -22,7 +22,7 @@ struct SettingModalView: View {
                         Spacer()
                         Button(action: {
                             showModal.toggle()
-                            var arrTest = cleaning.list.filter { item in
+                            let arrTest = cleaning.list.filter { item in
                                 return item.activated
                             }
                             arrTest.forEach{
