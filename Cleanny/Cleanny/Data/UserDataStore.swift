@@ -18,7 +18,7 @@ class UserDataStore: Identifiable, ObservableObject {
     var denominator : Int
     
     init() {
-        self.name = ""
+        self.name = "이름을 설정해주세요"
         self.totalPercentage = 99
         self.numerator = 0
         self.denominator = 1

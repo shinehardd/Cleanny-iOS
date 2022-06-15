@@ -75,6 +75,7 @@ struct ContentView: View {
                             systemName: "Share",
                             safeArea: proxy.safeAreaInsets)
             }
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
         .animation(.easeInOut, value: constant)
         .animation(.easeInOut, value: radius)

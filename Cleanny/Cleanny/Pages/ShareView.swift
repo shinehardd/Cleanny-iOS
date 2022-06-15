@@ -43,6 +43,13 @@ struct ShareView: View {
                                 .aspectRatio(10/13, contentMode: .fit)
                                 .padding(.horizontal)
                                 .padding(.top)
+                                .onTapGesture {
+                                    alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
+                                        myData.name = text
+                                                                } secondaryAction: {
+                                                                    
+                                                                }
+                                                            }
                             ForEach(friends, id: \.self) {
                                 friend in
                                 CardView(name: friend, percentage: percentageDic[friend]!)
@@ -83,7 +90,7 @@ struct ShareView: View {
     private func loadFriends() {
         switch vm.state {
 
-        case let .loaded(me, friends):
+        case let .loaded(_, friends):
             friends.forEach({ friend in
                 self.friends.append(friend.name)
                 self.percentageDic[friend.name] = friend.totalPercentage
@@ -97,6 +104,38 @@ struct ShareView: View {
         }
     }
     
+}
+
+extension View {
+    func alertTF(title: String, message: String, hintText: String, primaryTitle: String, secondaryTitle: String, primaryAction: @escaping (String) -> (), secondaryAction: @escaping () -> ()) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addTextField { field in
+            field.placeholder = hintText
+        }
+        
+        alert.addAction(.init(title: secondaryTitle, style: .default, handler: { _ in
+            secondaryAction()
+        }))
+        
+        alert.addAction(.init(title: primaryTitle, style: .default, handler: { _ in
+            if let text = alert.textFields?[0].text {
+                primaryAction(text)
+            } else {
+                primaryAction("")
+            }
+        }))
+        rootController().present(alert, animated: true, completion: nil)
+    }
+    func rootController () -> UIViewController {
+        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return.init()
+        }
+        guard let root = screen.windows.first?.rootViewController else {
+            return.init()
+        }
+        return root
+    }
 }
 
 struct CardView: View {
