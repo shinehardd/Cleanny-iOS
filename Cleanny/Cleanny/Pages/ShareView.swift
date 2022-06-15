@@ -50,6 +50,7 @@ struct ShareView: View {
                                 .onTapGesture {
                                     alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
                                         myData.name = text
+                                        vm.updateUser(user: me!, name: text, totalPercentage: myData.totalPercentage)
                                                                 } secondaryAction: {
                                                                     
                                                                 }
@@ -72,14 +73,10 @@ struct ShareView: View {
                         Text("공유").font(.headline)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { Task { try? await shareUser(me ?? makeFirstData()) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
+                        Button(action: { Task { try await loadFriends()
+                            try? await shareUser(me!) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
                             .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
                             .sheet(isPresented: $isSharing, content: { shareView() })
-                        Button {
-                            // 친구 추가 모달 or 알림
-                        } label: {
-                            
-                        }
                     }
                 }
             }
@@ -87,27 +84,20 @@ struct ShareView: View {
         .onAppear {
             Task {
                 try await vm.initialize()
+                try await vm.addUser(name: myData.name, totalPercentage: myData.totalPercentage)
                 try await vm.refresh()
-                loadFriends()
+                try await loadFriends()
             }
         }
     }
-    
-    private func makeFirstData() -> CloudkitUser {
-        try? await onAdd?(myData.name, myData.totalPercentage)
-        loadFriends()
-        return self.me!
-    }
-    
-    private func changeMyData() {
         
-    }
-    
-    private func loadFriends() {
+    private func loadFriends() async throws {
+        
         switch vm.state {
 
         case let .loaded(me, friends):
             self.me = me[0]
+
             friends.forEach({ friend in
                 self.friends.append(friend.name)
                 self.percentageDic[friend.name] = friend.totalPercentage
@@ -123,6 +113,7 @@ struct ShareView: View {
     
     private func shareUser(_ user: CloudkitUser) async throws {
         isProcessingShare = true
+        try await vm.refresh()
 
         do {
             let (share, container) = try await vm.fetchOrCreateShare(user: user)

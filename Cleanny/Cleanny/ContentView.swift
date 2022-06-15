@@ -121,7 +121,7 @@ struct ContentView: View {
                 case 1:
                     RecordView()
                 case 2 :
-                    ShareView()
+                    ShareView(onAdd: empty)
                       .environmentObject(CloudkitUserViewModel())
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
@@ -132,6 +132,9 @@ struct ContentView: View {
             }, select: {
                 TabButton(constant: $constant, selection: $selection, tag: tag, isSelection: true, systemName: systemName)
             })
+        }
+        
+        private func empty(name: String, totalPercentage: Double) async throws {
         }
         
     }
