@@ -68,30 +68,6 @@
 		A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E22859FB590069B805 /* FirstOnboradingView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A372BB74285766580083E2FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A39344E2850892800393B19 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A372BB68285766570083E2FC;
-			remoteInfo = CleannyWidgetExtension;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		A372BB77285766580083E2FC /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				A372BB76285766580083E2FC /* CleannyWidgetExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningDataStore.swift; sourceTree = "<group>"; };
 		3446010128562E1600B2E740 /* CleaningCategoryProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryProgress.swift; sourceTree = "<group>"; };
@@ -166,15 +142,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A372BB66285766570083E2FC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A372BB6D285766570083E2FC /* SwiftUI.framework in Frameworks */,
-				A372BB6B285766570083E2FC /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -204,7 +171,6 @@
 			children = (
 				9A0EB0F328521B62003BD148 /* CircularProgressView.swift */,
 				9A3934582850892800393B19 /* Cleanny */,
-				A372BB6E285766570083E2FC /* CleannyWidget */,
 				9A3934572850892800393B19 /* Products */,
 				9A39346C28508BFA00393B19 /* Frameworks */,
 			);
@@ -214,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				9A3934562850892800393B19 /* Cleanny.app */,
-				A372BB69285766570083E2FC /* CleannyWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,12 +295,10 @@
 				9A3934522850892800393B19 /* Sources */,
 				9A3934532850892800393B19 /* Frameworks */,
 				9A3934542850892800393B19 /* Resources */,
-				A372BB77285766580083E2FC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A372BB75285766580083E2FC /* PBXTargetDependency */,
 			);
 			name = Cleanny;
 			packageProductDependencies = (
@@ -347,23 +310,6 @@
 			productName = Cleanny;
 			productReference = 9A3934562850892800393B19 /* Cleanny.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A372BB68285766570083E2FC /* CleannyWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A372BB7A285766580083E2FC /* Build configuration list for PBXNativeTarget "CleannyWidgetExtension" */;
-			buildPhases = (
-				A372BB65285766570083E2FC /* Sources */,
-				A372BB66285766570083E2FC /* Frameworks */,
-				A372BB67285766570083E2FC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CleannyWidgetExtension;
-			productName = CleannyWidgetExtension;
-			productReference = A372BB69285766570083E2FC /* CleannyWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -377,9 +323,6 @@
 				TargetAttributes = {
 					9A3934552850892800393B19 = {
 						CreatedOnToolsVersion = 13.3;
-					};
-					A372BB68285766570083E2FC = {
-						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
 			};
@@ -403,7 +346,6 @@
 			projectRoot = "";
 			targets = (
 				9A3934552850892800393B19 /* Cleanny */,
-				A372BB68285766570083E2FC /* CleannyWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -420,14 +362,6 @@
 				348A4F152858E7A90058D53A /* Laugh.json in Resources */,
 				348A4EFA285756F10058D53A /* Love.json in Resources */,
 				348A4F03285853EE0058D53A /* Cleaning.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A372BB67285766570083E2FC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A372BB72285766570083E2FC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,23 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A372BB65285766570083E2FC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A372BB70285766570083E2FC /* CleannyWidget.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A372BB75285766580083E2FC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A372BB68285766570083E2FC /* CleannyWidgetExtension */;
-			targetProxy = A372BB74285766580083E2FC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9A3934672850892A00393B19 /* Debug */ = {
@@ -620,7 +538,6 @@
 		9A39346A2850892A00393B19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cleanny/Cleanny.entitlements;
@@ -630,6 +547,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = BP6V55LTAQ;
+				DEVELOPMENT_TEAM = K6B59X6MS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -653,7 +571,6 @@
 		9A39346B2850892A00393B19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cleanny/Cleanny.entitlements;
@@ -663,6 +580,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = BP6V55LTAQ;
+				DEVELOPMENT_TEAM = K6B59X6MS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -677,60 +595,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.juju;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A372BB78285766580083E2FC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CleannyWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CleannyWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.CleannyWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A372BB79285766580083E2FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CleannyWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CleannyWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.CleannyWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -754,15 +618,6 @@
 			buildConfigurations = (
 				9A39346A2850892A00393B19 /* Debug */,
 				9A39346B2850892A00393B19 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A372BB7A285766580083E2FC /* Build configuration list for PBXNativeTarget "CleannyWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A372BB78285766580083E2FC /* Debug */,
-				A372BB79285766580083E2FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
