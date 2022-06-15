@@ -40,27 +40,6 @@ struct ShareView: View {
                                     spacing: nil,
                                     pinnedViews: [],
                                     content: {
-//                                switch vm.state {
-//                                case let .loaded(me, friends):
-//                                    let _ = DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
-//                                        CardView(name: me[0].name, percentage: me[0].totalPercentage)
-//                                            .aspectRatio(10/13, contentMode: .fit)
-//                                            .padding(.horizontal)
-//                                            .padding(.top)
-//                                        ForEach(friends) {
-//                                            friend in CardView(name: friend.name, percentage: friend.totalPercentage)
-//                                                .aspectRatio(10/13, contentMode: .fit)
-//                                                .padding(.horizontal)
-//                                                .padding(.top)
-//                                        }
-//                                    }
-//                                case .error(let error):
-//                                    VStack {
-//                                        Text("ERROR \(error.localizedDescription)")
-//                                    }
-//                                case .loading:
-//                                    VStack { EmptyView() }
-//                                }
                             ForEach(friends, id: \.self) {
                                 friend in
                                 CardView(name: friend, percentage: percentageDic[friend]!)
@@ -68,8 +47,7 @@ struct ShareView: View {
                                     .padding(.horizontal)
                                     .padding(.top)
                             }
-                        }
-                        .padding(.horizontal)
+                        })
                         Spacer(minLength: 50)
                     }
                     Spacer(minLength: 60)
@@ -119,7 +97,7 @@ struct ShareView: View {
             return
 
         case .loading:
-            VStack { EmptyView() }
+            return
         }
     }
     
