@@ -50,21 +50,21 @@ public struct Styles {
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
-//    public static let barChartMidnightGreenDark = ChartStyle(
-//        backgroundColor: Color(hexString: "#36534D"), //3B5147, 313D34
-//        accentColor: Color(hexString: "#FFD603"),
-//        secondGradientColor: Color(hexString: "#FFCA04"),
-//        textColor: Color.white,
-//        legendTextColor: Color(hexString: "#D2E5E1"),
-//        dropShadowColor: Color.gray)
-//
-//    public static let barChartMidnightGreenLight = ChartStyle(
-//        backgroundColor: Color.white,
-//        accentColor: Color(hexString: "#84A094"), //84A094 , 698378
-//        secondGradientColor: Color(hexString: "#50675D"),
-//        textColor: Color.black,
-//        legendTextColor:Color.gray,
-//        dropShadowColor: Color.gray)
+    //    public static let barChartMidnightGreenDark = ChartStyle(
+    //        backgroundColor: Color(hexString: "#36534D"), //3B5147, 313D34
+    //        accentColor: Color(hexString: "#FFD603"),
+    //        secondGradientColor: Color(hexString: "#FFCA04"),
+    //        textColor: Color.white,
+    //        legendTextColor: Color(hexString: "#D2E5E1"),
+    //        dropShadowColor: Color.gray)
+    //
+    //    public static let barChartMidnightGreenLight = ChartStyle(
+    //        backgroundColor: Color.white,
+    //        accentColor: Color(hexString: "#84A094"), //84A094 , 698378
+    //        secondGradientColor: Color(hexString: "#50675D"),
+    //        textColor: Color.black,
+    //        legendTextColor:Color.gray,
+    //        dropShadowColor: Color.gray)
     
     public static let pieChartStyleOne = ChartStyle(
         backgroundColor: Color.white,
@@ -99,39 +99,39 @@ public struct BarChartCell : View {
     @Binding var touchLocation: CGFloat
     public var body: some View {
         VStack{
-        ZStack {
-            RoundedRectangle(cornerRadius: 4)
-                .fill(LinearGradient(gradient: gradient?.getGradient() ?? GradientColor(start: accentColor, end: accentColor).getGradient(), startPoint: .bottom, endPoint: .top))
+            ZStack {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(LinearGradient(gradient: gradient?.getGradient() ?? GradientColor(start: accentColor, end: accentColor).getGradient(), startPoint: .bottom, endPoint: .top))
             }
             .frame(width: CGFloat(self.cellWidth))
             .scaleEffect(CGSize(width: 1, height: self.scaleValue), anchor: .bottom)
             Text(self.month)
             
         }
-            .onAppear(){
-                self.scaleValue = self.value
-            }
-        .animation(Animation.spring().delay(self.touchLocation < 0 ?  Double(self.index) * 0.04 : 0))
+        .onAppear(){
+            self.scaleValue = self.value
+        }
+        .animation(.spring().delay(self.touchLocation < 0 ?  Double(self.index) * 0.04 : 0), value: scaleValue)
     }
 }
 
 class HapticFeedback {
-    #if os(watchOS)
+#if os(watchOS)
     //watchOS implementation
     static func playSelection() -> Void {
         WKInterfaceDevice.current().play(.click)
     }
-    #elseif os(iOS)
+#elseif os(iOS)
     //iOS implementation
     let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
     static func playSelection() -> Void {
         UISelectionFeedbackGenerator().selectionChanged()
     }
-    #else
+#else
     static func playSelection() -> Void {
         //No-op
     }
-    #endif
+#endif
 }
 
 
@@ -145,7 +145,7 @@ struct LabelView: View {
                 RoundedRectangle(cornerRadius: 8).frame(width: 100, height: 32, alignment: .center).foregroundColor(Color.white).shadow(radius: 8)
                 Text(self.title).font(.caption).bold()
                 ArrowUp().fill(Color.white).frame(width: 20, height: 12, alignment: .center).zIndex(999).offset(x: getArrowOffset(offset:self.arrowOffset), y: -20)
-
+                
             }
         }
     }
@@ -171,14 +171,15 @@ public struct BarChartRow : View {
     var month : [String]
     var accentColor: Color
     var gradient: GradientColor?
-    
     var maxValue: Double {
         guard let max = data.max() else {
             return 1
         }
         return max != 0 ? max : 1
     }
+    
     @Binding var touchLocation: CGFloat
+    
     public var body: some View {
         GeometryReader { geometry in
             HStack(alignment: .bottom, spacing: (geometry.frame(in: .local).width-22)/CGFloat(self.data.count * 3)){
@@ -191,8 +192,8 @@ public struct BarChartRow : View {
                                  accentColor: self.accentColor,
                                  gradient: self.gradient,
                                  touchLocation: self.$touchLocation)
-                        .scaleEffect(self.touchLocation > CGFloat(i)/CGFloat(self.data.count) && self.touchLocation < CGFloat(i+1)/CGFloat(self.data.count) ? CGSize(width: 1.4, height: 1.1) : CGSize(width: 1, height: 1), anchor: .bottom)
-                        .animation(.spring())
+                    .scaleEffect(self.touchLocation > CGFloat(i)/CGFloat(self.data.count) && self.touchLocation < CGFloat(i+1)/CGFloat(self.data.count) ? CGSize(width: 1.4, height: 1.1) : CGSize(width: 1, height: 1), anchor: .bottom)
+                    .animation(.spring(), value: touchLocation)
                     
                 }
             }
@@ -220,19 +221,19 @@ public struct GradientColor {
     }
 }
 public struct ChartForm {
-    #if os(watchOS)
+#if os(watchOS)
     public static let small = CGSize(width:120, height:90)
     public static let medium = CGSize(width:120, height:160)
     public static let large = CGSize(width:180, height:90)
     public static let extraLarge = CGSize(width:180, height:90)
     public static let detail = CGSize(width:180, height:160)
-    #else
+#else
     public static let small = CGSize(width:180, height:120)
     public static let medium = CGSize(width:180, height:240)
     public static let large = CGSize(width:360, height:120)
     public static let extraLarge = CGSize(width:350, height:360)
     public static let detail = CGSize(width:180, height:120)
-    #endif
+#endif
 }
 
 //public struct GradientColors {
@@ -262,26 +263,26 @@ public class ChartData: ObservableObject, Identifiable {
     
     public init<N: BinaryInteger>(values:[(String,N)]){
         self.points = values.map{($0.0, Double($0.1))}
-     //   self.valuesGiven = true
+        //   self.valuesGiven = true
     }
     
     public init<N: BinaryFloatingPoint>(values:[(String,N)]){
         self.points = values.map{($0.0, Double($0.1))}
-    //    self.valuesGiven = true
+        //    self.valuesGiven = true
     }
     
     public init<N: BinaryInteger>(numberValues:[(N,N)]){
         self.points = numberValues.map{(String($0.0), Double($0.1))}
-   //     self.valuesGiven = true
-}
+        //     self.valuesGiven = true
+    }
     
     public init<N: BinaryFloatingPoint & LosslessStringConvertible>(numberValues:[(N,N)]){
         self.points = numberValues.map{(String($0.0), Double($0.1))}
-     //   self.valuesGiven = true
+        //   self.valuesGiven = true
     }
     
     public func onlyPoints() -> [Double] {
-      
+        
         return self.points.map{ $0.1 }
     }
 }
@@ -318,7 +319,7 @@ public class ChartStyle {
         self.accentColor = Color.orange
         self.gradientColor = GradientColor(start: accentColor, end: Color.orange)
         self.accentColor = Color.blue
-
+        
         self.legendTextColor = Color.gray
         self.textColor = Color.black
         self.dropShadowColor = Color.gray
@@ -371,7 +372,7 @@ public struct BarChartView : View {
             Rectangle()
                 .fill(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
                 .cornerRadius(20)
-                .shadow(color: self.style.dropShadowColor, radius: self.dropShadow ? 8 : 0)
+                .shadow(color: Color("ShadowBlue"), radius: self.dropShadow ? 8 : 0, y: 4)
             VStack(alignment: .leading){
                 HStack{
                     if(!showValue){
@@ -388,7 +389,7 @@ public struct BarChartView : View {
                             .font(.callout)
                             .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.accentColor : self.style.accentColor)
                             .transition(.opacity)
-                            .animation(.easeOut)
+                            .animation(.easeOut, value: formSize)
                     }
                     Spacer()
                     self.cornerImage
@@ -407,8 +408,8 @@ public struct BarChartView : View {
                 }else if (self.data.valuesGiven && self.getCurrentValue() != nil) {
                     LabelView(arrowOffset: self.getArrowOffset(touchLocation: self.touchLocation),
                               title: .constant(self.getCurrentValue()!.0))
-                        .offset(x: self.getLabelViewOffset(touchLocation: self.touchLocation), y: -6)
-                        .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor : self.style.legendTextColor)
+                    .offset(x: self.getLabelViewOffset(touchLocation: self.touchLocation), y: -6)
+                    .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor : self.style.legendTextColor)
                 }
                 
             }
@@ -416,15 +417,15 @@ public struct BarChartView : View {
                 maxWidth: self.isFullWidth ? .infinity : self.formSize.width,
                 minHeight:self.formSize.height,
                 maxHeight:self.formSize.height)
-            .gesture(DragGesture()
-                .onChanged({ value in
-                    self.touchLocation = value.location.x/self.formSize.width
-                    self.showValue = true
-                    self.currentValue = self.getCurrentValue()?.1 ?? 0
-                    if(self.data.valuesGiven && self.formSize == ChartForm.medium) {
-                        self.showLabelValue = true
-                    }
-                })
+        .gesture(DragGesture()
+            .onChanged({ value in
+                self.touchLocation = value.location.x/self.formSize.width
+                self.showValue = true
+                self.currentValue = self.getCurrentValue()?.1 ?? 0
+                if(self.data.valuesGiven && self.formSize == ChartForm.medium) {
+                    self.showLabelValue = true
+                }
+            })
                 .onEnded({ value in
                     if animatedToBack {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -441,7 +442,7 @@ public struct BarChartView : View {
                     }
                 })
         )
-            .gesture(TapGesture()
+        .gesture(TapGesture()
         )
     }
     
@@ -467,14 +468,14 @@ public struct BarChartView : View {
     }
 }
 /*
-#if DEBUG
-struct ChartView_Previews : PreviewProvider {
-    static var previews: some View {
-        BarChartView(data: TestData.values ,
-                     title: "Model 3 sales",
-                     legend: "Quarterly",
-                     valueSpecifier: "%.0f")
-    }
-}
-#endif
-*/
+ #if DEBUG
+ struct ChartView_Previews : PreviewProvider {
+ static var previews: some View {
+ BarChartView(data: TestData.values ,
+ title: "Model 3 sales",
+ legend: "Quarterly",
+ valueSpecifier: "%.0f")
+ }
+ }
+ #endif
+ */

@@ -9,11 +9,14 @@ import SwiftUI
 
 struct CleaningCategoryProgress: View {
     
-    @Binding var complateText: String
     @EnvironmentObject var cleaning: CleaningDataStore
     
+    @Binding var index: Int
+    @Binding var isCleaning: Bool
+    @Binding var complateText: String
+    
     var filteredCleaning: [Cleaning] {
-            cleaning.list.filter {category in
+        cleaning.list.filter {category in
             category.activated
         }
     }
@@ -28,17 +31,18 @@ struct CleaningCategoryProgress: View {
         LazyVGrid(columns: columns) {
             ForEach(filteredCleaning) {category in
                 ZStack {
-                    CircularProgress()
-                    CleaningButtonView(cleaning: category, complateText: $complateText)
+                    CircularProgress(cleaning: category)
+                    CleaningButtonView(cleaning: category, index: $index, isCleaning: $isCleaning, complateText: $complateText, progress: category.currentPercent)
                 }
             }
         }
+        .padding(.horizontal)
     }
 }
 
 struct MainCleaningCategory_Previews: PreviewProvider {
     static var previews: some View {
-        CleaningCategoryProgress(complateText: .constant("분리수거 완료 ✅"))
+        CleaningCategoryProgress(index: .constant(0), isCleaning: .constant(true), complateText: .constant("분리수거 완료 ✅"))
             .environmentObject(CleaningDataStore())
     }
 }
