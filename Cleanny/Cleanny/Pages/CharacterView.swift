@@ -45,7 +45,7 @@ struct CharacterView: View {
                 }
                 .frame(maxHeight: screenHeight/2.5)
                 
-                CleaningCategoryProgress(index: $index,isCleaning: $isCleaning, complateText: $complateText)
+                CleaningCategoryProgress(index: $index, isCleaning: $isCleaning, complateText: $complateText)
                 
                 Spacer(minLength: screenHeight/6)
             }
