@@ -58,9 +58,11 @@
 		A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E82854703800B7B645 /* SettingSlider.swift */; };
 		A36369EC2854703800B7B645 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E92854703800B7B645 /* SettingCard.swift */; };
 		A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369EA2854703800B7B645 /* SettingModalView.swift */; };
+		EC1985812859B4C1006D5242 /* CloudkitShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1985802859B4C1006D5242 /* CloudkitShareView.swift */; };
 		A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E02859FB590069B805 /* OnboardingView.swift */; };
 		A3F850E42859FB590069B805 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E12859FB590069B805 /* LastOnboardingView.swift */; };
 		A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E22859FB590069B805 /* FirstOnboradingView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,9 +115,11 @@
 		A36369E82854703800B7B645 /* SettingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSlider.swift; sourceTree = "<group>"; };
 		A36369E92854703800B7B645 /* SettingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		A36369EA2854703800B7B645 /* SettingModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModalView.swift; sourceTree = "<group>"; };
+		EC1985802859B4C1006D5242 /* CloudkitShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitShareView.swift; sourceTree = "<group>"; };
 		A3F850E02859FB590069B805 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A3F850E12859FB590069B805 /* LastOnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
 		A3F850E22859FB590069B805 /* FirstOnboradingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstOnboradingView.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +230,7 @@
 				34662BA9285509380088A4B2 /* LottieView.swift */,
 				A3318C552853646500B5166F /* CleaningButtonView.swift */,
 				9A890C572855F4A00013248D /* BarChartView.swift */,
+				EC1985802859B4C1006D5242 /* CloudkitShareView.swift */,
 				A3F850E22859FB590069B805 /* FirstOnboradingView.swift */,
 				A3F850E12859FB590069B805 /* LastOnboardingView.swift */,
 				A3F850E02859FB590069B805 /* OnboardingView.swift */,
@@ -368,6 +373,7 @@
 				9A3934632850892A00393B19 /* Persistence.swift in Sources */,
 				9A39345C2850892800393B19 /* ContentView.swift in Sources */,
 				34662BAA285509380088A4B2 /* LottieView.swift in Sources */,
+				EC1985812859B4C1006D5242 /* CloudkitShareView.swift in Sources */,
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
 				A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */,
 				73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */,
@@ -537,7 +543,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.juju;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.chaemin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -568,7 +574,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.juju;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.chaemin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

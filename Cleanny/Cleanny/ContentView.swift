@@ -86,7 +86,6 @@ struct ContentView: View {
         .onReceive(timer) { time in
             for index in 0...5 {
                 cleaning.list[index].percentCalculator()
-                
             }
             self.index = userData.update(cleaning: cleaning)
             print(userData.totalPercentage)
@@ -124,7 +123,7 @@ struct ContentView: View {
                 case 1:
                     RecordView()
                 case 2 :
-                    ShareView()
+                    ShareView(onAdd: empty)
                       .environmentObject(CloudkitUserViewModel())
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
@@ -135,6 +134,9 @@ struct ContentView: View {
             }, select: {
                 TabButton(constant: $constant, selection: $selection, tag: tag, isSelection: true, systemName: systemName)
             })
+        }
+        
+        private func empty(name: String, totalPercentage: Double) async throws {
         }
         
     }

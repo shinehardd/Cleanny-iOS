@@ -67,6 +67,17 @@ final class CloudkitUserViewModel: ObservableObject {
         try await database.save(userRecord)
     }
     
+    func updateUser(user: CloudkitUser, name: String, totalPercentage: Double) {
+        let userRecord = user.associatedRecord
+        userRecord["name"] = name
+        userRecord["totalPercentage"] = totalPercentage
+        
+        database.save(userRecord) { [weak self] returnedRecord, returnedError in
+            print("Record: \(String(describing: returnedRecord))")
+            print("Error: \(String(describing: returnedError))")
+        }
+    }
+    
     func fetchOrCreateShare(user: CloudkitUser) async throws -> (CKShare, CKContainer) {
         guard let existingShare = user.associatedRecord.share else {
             let share = CKShare(rootRecord: user.associatedRecord)

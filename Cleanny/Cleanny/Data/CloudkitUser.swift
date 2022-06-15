@@ -10,8 +10,8 @@ import CloudKit
 
 struct CloudkitUser: Identifiable {
     let id: String
-    let name: String
-    let totalPercentage: Double
+    var name: String
+    var totalPercentage: Double
     let associatedRecord: CKRecord
 }
 
