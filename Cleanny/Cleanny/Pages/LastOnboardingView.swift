@@ -1,18 +1,16 @@
 //
-//  OnboardingView.swift
+//  LastOnboardingView.swift
 //  Cleanny
 //
-//  Created by 한경준 on 2022/06/14.
+//  Created by 한경준 on 2022/06/15.
 //
 
 import SwiftUI
 
-struct OnboardingView: View {
-    
+struct LastOnboardingView: View {
     @Binding var firstLaunching: Bool
     
     var body: some View {
-        
         VStack {
             Text("온보딩 테스트 페이지")
             Button {
@@ -27,3 +25,9 @@ struct OnboardingView: View {
         }
     }
 }
+//
+//struct LastOnboardingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LastOnboardingView()
+//    }
+//}

@@ -25,12 +25,11 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-    
+    @EnvironmentObject var monthData: MonthDataStore
     @ObservedObject var cleaning: Cleaning
     
     @GestureState var tap = false
-    
-    @Binding var index: Int
+
     @Binding var isCleaning: Bool
     @Binding var complateText: String
     
@@ -49,18 +48,17 @@ struct CleaningButtonView: View {
                 )
             
                 .gesture(
-                    
-                    LongPressGesture(minimumDuration: 2).updating($tap) { currentState, gestureState, transaction in
-                        gestureState = currentState
-                        
-                    }
-                        .onChanged({ _ in
+                    LongPressGesture(minimumDuration: 1.5)
+                        .updating($tap) { currentState, gestureState, transaction in
+                            gestureState = currentState
+                        }
+                        .onChanged { _ in
                             HapticManager.instance.impact(style: .heavy)
                             isCleaning = true
-                            index = 4
-                        })
+                        }
                         .onEnded { _ in
                             HapticManager.instance.notification(type: .success)
+                            monthData.addCnt(month: monthData.list[cleaning.index])
                             withAnimation {
                                 complateText = cleaning.name + " 완료 ✅"
                                 cleaning.currentPercent = 100

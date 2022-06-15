@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CleaningCategoryProgress: View {
-    
+
     @EnvironmentObject var cleaning: CleaningDataStore
     
     @Binding var index: Int
@@ -32,7 +32,8 @@ struct CleaningCategoryProgress: View {
             ForEach(filteredCleaning) {category in
                 ZStack {
                     CircularProgress(cleaning: category)
-                    CleaningButtonView(cleaning: category, index: $index, isCleaning: $isCleaning, complateText: $complateText, progress: category.currentPercent)
+                    CleaningButtonView(
+                        cleaning: category,isCleaning: $isCleaning,  complateText: $complateText, progress: category.currentPercent)
                 }
             }
         }

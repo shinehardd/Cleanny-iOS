@@ -26,7 +26,20 @@ struct RecordView: View {
     var body: some View {
         VStack{
             Spacer()
-            ChartView(index: $index)
+            switch index {
+            case 0:
+               ChartPage1()
+            case 1:
+                ChartPage2()
+            case 2:
+                ChartPage3()
+            case 3:
+                ChartPage4()
+            case 4:
+                ChartPage5()
+            default:
+                ChartPage6()
+            }
             Spacer()
             
             LazyVGrid(columns: columns) {
