@@ -11,21 +11,16 @@ import SwiftUI
 class Month: Identifiable, ObservableObject {
     
     let id: UUID
-    @Published var name: String
-    @Published var arr: Array<(String,Double)> = [("",0),("",0),("",0),("",0),("",0),("",0)]
-    var calendar = Calendar.current
-    var date = Date()
-    var currentMonth: Int {calendar.component(.month, from: date)}
-    var temp: Int = 0
+    let index: Int
     
-    init(name: String) {
+    @Published var name: String
+    @Published var arr: Array<(String,Double)> = [("1",0),("2",0),("3",0),("4",0),("5",0),("6",0),("7",0),("8",0),("9",0),("10",0),("11",0),("12",0)]
+  
+    
+    init(index: Int, name: String) {
         id = UUID()
+        self.index = index
         self.name = name
-        for i in 0...5{
-            temp = (currentMonth-i)
-            if(temp < 1) {temp += 12}
-            arr[5-i] = ("\(temp)",1)
-        }
-        
+     
     }
 }

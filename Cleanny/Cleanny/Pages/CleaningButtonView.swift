@@ -25,7 +25,7 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-   
+    @EnvironmentObject var monthData: MonthDataStore
     @ObservedObject var cleaning: Cleaning
     
     @GestureState var tap = false
@@ -58,6 +58,7 @@ struct CleaningButtonView: View {
                         }
                         .onEnded { _ in
                             HapticManager.instance.notification(type: .success)
+                            monthData.addCnt(month: monthData.list[cleaning.index])
                             withAnimation {
                                 complateText = cleaning.name + " 완료 ✅"
                                 cleaning.currentPercent = 100
