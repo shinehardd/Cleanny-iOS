@@ -9,13 +9,20 @@ import SwiftUI
 
 struct CharacterView: View {
     
+    @EnvironmentObject var userData: UserDataStore
+    @EnvironmentObject var cleaning: CleaningDataStore
+    
+    @Binding var index: Int
+    @Binding var isCleaning: Bool
+    
+    @State private var isUpdatingView: Bool = true
     @State private var complateText = ""
     @State private var showModal = false
     
-    let charcterArr = ["Cry", "Laugh", "Heit", "Love"]
+    let screenHeight = UIScreen.main.bounds.size.height
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             Color("MBackground").ignoresSafeArea()
             VStack {
                 HStack {
@@ -30,25 +37,29 @@ struct CharacterView: View {
                         SettingModalView(showModal: $showModal)
                     }
                 }
-                Spacer()
                 
-                Text("\(complateText)")
-                    .padding(.bottom)
+                ZStack {
+                    LottieView(name: isCleaning ? "Cleaning" : cleaning.charcterArr[index])
+                    Text("\(complateText)")
+                        .offset(y: -screenHeight/5)
+                }
+                .frame(maxHeight: screenHeight/2.5)
                 
-                LottieView(charcterArr.randomElement()!)
+                CleaningCategoryProgress(index: $index, isCleaning: $isCleaning, complateText: $complateText)
                 
-                Spacer()
-                
-                CleaningCategoryProgress(complateText: $complateText)
-                Spacer(minLength:  150)
+                Spacer(minLength: screenHeight/6)
             }
+        }
+        .onChange(of: userData.totalPercentage) { newValue in
+            isUpdatingView.toggle()
         }
     }
 }
 
 struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterView()
+        CharacterView(index: .constant(0), isCleaning: .constant(true))
             .environmentObject(CleaningDataStore())
+            .environmentObject(UserDataStore())
     }
 }

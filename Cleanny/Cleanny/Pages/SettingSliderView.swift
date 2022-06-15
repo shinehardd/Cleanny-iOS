@@ -23,5 +23,6 @@ struct SettingSliderView: View {
 struct SettingSliderView_Previews: PreviewProvider {
     static var previews: some View {
         SettingSliderView()
+            .environmentObject(CleaningDataStore())
     }
 }

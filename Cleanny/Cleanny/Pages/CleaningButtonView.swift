@@ -25,10 +25,13 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-    
+    @EnvironmentObject var monthData: MonthDataStore
     @ObservedObject var cleaning: Cleaning
-    @Binding var complateText: String
+    
     @GestureState var tap = false
+
+    @Binding var isCleaning: Bool
+    @Binding var complateText: String
     
     let progress: Double
     
@@ -37,28 +40,34 @@ struct CleaningButtonView: View {
             Circle()
                 .foregroundColor(.white)
                 .frame(width: 60, height: 60)
-                .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
+                .shadow(color: Color("SBlue").opacity(0.3), radius: 4, x: 1, y: 1)
                 .scaleEffect(tap ? 1.1 : 1)
                 .overlay(
                     Image(cleaning.imageName)
                         .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
+            
                 .gesture(
-                    LongPressGesture(minimumDuration: 2).updating($tap) { currentState, gestureState, transaction in
-                        gestureState = currentState
-                        
-                    }
+                    LongPressGesture(minimumDuration: 1.5)
+                        .updating($tap) { currentState, gestureState, transaction in
+                            gestureState = currentState
+                        }
+                        .onChanged { _ in
+                            HapticManager.instance.impact(style: .heavy)
+                            isCleaning = true
+                        }
                         .onEnded { _ in
-                            HapticManager.instance.notification(type: .warning)
+                            HapticManager.instance.notification(type: .success)
+                            monthData.addCnt(month: monthData.list[cleaning.index])
                             withAnimation {
                                 complateText = cleaning.name + " 완료 ✅"
                                 cleaning.currentPercent = 100
                             }
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 withAnimation {
                                     complateText = ""
-
+                                    isCleaning = false
                                 }
                                 
                             }
@@ -67,10 +76,10 @@ struct CleaningButtonView: View {
         }
     }
 }
-//
+
 //struct CleaningButtonView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0), complateText: .constant("분리수거 완료 ✅"))
+//        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0, currentPercent: 3.0), complateText: .constant("분리수거 완료 ✅"), progress: 3.0)
 //            .previewLayout(.sizeThatFits)
 //    }
 //}

@@ -7,30 +7,47 @@
 
 import SwiftUI
 
+
 struct RecordView: View {
-    let arrays : [[String]]=[["DisposeTrash","Laundary","ToiletCleaning"],
-                             ["FloorCleaning","DishWashing","TidyUp"]]
+    
+    @EnvironmentObject var cleaning: CleaningDataStore
+    
+    @State var index: Int = 0
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
+    //    let arrays : [[String]]=[["DisposeTrash","Laundary","ToiletCleaning"],
+    //                             ["FloorCleaning","DishWashing","TidyUp"]]
     
     var body: some View {
         VStack{
             Spacer()
-            ChartView()
-            Spacer()
-            ForEach(arrays,id:\.self){
-                cleanings in
-                HStack (spacing: 30){
-                    ForEach(cleanings,id:\.self){ temp in
-                        Button(action:{}){
-                            Circle()
-                                .foregroundColor(.white)
-                                .frame(width: 85, height: 85)
-                                .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
-                                .overlay(Image(temp).foregroundColor(Color("MBlue")))
-                        }
-                    }
-                }
-                Spacer()
+            switch index {
+            case 0:
+               ChartPage1()
+            case 1:
+                ChartPage2()
+            case 2:
+                ChartPage3()
+            case 3:
+                ChartPage4()
+            case 4:
+                ChartPage5()
+            default:
+                ChartPage6()
             }
+            Spacer()
+            
+            LazyVGrid(columns: columns) {
+                ForEach(cleaning.list) {category in
+                    RecordButton(cleaning: category, index: $index)
+                }
+            }
+            .padding(.horizontal)
             Spacer(minLength: 120)
             
         }.background(Color("MBackground"))
@@ -40,5 +57,7 @@ struct RecordView: View {
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
         RecordView()
+            .environmentObject(CleaningDataStore())
+            .environmentObject(MonthDataStore())
     }
 }
