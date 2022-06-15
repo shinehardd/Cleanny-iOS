@@ -22,20 +22,8 @@ struct RecordView: View {
     var body: some View {
         VStack{
             Spacer()
-            switch index {
-            case 0:
-                ChartPage1()
-            case 1:
-                ChartPage2()
-            case 2:
-                ChartPage3()
-            case 3:
-                ChartPage4()
-            case 4:
-                ChartPage5()
-            default:
-                ChartPage6()
-            }
+            
+            CharBarView(idx: index)
             
             Spacer()
             
@@ -45,8 +33,8 @@ struct RecordView: View {
                 }
             }
             .padding(.horizontal)
-            Spacer(minLength: 120)
             
+            Spacer(minLength: 120)
         }
         .background(Color("MBackground"))
     }
