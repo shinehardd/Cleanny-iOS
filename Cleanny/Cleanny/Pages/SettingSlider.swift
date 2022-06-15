@@ -37,6 +37,6 @@ struct SettingSlider: View {
 
 struct SettingSlider_Previews: PreviewProvider {
     static var previews: some View {
-        SettingSlider(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0,currentPercent: 3.0))
+        SettingSlider(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0,currentPercent: 3.0, index: 0))
     }
 }
