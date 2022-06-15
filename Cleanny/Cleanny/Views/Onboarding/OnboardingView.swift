@@ -17,7 +17,7 @@ struct OnboardingView: View {
                 HStack {
                     Spacer()
                     Button("건너뛰기") { selection = 10 }
-                    .foregroundColor(Color("MBlue"))
+                        .foregroundColor(Color("MBlue"))
                 }
                 .padding(.horizontal)
                 .frame(height: 40.0)
@@ -34,7 +34,6 @@ struct OnboardingView: View {
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         }
-        
     }
 }
 //
