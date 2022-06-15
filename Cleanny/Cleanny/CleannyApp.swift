@@ -21,7 +21,6 @@ struct CleannyApp: App {
                 .environmentObject(userData)
                 .environmentObject(MonthData)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-
         }
     }
 }
