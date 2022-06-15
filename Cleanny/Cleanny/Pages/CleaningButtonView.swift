@@ -25,12 +25,11 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-    @Binding var isCleaning: Bool
+   
     @ObservedObject var cleaning: Cleaning
     
     @GestureState var tap = false
-    
-    @Binding var index: Int
+
     @Binding var isCleaning: Bool
     @Binding var complateText: String
     
