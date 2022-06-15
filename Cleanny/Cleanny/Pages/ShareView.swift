@@ -126,8 +126,8 @@ struct ProgressBar: View {
 
 struct ShareView_Previews: PreviewProvider {
     static var previews: some View {
-        //        ShareView()
-        CardView(name: "주주", percentage: 0.5)
+        ShareView()
+        CardView(name: "주주", percentage: 0.8)
         ProgressView()
     }
 }

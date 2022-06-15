@@ -25,11 +25,14 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-    @Binding var isCleaning: Bool
-    @Binding var index: Int
+    
     @ObservedObject var cleaning: Cleaning
-    @Binding var complateText: String
+    
     @GestureState var tap = false
+    
+    @Binding var index: Int
+    @Binding var isCleaning: Bool
+    @Binding var complateText: String
     
     let progress: Double
     
@@ -44,7 +47,7 @@ struct CleaningButtonView: View {
                     Image(cleaning.imageName)
                         .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
-
+            
                 .gesture(
                     
                     LongPressGesture(minimumDuration: 2).updating($tap) { currentState, gestureState, transaction in
