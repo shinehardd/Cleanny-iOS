@@ -86,7 +86,6 @@ struct ContentView: View {
         .onReceive(timer) { time in
             for index in 0...5 {
                 cleaning.list[index].percentCalculator()
-                
             }
             self.index = userData.update(cleaning: cleaning)
             print(userData.totalPercentage)

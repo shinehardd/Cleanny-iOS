@@ -13,6 +13,7 @@ struct ShareView: View {
     @EnvironmentObject private var vm: CloudkitUserViewModel
     @EnvironmentObject var myData: UserDataStore
     @State private var isSharing = false
+    @State private var isProcessingShare = false
     @State private var activeShare: CKShare?
     @State private var activeContainer: CKContainer?
     
@@ -21,7 +22,9 @@ struct ShareView: View {
     @State private var me: CloudkitUser?
     
     @State private var showAlert: Bool = false
-    @State private var isProcessingShare = false
+    
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let onAdd: ((String, Double) async throws -> Void)?
     
@@ -50,11 +53,11 @@ struct ShareView: View {
                                 .onTapGesture {
                                     alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
                                         myData.name = text
-                                        vm.updateUser(user: me!, name: text, totalPercentage: myData.totalPercentage)
-                                                                } secondaryAction: {
-                                                                    
-                                                                }
-                                                            }
+                                        me!.name = text
+                                        let _ = print(me!.name)
+                                        vm.updateUser(user: me!, name: myData.name, totalPercentage: myData.totalPercentage)
+                                        } secondaryAction: {}
+                                        }
                             ForEach(friends, id: \.self) {
                                 friend in
                                 CardView(name: friend, percentage: percentageDic[friend]!)
@@ -73,7 +76,7 @@ struct ShareView: View {
                         Text("공유").font(.headline)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { Task { try await loadFriends()
+                        Button(action: { Task { let _ = print(me!.name)
                             try? await shareUser(me!) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
                             .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
                             .sheet(isPresented: $isSharing, content: { shareView() })
@@ -84,9 +87,17 @@ struct ShareView: View {
         .onAppear {
             Task {
                 try await vm.initialize()
-                try await vm.addUser(name: myData.name, totalPercentage: myData.totalPercentage)
+                if me == nil {
+                    print("망함")
+                    try await vm.addUser(name: myData.name, totalPercentage: myData.totalPercentage)
+                }
                 try await vm.refresh()
                 try await loadFriends()
+            }
+        }
+        .onReceive(timer) { time in
+            if me != nil {
+                me!.totalPercentage = myData.totalPercentage
             }
         }
     }
@@ -96,7 +107,7 @@ struct ShareView: View {
         switch vm.state {
 
         case let .loaded(me, friends):
-            self.me = me[0]
+            self.me = me.last!
 
             friends.forEach({ friend in
                 self.friends.append(friend.name)

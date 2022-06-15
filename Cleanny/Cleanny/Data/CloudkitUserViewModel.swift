@@ -73,8 +73,8 @@ final class CloudkitUserViewModel: ObservableObject {
         userRecord["totalPercentage"] = totalPercentage
         
         database.save(userRecord) { [weak self] returnedRecord, returnedError in
-            print("Record: \(returnedRecord)")
-            print("Error: \(returnedError)")
+            print("Record: \(String(describing: returnedRecord))")
+            print("Error: \(String(describing: returnedError))")
         }
     }
     
