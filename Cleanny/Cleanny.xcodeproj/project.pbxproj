@@ -10,6 +10,7 @@
 		341F6571285A1FD600CAC44A /* Launch.gif in Resources */ = {isa = PBXBuildFile; fileRef = 341F656E285A1FD600CAC44A /* Launch.gif */; };
 		341F6572285A1FD600CAC44A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F656F285A1FD600CAC44A /* LaunchView.swift */; };
 		341F6573285A1FD600CAC44A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341F6570285A1FD600CAC44A /* Launch Screen.storyboard */; };
+		341F6576285A214300CAC44A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 341F6575285A214300CAC44A /* SDWebImageSwiftUI */; };
 		344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */; };
 		3446010228562E1600B2E740 /* CleaningCategoryProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3446010128562E1600B2E740 /* CleaningCategoryProgress.swift */; };
 		34662BA52854FFEE0088A4B2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 34662BA42854FFEE0088A4B2 /* Lottie */; };
@@ -118,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				739488EA285713360088DE1E /* CloudKit.framework in Frameworks */,
+				341F6576285A214300CAC44A /* SDWebImageSwiftUI in Frameworks */,
 				9A93370C2852B64100F7C587 /* SwiftUICharts in Frameworks */,
 				9A3934722850B33200393B19 /* AxisTabView in Frameworks */,
 				9A39346F28508CEB00393B19 /* AxisTabView in Frameworks */,
@@ -324,6 +326,7 @@
 				9A3934712850B33200393B19 /* AxisTabView */,
 				9A93370B2852B64100F7C587 /* SwiftUICharts */,
 				34662BA42854FFEE0088A4B2 /* Lottie */,
+				341F6575285A214300CAC44A /* SDWebImageSwiftUI */,
 			);
 			productName = Cleanny;
 			productReference = 9A3934562850892800393B19 /* Cleanny.app */;
@@ -358,6 +361,7 @@
 				9A3934702850B33200393B19 /* XCRemoteSwiftPackageReference "AxisTabView" */,
 				9A93370A2852B64100F7C587 /* XCRemoteSwiftPackageReference "ChartView" */,
 				34662BA32854FFEE0088A4B2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				341F6574285A214300CAC44A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 9A3934572850892800393B19 /* Products */;
 			projectDirPath = "";
@@ -635,6 +639,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		341F6574285A214300CAC44A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		34662BA32854FFEE0088A4B2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -670,6 +682,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		341F6575285A214300CAC44A /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 341F6574285A214300CAC44A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		34662BA42854FFEE0088A4B2 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 34662BA32854FFEE0088A4B2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
