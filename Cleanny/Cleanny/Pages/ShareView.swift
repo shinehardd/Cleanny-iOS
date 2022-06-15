@@ -18,8 +18,12 @@ struct ShareView: View {
     
     @State private var friends: [String] = []
     @State private var percentageDic: [String:Double] = [:]
+    @State private var me: CloudkitUser?
     
     @State private var showAlert: Bool = false
+    @State private var isProcessingShare = false
+    
+    let onAdd: ((String, Double) async throws -> Void)?
     
     let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -68,11 +72,13 @@ struct ShareView: View {
                         Text("공유").font(.headline)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: { Task { try? await shareUser(me ?? makeFirstData()) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
+                            .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
+                            .sheet(isPresented: $isSharing, content: { shareView() })
                         Button {
                             // 친구 추가 모달 or 알림
                         } label: {
-                            Image(uiImage: UIImage(named: "AddFriend")!)
-                                .foregroundColor(Color("MBlue"))
+                            
                         }
                     }
                 }
@@ -87,10 +93,21 @@ struct ShareView: View {
         }
     }
     
+    private func makeFirstData() -> CloudkitUser {
+        try? await onAdd?(myData.name, myData.totalPercentage)
+        loadFriends()
+        return self.me!
+    }
+    
+    private func changeMyData() {
+        
+    }
+    
     private func loadFriends() {
         switch vm.state {
 
-        case let .loaded(_, friends):
+        case let .loaded(me, friends):
+            self.me = me[0]
             friends.forEach({ friend in
                 self.friends.append(friend.name)
                 self.percentageDic[friend.name] = friend.totalPercentage
@@ -102,6 +119,28 @@ struct ShareView: View {
         case .loading:
             return
         }
+    }
+    
+    private func shareUser(_ user: CloudkitUser) async throws {
+        isProcessingShare = true
+
+        do {
+            let (share, container) = try await vm.fetchOrCreateShare(user: user)
+            isProcessingShare = false
+            activeShare = share
+            activeContainer = container
+            isSharing = true
+        } catch {
+            debugPrint("Error sharing contact record: \(error)")
+        }
+    }
+    
+    private func shareView() -> CloudkitShareView? {
+        guard let share = activeShare, let container = activeContainer else {
+            return nil
+        }
+
+        return CloudkitShareView(container: container, share: share)
     }
     
 }
@@ -210,10 +249,3 @@ struct ProgressBar: View {
     }
 }
 
-struct ShareView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShareView()
-        CardView(name: "주주", percentage: 0.8)
-        ProgressView()
-    }
-}
