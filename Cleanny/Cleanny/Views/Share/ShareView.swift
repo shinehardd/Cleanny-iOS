@@ -15,18 +15,9 @@ struct ShareView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
         animation: .default)
-    private var user: FetchedResults<User>
-    private var coreDataStack = CoreDataStack()
-    @State var me: User = User()
+    var user: FetchedResults<User>
+    var coreDataStack = CoreDataStack()
     
-//    init?() {
-//        if user.isEmpty {
-//            addNewUser()
-//            print(user.count)
-//        }
-//        self.me = user.first!
-//    }
-//
     @State private var isSharing = false
     @State private var isProcessingShare = false
     @State private var activeShare: CKShare?
@@ -55,16 +46,18 @@ struct ShareView: View {
                                    spacing: nil,
                                    pinnedViews: [],
                                    content: {
-                            CardView(name: me.name!, percentage: me.totalPercentage)
-                                .aspectRatio(10/13, contentMode: .fit)
-                                .padding(.horizontal)
-                                .padding(.top)
-                                .onTapGesture {
-                                    alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
-                                        user[0].name = text
-                                        coreDataStack.save()
-                                    } secondaryAction: {}
-                                }
+                            if (!UserDefaults.standard.bool(forKey: "notDoneSetting")) {
+                                CardView(name: user[0].name!, percentage: user[0].totalPercentage)
+                                    .aspectRatio(10/13, contentMode: .fit)
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                                    .onTapGesture {
+                                        alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
+                                            user[0].name = text
+                                            coreDataStack.save()
+                                        } secondaryAction: {}
+                                    }
+                            }
 //                            ForEach(friends, id: \.self) {
 //                                friend in
 //                                CardView(name: friend, percentage: percentageDic[friend]!)
@@ -83,7 +76,7 @@ struct ShareView: View {
                         Text("공유").font(.headline)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { Task { try? await shareUser(me) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
+                        Button(action: { Task { if(!UserDefaults.standard.bool(forKey: "notDoneSetting")) { try? await shareUser(user[0]) }} }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
                                 .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
                             .sheet(isPresented: $isSharing, content: { shareView() })
                     }
@@ -91,11 +84,6 @@ struct ShareView: View {
             }
         }
         .onAppear {
-            if user.isEmpty { addNewUser()
-                print(user.count)
-                //self.me = user.first!
-            }
-           
             Task {
 //                try await vm.initialize()
 //                try await vm.refresh()
@@ -112,21 +100,6 @@ struct ShareView: View {
 //        }
 //    }
     
-    private func addNewUser() {
-        
-        let newUser = User(context: viewContext)
-        newUser.name = "이름을 설정해주세요"
-        newUser.totalPercentage = 99.9
-        newUser.denomirator = 1
-        newUser.numerator = 1
-
-       do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-    }
     
     private func loadFriends() async throws {
 

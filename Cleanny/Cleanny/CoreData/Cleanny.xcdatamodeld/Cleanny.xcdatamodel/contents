@@ -24,7 +24,7 @@
     </configuration>
     <elements>
         <element name="Clean" positionX="-27" positionY="54" width="128" height="149"/>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="User" positionX="-45" positionY="9" width="128" height="89"/>
+        <element name="Item" positionX="-36" positionY="81" width="128" height="44"/>
     </elements>
 </model>
