@@ -12,16 +12,7 @@ struct LastOnboardingView: View {
     
     var body: some View {
         VStack {
-            Text("온보딩 테스트 페이지")
-            Button {
-                firstLaunching.toggle()
-            } label: {
-                Text("시작하기")
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 50)
-                    .background(Color("MBlue"))
-                    .cornerRadius(10)
-            }
+            Text("온보딩 마지막 페이지")
         }
     }
 }

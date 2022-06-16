@@ -12,31 +12,63 @@ struct OnboardingView: View {
     @State private var selection = 0
     
     var body: some View {
-        VStack {
-            if selection<10 {
-                HStack {
-                    Spacer()
-                    Button("건너뛰기") {
-                        selection = 10
+        ZStack {
+            Color("MBackground").ignoresSafeArea()
+            VStack {
+                //온보딩 건너뛰기 버튼
+                if selection<2 {
+                    HStack {
+                        Spacer()
+                        //MARK: UI error
+                        //건너뛰기 버튼 천천히 사라지는 문제 해결해야 함
+                        Button {
+                            withAnimation(.easeIn(duration: 1)){
+                                selection = 2
+                            }
+                        } label: {
+                            Text("건너뛰기")
+                                .animation(nil)
+                        }
+                        
+                        .foregroundColor(Color("MBlue"))
                     }
-                    .foregroundColor(Color("MBlue"))
+                    .padding(.horizontal)
+                    .frame(height: 40.0)
+                } else {
+                    Spacer()
+                        .frame(height: 50.0)
                 }
-                .padding(.horizontal)
-                .frame(height: 40.0)
-            } else {
-                Spacer()
-                    .frame(height: 50.0)
+                
+                //온보딩 컨텐츠 페이지
+                TabView(selection: $selection) {
+                    ForEach(0..<3) { tagNum in
+                        FirstOnboradingView(firstLaunching: $firstLaunching, number: tagNum + 1) .tag(tagNum)
+                    }
+                }
+                .transition(.slide)
+                .tabViewStyle(PageTabViewStyle())
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                
+                //다음, 시작하기 버튼
+                Button {
+                    withAnimation(.easeIn(duration: 1)){
+                        if selection == 2 {
+                            firstLaunching.toggle()
+                        } else {
+                            selection += 1
+                        }
+                    }
+                } label: {
+                    Text(selection == 2 ? "시작하기" : "다음")
+                        .foregroundColor(.white)
+                        .frame(width: 300, height: 50)
+                        .background(Color("MBlue"))
+                        .cornerRadius(10)
+                        //value 추가해야될듯 합니다
+                        .animation(nil)
+                }
             }
-            TabView(selection: $selection) {
-                FirstOnboradingView(number:1, firstLaunching: $firstLaunching) .tag(0)
-                FirstOnboradingView(number:2, firstLaunching: $firstLaunching) .tag(1)
-//                FirstOnboradingView(number:3, firstLaunching: $firstLaunching) .tag(2)
-                LastOnboardingView(firstLaunching: $firstLaunching) .tag(10)
-            }
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         }
-        
     }
 }
 //

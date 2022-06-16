@@ -92,6 +92,7 @@ struct ContentView: View {
             print(userData.totalPercentage)
             isUpdatingView.toggle()
         }
+        //MARK: Onboarding
         .fullScreenCover(isPresented: $firstLaunching) {
            OnboardingView(firstLaunching: $firstLaunching)
         }
