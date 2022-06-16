@@ -57,8 +57,10 @@ struct RecordView: View {
     }
 }
 }
-//struct RecordView_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//    }
-//}
+struct RecordView_Previews: PreviewProvider {
+    static var previews: some View {
+        RecordView()
+                     .environmentObject(CleaningDataStore())
+                     .environmentObject(MonthDataStore())
+    }
+}
