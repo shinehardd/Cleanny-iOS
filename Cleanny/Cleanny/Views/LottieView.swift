@@ -32,5 +32,6 @@ struct LottieView: UIViewRepresentable {
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = loopMode
         animationView.play()
+        animationView.backgroundBehavior = .pauseAndRestore
     }
 }
