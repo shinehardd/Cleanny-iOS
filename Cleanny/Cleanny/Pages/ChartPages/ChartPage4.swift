@@ -15,9 +15,8 @@ struct ChartPage4: View {
 
     var body: some View {
 
-
-        BarChartView(data: ChartData(values: MonthData.getChartData(index: 3)), title: MonthData.listKo[3].name )
-
+        BarChartView(data: ChartData(values:  MonthData.getMonthArr(month: MonthData.list[3])), title: MonthData.listKo[3].name )
+           
             .padding()
     }
 }
