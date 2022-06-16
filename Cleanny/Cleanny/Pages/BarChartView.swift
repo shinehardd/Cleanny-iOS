@@ -100,8 +100,10 @@ public struct BarChartCell : View {
     public var body: some View {
         VStack{
             ZStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(LinearGradient(gradient: gradient?.getGradient() ?? GradientColor(start: accentColor, end: accentColor).getGradient(), startPoint: .bottom, endPoint: .top))
+                
+                RoundedCorner(radius: 50, corners:[.topRight,.topLeft,.bottomLeft,.bottomRight])
+                    
+                   .fill(LinearGradient(gradient: gradient?.getGradient() ?? GradientColor(start: accentColor, end: accentColor).getGradient(), startPoint: .bottom, endPoint: .top))
             }
             .frame(width: CGFloat(self.cellWidth))
             .scaleEffect(CGSize(width: 1, height: self.scaleValue), anchor: .bottom)
@@ -114,6 +116,7 @@ public struct BarChartCell : View {
         .animation(.spring().delay(self.touchLocation < 0 ?  Double(self.index) * 0.04 : 0), value: scaleValue)
     }
 }
+
 
 class HapticFeedback {
 #if os(watchOS)

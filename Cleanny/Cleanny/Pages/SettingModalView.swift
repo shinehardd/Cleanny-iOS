@@ -12,7 +12,8 @@ struct SettingModalView: View {
     @EnvironmentObject var cleaning: CleaningDataStore
     
     @Binding var showModal: Bool
-    
+
+    var checkUpdate: Bool = true
     var body: some View {
         ZStack {
             Color("MBackground").ignoresSafeArea()
@@ -49,6 +50,7 @@ struct SettingModalView: View {
                 .padding()
             }
         }
+        
     }
 }
 
