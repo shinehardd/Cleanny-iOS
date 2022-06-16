@@ -51,7 +51,7 @@ struct RecordView: View {
 
             Spacer(minLength: 120)
         }.background(Color("MBackground"))
-                .navigationTitle(Text("월별 통계"))
+                .navigationTitle(Text("월별 통계").foregroundColor(Color("MBlack")))
                 .navigationBarTitleDisplayMode(.inline)
                 
     }
