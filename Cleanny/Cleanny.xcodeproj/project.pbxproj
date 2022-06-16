@@ -11,6 +11,8 @@
 		341F6572285A1FD600CAC44A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F656F285A1FD600CAC44A /* LaunchView.swift */; };
 		341F6573285A1FD600CAC44A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341F6570285A1FD600CAC44A /* Launch Screen.storyboard */; };
 		341F6576285A214300CAC44A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 341F6575285A214300CAC44A /* SDWebImageSwiftUI */; };
+		341F657E285B85EE00CAC44A /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F657D285B85EE00CAC44A /* LastOnboardingView.swift */; };
+		341F6580285B860900CAC44A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F657F285B860900CAC44A /* CoreDataStack.swift */; };
 		344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */; };
 		3446010228562E1600B2E740 /* CleaningCategoryProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3446010128562E1600B2E740 /* CleaningCategoryProgress.swift */; };
 		34662BA52854FFEE0088A4B2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 34662BA42854FFEE0088A4B2 /* Lottie */; };
@@ -71,6 +73,8 @@
 		341F656E285A1FD600CAC44A /* Launch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Launch.gif; sourceTree = "<group>"; };
 		341F656F285A1FD600CAC44A /* LaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		341F6570285A1FD600CAC44A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		341F657D285B85EE00CAC44A /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
+		341F657F285B860900CAC44A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningDataStore.swift; sourceTree = "<group>"; };
 		3446010128562E1600B2E740 /* CleaningCategoryProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryProgress.swift; sourceTree = "<group>"; };
 		34662BA9285509380088A4B2 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				9A7145D528532B3200AD9B45 /* Cleaning.swift */,
 				344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */,
 				9AE62C272853349700FEDB9C /* _User.swift */,
+				341F657F285B860900CAC44A /* CoreDataStack.swift */,
 				735198F62858548A0017A098 /* CloudkitUser.swift */,
 				735198F82858555C0017A098 /* CloudkitUserViewModel.swift */,
 				9A961109285746E60028C7C8 /* UserDataStore.swift */,
@@ -273,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				A3F850E22859FB590069B805 /* FirstOnboradingView.swift */,
+				341F657D285B85EE00CAC44A /* LastOnboardingView.swift */,
 				A3F850E02859FB590069B805 /* OnboardingView.swift */,
 				73E56B55285B84E6001333B2 /* LastOnboardingView.swift */,
 			);
@@ -449,10 +455,11 @@
 				A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */,
 				A36369EC2854703800B7B645 /* SettingCard.swift in Sources */,
 				A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */,
-				9A93370E2852B67600F7C587 /* ChartView.swift in Sources */,
 				9AE62C282853349700FEDB9C /* _User.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
+				341F657E285B85EE00CAC44A /* LastOnboardingView.swift in Sources */,
+				341F6580285B860900CAC44A /* CoreDataStack.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,
