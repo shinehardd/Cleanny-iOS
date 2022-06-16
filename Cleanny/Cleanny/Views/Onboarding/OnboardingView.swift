@@ -9,21 +9,24 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Binding var firstLaunching: Bool
+    
     @State private var selection = 0
+    //페이지 개수 설정
+    let numberOfPage:Int = 4
     
     var body: some View {
         ZStack {
             Color("MBackground").ignoresSafeArea()
             VStack {
                 //온보딩 건너뛰기 버튼
-                if selection<2 {
+                if selection<(numberOfPage-1) {
                     HStack {
                         Spacer()
                         //MARK: UI error
                         //건너뛰기 버튼 천천히 사라지는 문제 해결해야 함
                         Button {
                             withAnimation(.easeIn(duration: 1)){
-                                selection = 2
+                                selection = (numberOfPage-1)
                             }
                         } label: {
                             Text("건너뛰기")
@@ -33,7 +36,7 @@ struct OnboardingView: View {
                         .foregroundColor(Color("MBlue"))
                     }
                     .padding(.horizontal)
-                    .frame(height: 40.0)
+                    .frame(height: 42.0)
                 } else {
                     Spacer()
                         .frame(height: 50.0)
@@ -41,7 +44,7 @@ struct OnboardingView: View {
                 
                 //온보딩 컨텐츠 페이지
                 TabView(selection: $selection) {
-                    ForEach(0..<3) { tagNum in
+                    ForEach(0..<numberOfPage) { tagNum in
                         FirstOnboradingView(firstLaunching: $firstLaunching, number: tagNum + 1) .tag(tagNum)
                     }
                 }
@@ -52,21 +55,23 @@ struct OnboardingView: View {
                 //다음, 시작하기 버튼
                 Button {
                     withAnimation(.easeIn(duration: 1)){
-                        if selection == 2 {
+                        if selection == (numberOfPage-1) {
                             firstLaunching.toggle()
                         } else {
                             selection += 1
                         }
                     }
                 } label: {
-                    Text(selection == 2 ? "시작하기" : "다음")
+                    Text(selection == (numberOfPage-1) ? "시작하기" : "다음")
+                        .font(.title3)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.semibold/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.white)
-                        .frame(width: 300, height: 50)
+                        .frame(width: UIScreen.main.bounds.width-60, height: 60)
                         .background(Color("MBlue"))
                         .cornerRadius(10)
-                        //value 추가해야될듯 합니다
                         .animation(nil, value: selection)
                 }
+                .padding(.bottom)
             }
         }
     }
