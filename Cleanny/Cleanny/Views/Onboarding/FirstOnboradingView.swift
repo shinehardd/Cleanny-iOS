@@ -16,7 +16,7 @@ struct FirstOnboradingView: View {
         //온보딩 컨텐츠
         VStack {
             Spacer()
-            Text("온보딩\(number)번 페이지")
+            Text("온보딩 \(number)번 페이지")
             Spacer()
             //인디케이터용 스페이서
             Spacer()
