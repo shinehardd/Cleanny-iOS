@@ -20,6 +20,7 @@ struct CleannyApp: App {
                 .environmentObject(cleaning)
                 .environmentObject(userData)
                 .environmentObject(MonthData)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

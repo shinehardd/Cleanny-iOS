@@ -25,7 +25,8 @@ class HapticManager {
 
 struct CleaningButtonView: View {
     @EnvironmentObject var monthData: MonthDataStore
-    @ObservedObject var cleaning: Cleaning
+    //    @ObservedObject var cleaning: Cleaning
+    @ObservedObject var cleaning: Clean
     
     @GestureState var tap = false
     
@@ -42,7 +43,7 @@ struct CleaningButtonView: View {
                 .shadow(color: Color("SBlue").opacity(0.3), radius: 4, x: 1, y: 1)
                 .scaleEffect(tap ? 1.1 : 1)
                 .overlay(
-                    Image(cleaning.imageName)
+                    Image(cleaning.imageName ?? "")
                         .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
                 .onTapGesture {
@@ -56,19 +57,13 @@ struct CleaningButtonView: View {
                                      
                     .onEnded{ _ in
                         HapticManager.instance.notification(type: .success)
-                        monthData.addCnt(month: monthData.list[cleaning.index])
+                        monthData.addCnt(month: monthData.list[Int(cleaning.index)])
                         withAnimation {
-                            complateText = cleaning.name + " 완료 ✅"
+                            complateText = cleaning.name ?? "" + " 완료 ✅"
                             cleaning.currentPercent = 100
                         }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            withAnimation {
-                                complateText = ""
-                                isCleaning = false
-                            }
-                        }
-                    })
+                    }
+                )
         }
     }
 }
