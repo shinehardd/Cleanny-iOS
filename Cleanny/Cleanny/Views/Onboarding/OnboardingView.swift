@@ -65,7 +65,7 @@ struct OnboardingView: View {
                         .background(Color("MBlue"))
                         .cornerRadius(10)
                         //value 추가해야될듯 합니다
-                        .animation(nil)
+                        .animation(nil, value: selection)
                 }
             }
         }
