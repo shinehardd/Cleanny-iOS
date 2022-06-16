@@ -45,31 +45,30 @@ struct CleaningButtonView: View {
                     Image(cleaning.imageName)
                         .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
                 )
-                .gesture(
-                    LongPressGesture(minimumDuration: 1.5)
-                        .updating($tap) { currentState, gestureState, transaction in
-                            gestureState = currentState
+                .onTapGesture {
+                    isCleaning = false
+                }
+                .simultaneousGesture(LongPressGesture(minimumDuration: 1.5)
+                    .onChanged { _ in
+                        HapticManager.instance.impact(style: .heavy)
+                        isCleaning = true
+                    }
+                                     
+                    .onEnded{ _ in
+                        HapticManager.instance.notification(type: .success)
+                        monthData.addCnt(month: monthData.list[cleaning.index])
+                        withAnimation {
+                            complateText = cleaning.name + " 완료 ✅"
+                            cleaning.currentPercent = 100
                         }
-                        .onChanged { _ in
-                            HapticManager.instance.impact(style: .heavy)
-                            isCleaning = true
-                        }
-                        .onEnded { _ in
-                            HapticManager.instance.notification(type: .success)
-                            monthData.addCnt(month: monthData.list[cleaning.index])
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                             withAnimation {
-                                complateText = cleaning.name + " 완료 ✅"
-                                cleaning.currentPercent = 100
-                            }
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                withAnimation {
-                                    complateText = ""
-                                    isCleaning = false
-                                }
+                                complateText = ""
+                                isCleaning = false
                             }
                         }
-                )
+                    })
         }
     }
 }
