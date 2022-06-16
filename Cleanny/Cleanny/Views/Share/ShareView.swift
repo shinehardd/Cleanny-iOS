@@ -21,13 +21,14 @@ struct ShareView: View {
     @State private var percentageDic: [String:Double] = [:]
     @State private var me: CloudkitUser?
     @State private var showAlert: Bool = false
+    @State var isEditMode: Bool = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let onAdd: ((String, Double) async throws -> Void)?
     
     let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: -15),
+        GridItem(.flexible(), spacing: -15)
     ]
     
     var body: some View {
@@ -48,20 +49,31 @@ struct ShareView: View {
                                 .aspectRatio(10/13, contentMode: .fit)
                                 .padding(.horizontal)
                                 .padding(.top)
-                                .onTapGesture {
-                                    alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
-                                        myData.name = text
-                                        me!.name = text
-                                        let _ = print(me!.name)
-                                        vm.updateUser(user: me!, name: myData.name, totalPercentage: myData.totalPercentage)
-                                    } secondaryAction: {}
-                                }
+                            
                             ForEach(friends, id: \.self) {
                                 friend in
                                 CardView(name: friend, percentage: percentageDic[friend]!)
                                     .aspectRatio(10/13, contentMode: .fit)
                                     .padding(.horizontal)
                                     .padding(.top)
+                                    .overlay(alignment: .topLeading) {
+                                        Button(action: {
+                                            print("delete")
+                                        }, label: {
+                                            Image(systemName: "minus.circle.fill")
+                                                .resizable()
+                                                .frame(width: 24, height: 24)
+                                                .foregroundColor(.red)
+                                        })
+                                        .opacity(isEditMode ? 1 : 0)
+                                        .padding()
+                                        .offset(x: 8, y: 8)
+                                    }
+                                    .rotationEffect(.degrees(isEditMode ? 2.5 : 0))
+                                    .animation(.easeInOut(duration: isEditMode ? 0.25 : 0).repeatForever(autoreverses: isEditMode), value: isEditMode)
+                                    .onLongPressGesture(minimumDuration: 1.5, maximumDistance: 50.0) {
+                                        isEditMode = true
+                                    }
                             }
                         })
                         Spacer(minLength: 50)
@@ -74,10 +86,20 @@ struct ShareView: View {
                         Text("공유").font(.headline)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { Task { let _ = print(me!.name)
-                            try? await shareUser(me!) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
-                                .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
-                            .sheet(isPresented: $isSharing, content: { shareView() })
+                        if isEditMode == true {
+                            Button(action: {
+                                isEditMode.toggle()
+                            }, label: {
+                                Text("완료")
+                                    .foregroundColor(Color("SBlue"))
+                                    .bold()
+                            })
+                        } else {
+                            Button(action: { Task { let _ = print(me!.name)
+                                try? await shareUser(me!) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
+                                    .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
+                                .sheet(isPresented: $isSharing, content: { shareView() })
+                        }
                     }
                 }
             }
@@ -239,3 +261,8 @@ struct ProgressBar: View {
     }
 }
 
+struct ShareView_Previews: PreviewProvider {
+    static var previews: some View {
+        CardView(name: "주주", percentage: 0.8)
+    }
+}
