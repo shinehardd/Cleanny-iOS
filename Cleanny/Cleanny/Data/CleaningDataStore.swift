@@ -5,7 +5,7 @@
 //  Created by Jung Yunseong on 2022/06/12.
 //
 
-import Foundation
+import SwiftUI
 
 class CleaningDataStore: ObservableObject {
     
@@ -25,11 +25,9 @@ class CleaningDataStore: ObservableObject {
     }
     
     func update(cleaning: Cleaning?) {
-        guard let cleaning = cleaning else {
-            return
-        }
+        guard let cleaning = cleaning else { return }
         
-        cleaning.decreaseRate =  1/(cleaning.cycle*864)
+        cleaning.decreaseRate =  1 / (cleaning.cycle * 864)
         
     }
 }

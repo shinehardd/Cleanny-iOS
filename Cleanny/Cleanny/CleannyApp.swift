@@ -16,11 +16,10 @@ struct CleannyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchView()
                 .environmentObject(cleaning)
                 .environmentObject(userData)
                 .environmentObject(MonthData)
-               // .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

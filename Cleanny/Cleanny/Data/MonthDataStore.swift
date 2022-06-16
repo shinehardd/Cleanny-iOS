@@ -38,16 +38,11 @@ class MonthDataStore: ObservableObject {
     }
     
     func addCnt(month: Month) {
-        //        guard let cleaning = cleaning else {
-        //            return
-        //        }
         self.calendar = Calendar.current
         self.date = Date()
         self.currentMonth = Int(calendar.component(.month, from: date))
-       
+        
         temp = self.currentMonth - 1
         list[month.index].arr[temp].1 += 1
-      
-        
     }
 }
