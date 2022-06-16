@@ -32,8 +32,8 @@
 		73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73680F902859AEE00093BA62 /* SceneDelegate.swift */; };
 		736A696E28532131001D0D44 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736A696D28532131001D0D44 /* ShareView.swift */; };
 		739488EA285713360088DE1E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739488E9285713360088DE1E /* CloudKit.framework */; };
-		73E56B50285B7A73001333B2 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E56B4F285B7A73001333B2 /* LastOnboardingView.swift */; };
-		73E56B52285B7B1A001333B2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E56B51285B7B1A001333B2 /* CoreDataStack.swift */; };
+		73E56B54285B84BC001333B2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E56B53285B84BC001333B2 /* CoreDataStack.swift */; };
+		73E56B56285B84E6001333B2 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E56B55285B84E6001333B2 /* LastOnboardingView.swift */; };
 		9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EB0F328521B62003BD148 /* CircularProgressView.swift */; };
 		9A39345A2850892800393B19 /* CleannyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934592850892800393B19 /* CleannyApp.swift */; };
 		9A39345C2850892800393B19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A39345B2850892800393B19 /* ContentView.swift */; };
@@ -93,8 +93,8 @@
 		736A696D28532131001D0D44 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		739488E8285713240088DE1E /* Cleanny.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cleanny.entitlements; sourceTree = "<group>"; };
 		739488E9285713360088DE1E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		73E56B4F285B7A73001333B2 /* LastOnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastOnboardingView.swift; path = "../../../../../../Downloads/MC2-Team15-Cleanny-feature-CoreDataInitial/Cleanny/Cleanny/Views/Onboarding/LastOnboardingView.swift"; sourceTree = "<group>"; };
-		73E56B51285B7B1A001333B2 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = "../../../../../Downloads/MC2-Team15-Cleanny-feature-CoreDataInitial/Cleanny/Cleanny/Data/CoreDataStack.swift"; sourceTree = "<group>"; };
+		73E56B53285B84BC001333B2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		73E56B55285B84E6001333B2 /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
 		9A0EB0F328521B62003BD148 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		9A3934562850892800393B19 /* Cleanny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleanny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3934592850892800393B19 /* CleannyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleannyApp.swift; sourceTree = "<group>"; };
@@ -252,12 +252,12 @@
 				9A7145D528532B3200AD9B45 /* Cleaning.swift */,
 				344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */,
 				9AE62C272853349700FEDB9C /* _User.swift */,
-				73E56B51285B7B1A001333B2 /* CoreDataStack.swift */,
 				735198F62858548A0017A098 /* CloudkitUser.swift */,
 				735198F82858555C0017A098 /* CloudkitUserViewModel.swift */,
 				9A961109285746E60028C7C8 /* UserDataStore.swift */,
 				9AF3F484285863C200A7590D /* Month.swift */,
 				9AF3F4862858645400A7590D /* MonthDataStore.swift */,
+				73E56B53285B84BC001333B2 /* CoreDataStack.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -284,9 +284,9 @@
 		A35CB4D6285A1B8E0090D7AF /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				73E56B4F285B7A73001333B2 /* LastOnboardingView.swift */,
 				A3F850E22859FB590069B805 /* FirstOnboradingView.swift */,
 				A3F850E02859FB590069B805 /* OnboardingView.swift */,
+				73E56B55285B84E6001333B2 /* LastOnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -434,7 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */,
-				73E56B52285B7B1A001333B2 /* CoreDataStack.swift in Sources */,
+				73E56B54285B84BC001333B2 /* CoreDataStack.swift in Sources */,
 				A3B74A86285AF49E00ED420D /* ChartPage3.swift in Sources */,
 				735198FF2858625E0017A098 /* CreateUserView.swift in Sources */,
 				9A890C582855F4A00013248D /* BarChartView.swift in Sources */,
@@ -448,7 +448,6 @@
 				9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */,
 				9AF3F485285863C200A7590D /* Month.swift in Sources */,
 				9A3934632850892A00393B19 /* Persistence.swift in Sources */,
-				73E56B50285B7A73001333B2 /* LastOnboardingView.swift in Sources */,
 				9A39345C2850892800393B19 /* ContentView.swift in Sources */,
 				A3B74A87285AF49E00ED420D /* ChartPage1.swift in Sources */,
 				34662BAA285509380088A4B2 /* LottieView.swift in Sources */,
@@ -475,6 +474,7 @@
 				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
 				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
+				73E56B56285B84E6001333B2 /* LastOnboardingView.swift in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
 				73680F8F2859AEDC0093BA62 /* AppDelegate.swift in Sources */,
 				A3B74A85285AF49E00ED420D /* ChartPage4.swift in Sources */,
