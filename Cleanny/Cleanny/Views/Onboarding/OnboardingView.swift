@@ -71,6 +71,7 @@ struct OnboardingView: View {
                         .cornerRadius(10)
                         .animation(nil, value: selection)
                 }
+                .padding(.bottom)
             }
         }
     }
