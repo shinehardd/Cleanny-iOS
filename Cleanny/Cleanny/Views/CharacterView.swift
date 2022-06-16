@@ -9,20 +9,17 @@ import SwiftUI
 
 struct CharacterView: View {
     
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
-//        animation: .default)
-//    private var users: FetchedResults<User>
-//    
-    // TODO: 코어데이터 추가 연결
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
+        animation: .default)
+    private var users: FetchedResults<User>
+    
 //    @FetchRequest(
 //        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
 //        animation: .default)
 //    private var cleans: FetchedResults<Clean>
     
 //    @EnvironmentObject var userData: UserDataStore
-    
-    // 이거 나중에 주석처리 예정
     @EnvironmentObject var cleaning: CleaningDataStore
     
     @Binding var index: Int
@@ -63,9 +60,9 @@ struct CharacterView: View {
                 Spacer(minLength: screenHeight / 6)
             }
         }
-//        .onChange(of: users[0].totalPercentage) { newValue in
-//            isUpdatingView.toggle()
-//        }
+        .onChange(of: users[0].totalPercentage) { newValue in
+            isUpdatingView.toggle()
+        }
 //        .onChange(of: userData.totalPercentage) { newValue in
 //            isUpdatingView.toggle()
 //        }
