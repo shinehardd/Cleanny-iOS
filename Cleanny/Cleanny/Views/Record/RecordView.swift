@@ -10,7 +10,12 @@ import SwiftUI
 
 struct RecordView: View {
     
-    @EnvironmentObject var cleaning: CleaningDataStore
+//    @EnvironmentObject var cleaning: CleaningDataStore
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
+        animation: .default)
+    private var cleans: FetchedResults<Clean>
+    
     @State var index: Int = 0
     
     let columns = [
@@ -28,7 +33,10 @@ struct RecordView: View {
             Spacer()
             
             LazyVGrid(columns: columns) {
-                ForEach(cleaning.list) {category in
+//                ForEach(cleaning.list) {category in
+//                    RecordButton(cleaning: category, index: $index)
+//                }
+                ForEach(cleans) {category in
                     RecordButton(cleaning: category, index: $index)
                 }
             }

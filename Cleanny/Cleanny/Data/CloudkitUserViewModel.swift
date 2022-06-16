@@ -154,7 +154,9 @@ final class CloudkitUserViewModel: ObservableObject {
         UserDefaults.standard.setValue(true, forKey: "isZoneCreated")
     }
 }
-
+/*
 enum Config {
     static let containerIdentifier = "iCloud.testCloud.juju"
 }
+
+*/

@@ -23,8 +23,8 @@
         <memberEntity name="User"/>
     </configuration>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="User" positionX="-45" positionY="9" width="128" height="89"/>
         <element name="Clean" positionX="-27" positionY="54" width="128" height="149"/>
+        <element name="Item" positionX="196.84375" positionY="-29.93359375" width="128" height="44"/>
+        <element name="User" positionX="-23.7109375" positionY="-56.65234375" width="128" height="89"/>
     </elements>
 </model>

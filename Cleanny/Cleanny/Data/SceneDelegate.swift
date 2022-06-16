@@ -6,7 +6,7 @@
 import UIKit
 import SwiftUI
 import CloudKit
-
+/*
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -56,3 +56,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         container.add(operation)
     }
 }
+*/

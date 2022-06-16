@@ -64,3 +64,10 @@
  
  
  */
+//
+//import CloudKit
+//
+//
+//extension User {
+//    @NSManaged public var associatedRecord: CKRecord
+//}

@@ -9,14 +9,16 @@ import SwiftUI
 
 struct RecordButton: View {
     
-    @ObservedObject var cleaning: Cleaning
+//    @ObservedObject var cleaning: Cleaning
+    @ObservedObject var cleaning: Clean
+    
     @Binding var index: Int
     
     var body: some View {
         Button(action: {
-            index = cleaning.index
+            index = Int(cleaning.index)
         }) {
-            Image(cleaning.imageName)
+            Image(cleaning.imageName ?? "")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(Color("MBlue"))

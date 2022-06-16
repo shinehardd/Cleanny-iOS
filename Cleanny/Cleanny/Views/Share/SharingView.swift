@@ -1,35 +1,35 @@
 //
-//  ShareView.swift
+//  SharingView.swift
 //  Cleanny
 //
-//  Created by 이채민 on 2022/06/10.
+//  Created by Jeon Jimin on 2022/06/16.
 //
 
 import SwiftUI
 import CloudKit
 
-/*
-struct ShareView: View {
+struct SharingView: View {
     
-    @EnvironmentObject private var vm: CloudkitUserViewModel
-    @EnvironmentObject var myData: UserDataStore
+    let sharingZone = CKRecordZone(zoneName: "com.apple.coredata.cloudkit.zone")
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
+        animation: .default)
+    private var users: FetchedResults<User>
     
     @State private var isSharing = false
     @State private var isProcessingShare = false
     @State private var activeShare: CKShare?
     @State private var activeContainer: CKContainer?
-    @State private var friends: [String] = []
-    @State private var percentageDic: [String:Double] = [:]
-    @State private var me: CloudkitUser?
-    @State private var showAlert: Bool = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    let onAdd: ((String, Double) async throws -> Void)?
-    
     let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+    
     
     var body: some View {
         NavigationView {
@@ -45,21 +45,21 @@ struct ShareView: View {
                                    spacing: nil,
                                    pinnedViews: [],
                                    content: {
-                            CardView(name: myData.name, percentage: myData.totalPercentage)
+                            CardView(name: users[0].name ?? "", percentage: users[0].totalPercentage)
                                 .aspectRatio(10/13, contentMode: .fit)
                                 .padding(.horizontal)
                                 .padding(.top)
                                 .onTapGesture {
                                     alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
-                                        myData.name = text
-                                        me!.name = text
-                                        let _ = print(me!.name)
-                                        vm.updateUser(user: me!, name: myData.name, totalPercentage: myData.totalPercentage)
+                                        users[0].name = text
+//                                        me!.name = text
+//                                        let _ = print(me!.name)
+                                        updateUser()
                                     } secondaryAction: {}
                                 }
-                            ForEach(friends, id: \.self) {
+                            ForEach(users, id: \.self) {
                                 friend in
-                                CardView(name: friend, percentage: percentageDic[friend]!)
+                                CardView(name: friend.name ?? "", percentage: friend.totalPercentage)
                                     .aspectRatio(10/13, contentMode: .fit)
                                     .padding(.horizontal)
                                     .padding(.top)
@@ -75,32 +75,24 @@ struct ShareView: View {
                         Text("공유").font(.headline)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { Task { let _ = print(me!.name)
-                            try? await shareUser(me!) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
-                                .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
-                            .sheet(isPresented: $isSharing, content: { shareView() })
+                        Button(action: {
+                            Task { /*let _ = print(me!.name);t */ try? await shareUser(users[0]) }
+                        }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
+                                    .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
+                            .sheet(isPresented: $isSharing, content: { shareView(user: users[0]) })
                     }
                 }
             }
         }
         .onAppear {
-            Task {
-                try await vm.initialize()
-                if me == nil {
-                    print("망함")
-                    try await vm.addUser(name: myData.name, totalPercentage: myData.totalPercentage)
-                }
-                try await vm.refresh()
-                try await loadFriends()
-            }
         }
         .onReceive(timer) { time in
-            if me != nil {
-                me!.totalPercentage = myData.totalPercentage
-            }
+//            if users[0] != nil {
+//                users[0].totalPercentage = myData.totalPercentage
+//            }
         }
     }
-    
+    /*
     private func loadFriends() async throws {
         switch vm.state {
         case let .loaded(me, friends):
@@ -116,14 +108,29 @@ struct ShareView: View {
             return
         }
     }
+     */
     
-    private func shareUser(_ user: CloudkitUser) async throws {
+    func fetchOrCreateShare(user: User) async throws -> (CKShare, CKContainer) {
+        lazy var container = CKContainer(identifier: Config.containerIdentifier)
+//        lazy var container = CKContainer.default().privateCloudDatabase
+        lazy var privateDatabase = container.privateCloudDatabase
+        
+        let id = CKRecord.ID(zoneID: sharingZone.zoneID)
+        let share = CKShare(rootRecord: CKRecord(recordType: "CD_User", recordID: id), shareID:id )
+//        let share = CKShare(recordType: "User", recordID: id)
+        
+        share[CKShare.SystemFieldKey.title] = "User: \(user.name ?? "" )"
+        let userRecord = CKRecord(recordType: "CD_User", recordID: id)
+//        _ = try await privateDatabase.modifyRecords(saving: [userRecord], deleting: []) //왜 modifyRecords를 불러오는거지? 이거 실행하면 CD_User 추가됨
+        
+        
+        return (share, container)
+    }
+    
+    private func shareUser(_ user: User) async throws {
         isProcessingShare = true
-        
-        try await vm.refresh()
-        
         do {
-            let (share, container) = try await vm.fetchOrCreateShare(user: user)
+            let (share, container) = try await fetchOrCreateShare(user: user)
             isProcessingShare = false
             activeShare = share
             activeContainer = container
@@ -133,10 +140,19 @@ struct ShareView: View {
         }
     }
     
-    private func shareView() -> CloudkitShareView? {
+    private func shareView(user: User) -> CloudkitShareView? {
         guard let share = activeShare, let container = activeContainer else { return nil }
         
-        return CloudkitShareView(container: container, share: share)
+        return CloudkitShareView(share: share, container: container, User: user)
+    
+    }
+    
+    func updateUser() {
+        do {
+            try viewContext.save()
+        }catch{
+            viewContext.rollback()
+        }
     }
 }
 
@@ -170,42 +186,9 @@ extension View {
     }
 }
 
-struct CardView: View {
-    var name: String
-    var percentage: Double
-    
-    var body: some View {
-        ZStack() {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(.white)
-                .shadow(color: Color("ShadowBlue"), radius: 2, x: 0, y: 2)
-            
-            VStack {
-                ZStack(alignment: .center) {
-                    Circle()
-                        .fill(Color(percentage > 0.25 ? "MBlue" : "MRed").opacity(0.1))
-                    Circle()
-                        .fill(Color(percentage > 0.25 ? "MBlue" : "MRed").opacity(0.1))
-                        .padding()
-                    Circle()
-                        .fill(Color(percentage > 0.25 ? "MBlue" : "MRed").opacity(0.1))
-                        .padding()
-                        .padding()
-                    
-                    Image("Heit")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(minWidth:100, maxWidth: 150)
-                }
-                .padding(.top)
-                
-                Text(name)
-                    .bold()
-                
-                ProgressBar(percentage: percentage)
-                    .padding([.bottom, .trailing, .leading])
-            }
-        }
+struct SharingView_Previews: PreviewProvider {
+    static var previews: some View {
+        SharingView()
     }
 }
 
@@ -239,4 +222,8 @@ struct ProgressBar: View {
         .frame(height: 10)
     }
 }
-*/
+
+enum Config {
+    static let containerIdentifier = "iCloud.com.Loudy.Cleanny.elie"
+}
+

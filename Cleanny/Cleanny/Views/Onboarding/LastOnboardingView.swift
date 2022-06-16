@@ -81,6 +81,7 @@ class GetCloudName: ObservableObject {
 
 struct LastOnboardingView: View {
     
+    let sharingZone = CKRecordZone(zoneName: "iCloud.com.Loudy.Cleanny.elie")
     @Binding var firstLaunching: Bool
     
     @StateObject private var vm = GetCloudName()
@@ -156,7 +157,8 @@ struct LastOnboardingView: View {
             newUser.totalPercentage = 99.9
             newUser.denomirator = 1
             newUser.numerator = 1
-
+//            let id = CKRecord.ID(zoneID: sharingZone.zoneID)
+//            newUser.associatedRecord = CKRecord(recordType: "User", recordID: id)
             do {
                 try viewContext.save()
             } catch {

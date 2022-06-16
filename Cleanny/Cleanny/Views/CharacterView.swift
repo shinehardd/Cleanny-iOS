@@ -19,7 +19,7 @@ struct CharacterView: View {
 //        animation: .default)
 //    private var cleans: FetchedResults<Clean>
     
-//    @EnvironmentObject var userData: UserDataStore
+    @EnvironmentObject var userData: UserDataStore
     @EnvironmentObject var cleaning: CleaningDataStore
     
     @Binding var index: Int
@@ -32,6 +32,7 @@ struct CharacterView: View {
     let screenHeight = UIScreen.main.bounds.size.height
     
     var body: some View {
+        
         ZStack(alignment: .top) {
             Color("MBackground").ignoresSafeArea()
             VStack {
@@ -60,11 +61,11 @@ struct CharacterView: View {
                 Spacer(minLength: screenHeight / 6)
             }
         }
-        .onChange(of: users[0].totalPercentage) { newValue in
-            isUpdatingView.toggle()
-        }
-//        .onChange(of: userData.totalPercentage) { newValue in
+//        .onChange(of: users[0].totalPercentage) { newValue in
 //            isUpdatingView.toggle()
 //        }
+        .onChange(of: userData.totalPercentage) { newValue in
+            isUpdatingView.toggle()
+        }
     }
 }

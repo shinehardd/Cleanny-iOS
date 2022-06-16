@@ -14,8 +14,13 @@ struct CloudkitShareView: UIViewControllerRepresentable {
 
     @Environment(\.presentationMode) var presentationMode
     
-    let container: CKContainer
     let share: CKShare
+    let container: CKContainer
+    let User: User
+
+    func makeCoordinator() -> CloudkitShareView.Coordinator {
+        Coordinator()
+    }
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 
@@ -27,9 +32,7 @@ struct CloudkitShareView: UIViewControllerRepresentable {
         return sharingController
     }
 
-    func makeCoordinator() -> CloudkitShareView.Coordinator {
-        Coordinator()
-    }
+    
 
     final class Coordinator: NSObject, UICloudSharingControllerDelegate {
         func cloudSharingController(_ csc: UICloudSharingController, failedToSaveShareWithError error: Error) {

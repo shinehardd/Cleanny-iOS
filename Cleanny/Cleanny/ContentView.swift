@@ -121,8 +121,9 @@ struct ContentView: View {
                 case 1:
                     RecordView()
                 case 2 :
-                    ShareView(onAdd: empty)
-                        .environmentObject(CloudkitUserViewModel())
+//                    ShareView(onAdd: empty)
+//                        .environmentObject(CloudkitUserViewModel())
+                    SharingView()
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
                 }

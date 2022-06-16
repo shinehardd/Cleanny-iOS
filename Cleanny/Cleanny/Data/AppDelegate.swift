@@ -7,6 +7,7 @@ import UIKit
 import CoreData
 
 //@main
+/*
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         true
@@ -38,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return container
     }
     */
+    /*
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "User")
         
@@ -73,4 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return container
     }()
+     */
 }
+*/
