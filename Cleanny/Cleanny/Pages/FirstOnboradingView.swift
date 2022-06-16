@@ -9,9 +9,9 @@ import SwiftUI
 
 struct FirstOnboradingView: View {
     @Binding var firstLaunching: Bool
-
+    
     var number = 1
-        
+    
     var body: some View {
         //온보딩 컨텐츠
         VStack {
@@ -24,3 +24,9 @@ struct FirstOnboradingView: View {
         }
     }
 }
+
+//struct FirstOnboradingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FirstOnboradingView()
+//    }
+//}

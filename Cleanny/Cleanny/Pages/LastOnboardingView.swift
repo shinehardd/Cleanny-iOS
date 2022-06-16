@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LastOnboardingView: View {
-    
     @Binding var firstLaunching: Bool
     
     var body: some View {
@@ -17,3 +16,9 @@ struct LastOnboardingView: View {
         }
     }
 }
+//
+//struct LastOnboardingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LastOnboardingView()
+//    }
+//}

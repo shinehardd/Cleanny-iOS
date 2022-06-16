@@ -89,6 +89,7 @@ struct ContentView: View {
             self.index = userData.update(cleaning: cleaning)
             isUpdatingView.toggle()
         }
+        //MARK: Onboarding
         .fullScreenCover(isPresented: $firstLaunching) {
             OnboardingView(firstLaunching: $firstLaunching)
         }
