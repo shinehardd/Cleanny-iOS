@@ -45,4 +45,16 @@ class MonthDataStore: ObservableObject {
         temp = self.currentMonth - 1
         list[month.index].arr[temp].1 += 1
     }
+    func getChartData(index: Int)->Array<(String,Double)>{
+        self.calendar = Calendar.current
+        self.date = Date()
+        self.currentMonth = Int(calendar.component(.month, from: date))
+        
+        var chartData:Array<(String,Double)>{
+            self.list[index].arr.filter(){
+                month in Int(month.0)! <= self.currentMonth
+            }
+        }
+        return chartData
+    }
 }

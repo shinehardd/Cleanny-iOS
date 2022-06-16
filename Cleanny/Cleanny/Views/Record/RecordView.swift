@@ -20,6 +20,7 @@ struct RecordView: View {
     ]
     
     var body: some View {
+        NavigationView{
         VStack{
             Spacer()
             
@@ -50,6 +51,10 @@ struct RecordView: View {
             
             Spacer(minLength: 120)
         }
-        .background(Color("MBackground"))
+            .background(Color("MBackground"))
+            .navigationTitle(Text("월별 통계"))
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        
     }
 }
