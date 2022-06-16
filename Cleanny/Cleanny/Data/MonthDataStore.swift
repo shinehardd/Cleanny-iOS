@@ -49,12 +49,20 @@ class MonthDataStore: ObservableObject {
         self.calendar = Calendar.current
         self.date = Date()
         self.currentMonth = Int(calendar.component(.month, from: date))
+        var chartData:Array<(String,Double)> = []
+        var tempMonth = 0
+        var i:Int = 5
         
-        var chartData:Array<(String,Double)>{
-            self.list[index].arr.filter(){
-                month in Int(month.0)! <= self.currentMonth
+        while i >= 0 {
+            tempMonth = (currentMonth - 1)
+            tempMonth -= i
+            i -= 1
+            if(tempMonth < 0){
+                tempMonth += 12
             }
+            chartData.append(list[index].arr[tempMonth])
         }
+      
         return chartData
     }
   
