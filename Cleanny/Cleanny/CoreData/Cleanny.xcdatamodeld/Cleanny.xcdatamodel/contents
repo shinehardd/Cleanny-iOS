@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Clean" representedClassName="Clean" syncable="YES" codeGenerationType="class">
         <attribute name="activated" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="currentPercent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -23,8 +23,8 @@
         <memberEntity name="User"/>
     </configuration>
     <elements>
+        <element name="Clean" positionX="-27" positionY="54" width="128" height="149"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="User" positionX="-45" positionY="9" width="128" height="89"/>
-        <element name="Clean" positionX="-27" positionY="54" width="128" height="149"/>
     </elements>
 </model>

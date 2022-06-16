@@ -10,20 +10,30 @@ import CloudKit
 
 struct ShareView: View {
     
-    @EnvironmentObject private var vm: CloudkitUserViewModel
-    @EnvironmentObject var myData: UserDataStore
+    @Environment(\.managedObjectContext) private var viewContext
     
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
+        animation: .default)
+    private var user: FetchedResults<User>
+    private var coreDataStack = CoreDataStack()
+    @State var me: User = User()
+    
+//    init?() {
+//        if user.isEmpty {
+//            addNewUser()
+//            print(user.count)
+//        }
+//        self.me = user.first!
+//    }
+//
     @State private var isSharing = false
     @State private var isProcessingShare = false
     @State private var activeShare: CKShare?
     @State private var activeContainer: CKContainer?
-    @State private var friends: [String] = []
-    @State private var percentageDic: [String:Double] = [:]
-    @State private var me: CloudkitUser?
     @State private var showAlert: Bool = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    let onAdd: ((String, Double) async throws -> Void)?
     
     let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -31,6 +41,7 @@ struct ShareView: View {
     ]
     
     var body: some View {
+        
         NavigationView {
             ZStack {
                 Color("MBackground")
@@ -44,25 +55,23 @@ struct ShareView: View {
                                    spacing: nil,
                                    pinnedViews: [],
                                    content: {
-                            CardView(name: myData.name, percentage: myData.totalPercentage)
+                            CardView(name: me.name!, percentage: me.totalPercentage)
                                 .aspectRatio(10/13, contentMode: .fit)
                                 .padding(.horizontal)
                                 .padding(.top)
                                 .onTapGesture {
                                     alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
-                                        myData.name = text
-                                        me!.name = text
-                                        let _ = print(me!.name)
-                                        vm.updateUser(user: me!, name: myData.name, totalPercentage: myData.totalPercentage)
+                                        user[0].name = text
+                                        coreDataStack.save()
                                     } secondaryAction: {}
                                 }
-                            ForEach(friends, id: \.self) {
-                                friend in
-                                CardView(name: friend, percentage: percentageDic[friend]!)
-                                    .aspectRatio(10/13, contentMode: .fit)
-                                    .padding(.horizontal)
-                                    .padding(.top)
-                            }
+//                            ForEach(friends, id: \.self) {
+//                                friend in
+//                                CardView(name: friend, percentage: percentageDic[friend]!)
+//                                    .aspectRatio(10/13, contentMode: .fit)
+//                                    .padding(.horizontal)
+//                                    .padding(.top)
+//                            }
                         })
                         Spacer(minLength: 50)
                     }
@@ -74,8 +83,7 @@ struct ShareView: View {
                         Text("공유").font(.headline)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { Task { let _ = print(me!.name)
-                            try? await shareUser(me!) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
+                        Button(action: { Task { try? await shareUser(me) } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
                                 .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
                             .sheet(isPresented: $isSharing, content: { shareView() })
                     }
@@ -83,54 +91,58 @@ struct ShareView: View {
             }
         }
         .onAppear {
+            if user.isEmpty { addNewUser()
+                print(user.count)
+                //self.me = user.first!
+            }
+           
             Task {
-                try await vm.initialize()
-                if me == nil {
-                    print("망함")
-                    try await vm.addUser(name: myData.name, totalPercentage: myData.totalPercentage)
-                }
-                try await vm.refresh()
-                try await loadFriends()
+//                try await vm.initialize()
+//                try await vm.refresh()
+//                try await loadFriends()
             }
         }
-        .onReceive(timer) { time in
-            if me != nil {
-                me!.totalPercentage = myData.totalPercentage
-            }
+    }
+    
+//    private func updateUser() {
+//        do {
+//            try viewContext.save()
+//        } catch  {
+//            viewContext.rollback()
+//        }
+//    }
+    
+    private func addNewUser() {
+        
+        let newUser = User(context: viewContext)
+        newUser.name = "이름을 설정해주세요"
+        newUser.totalPercentage = 99.9
+        newUser.denomirator = 1
+        newUser.numerator = 1
+
+       do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
     
     private func loadFriends() async throws {
-        switch vm.state {
-        case let .loaded(me, friends):
-            self.me = me.last!
-            
-            friends.forEach({ friend in
-                self.friends.append(friend.name)
-                self.percentageDic[friend.name] = friend.totalPercentage
-            })
-        case .error(_):
-            return
-        case .loading:
-            return
-        }
+
     }
     
-    private func shareUser(_ user: CloudkitUser) async throws {
+    private func shareUser(_ user: User) async throws {
         isProcessingShare = true
-        
-        try await vm.refresh()
-        
-        do {
-            let (share, container) = try await vm.fetchOrCreateShare(user: user)
-            isProcessingShare = false
-            activeShare = share
-            activeContainer = container
-            isSharing = true
-        } catch {
-            debugPrint("Error sharing contact record: \(error)")
-        }
+        coreDataStack.save()
+        let container = CoreDataStack.shared.ckContainer
+        let share = coreDataStack.getShare(user)
+        isProcessingShare = false
+        activeShare = share
+        activeContainer = container
+        isSharing = true
     }
+    
     
     private func shareView() -> CloudkitShareView? {
         guard let share = activeShare, let container = activeContainer else { return nil }
