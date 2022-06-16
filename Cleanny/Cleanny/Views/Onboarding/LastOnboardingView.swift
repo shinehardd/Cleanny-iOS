@@ -105,7 +105,7 @@ struct LastOnboardingView: View {
             Text("NAME: \(vm.userName)")
             
             Button {
-//                addUser(userName: vm.userName)
+                addUser(userName: vm.userName)
                 addBasicClean()
             } label: {
                 Text("등록하기")
