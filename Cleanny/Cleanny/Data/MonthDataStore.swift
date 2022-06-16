@@ -57,4 +57,5 @@ class MonthDataStore: ObservableObject {
         }
         return chartData
     }
+  
 }

@@ -15,8 +15,8 @@ struct ChartPage1: View {
 
     var body: some View {
 
+
         BarChartView(data: ChartData(values: MonthData.getChartData(index: 0)), title: MonthData.listKo[0].name )
-           
             .padding()
     }
 }

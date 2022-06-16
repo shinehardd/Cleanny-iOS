@@ -17,7 +17,8 @@ struct ChartPage3: View {
 //    var arr: Array<(String,Double)> { MonthData.list[index].arr.filter{ Int($0.0)! < 7}}
     var body: some View {
 
-        BarChartView(data: ChartData(values: MonthData.getChartData(index: 2)), title: MonthData.listKo[2].name )
+        BarChartView(data: ChartData(values: MonthData.getMonthArr(month: MonthData.list[2])), title: MonthData.listKo[2].name  )
+           
             .padding()
     }
 }

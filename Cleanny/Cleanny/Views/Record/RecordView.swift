@@ -48,13 +48,20 @@ struct RecordView: View {
                 }
             }
             .padding(.horizontal)
-            
+
             Spacer(minLength: 120)
-        }
-            .background(Color("MBackground"))
-            .navigationTitle(Text("월별 통계"))
-            .navigationBarTitleDisplayMode(.inline)
-        }
-        
+        }.background(Color("MBackground"))
+                .navigationTitle(Text("월별 통계"))
+                .navigationBarTitleDisplayMode(.inline)
+                
+    }
+}
+}
+struct RecordView_Previews: PreviewProvider {
+    static var previews: some View {
+        RecordView()
+                     .environmentObject(CleaningDataStore())
+                     .environmentObject(MonthDataStore())
+
     }
 }

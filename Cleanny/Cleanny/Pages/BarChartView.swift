@@ -100,10 +100,10 @@ public struct BarChartCell : View {
     public var body: some View {
         VStack{
             ZStack {
-
-                RoundedCorner(radius: 50, corners:[.topLeft,.topRight,.bottomLeft,.bottomRight])
-                    .fill(LinearGradient(gradient: gradient?.getGradient() ?? GradientColor(start: accentColor, end: accentColor).getGradient(), startPoint: .bottom, endPoint: .top))
-
+                
+                RoundedCorner(radius: 50, corners:[.topRight,.topLeft,.bottomLeft,.bottomRight])
+                    
+                   .fill(LinearGradient(gradient: gradient?.getGradient() ?? GradientColor(start: accentColor, end: accentColor).getGradient(), startPoint: .bottom, endPoint: .top))
             }
             .frame(width: CGFloat(self.cellWidth))
             .scaleEffect(CGSize(width: 1, height: self.scaleValue), anchor: .bottom)
