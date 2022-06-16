@@ -54,7 +54,12 @@
 		A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E82854703800B7B645 /* SettingSlider.swift */; };
 		A36369EC2854703800B7B645 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E92854703800B7B645 /* SettingCard.swift */; };
 		A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369EA2854703800B7B645 /* SettingModalView.swift */; };
-		A3BC4CF9285A18B000FCA48F /* ChartBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC4CF8285A18B000FCA48F /* ChartBarView.swift */; };
+		A3B74A83285AF49E00ED420D /* ChartPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A7D285AF49E00ED420D /* ChartPage2.swift */; };
+		A3B74A84285AF49E00ED420D /* ChartPage6.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A7E285AF49E00ED420D /* ChartPage6.swift */; };
+		A3B74A85285AF49E00ED420D /* ChartPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A7F285AF49E00ED420D /* ChartPage4.swift */; };
+		A3B74A86285AF49E00ED420D /* ChartPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A80285AF49E00ED420D /* ChartPage3.swift */; };
+		A3B74A87285AF49E00ED420D /* ChartPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A81285AF49E00ED420D /* ChartPage1.swift */; };
+		A3B74A88285AF49E00ED420D /* ChartPage5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A82285AF49E00ED420D /* ChartPage5.swift */; };
 		A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E02859FB590069B805 /* OnboardingView.swift */; };
 		A3F850E42859FB590069B805 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E12859FB590069B805 /* LastOnboardingView.swift */; };
 		A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E22859FB590069B805 /* FirstOnboradingView.swift */; };
@@ -106,7 +111,12 @@
 		A36369E82854703800B7B645 /* SettingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSlider.swift; sourceTree = "<group>"; };
 		A36369E92854703800B7B645 /* SettingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		A36369EA2854703800B7B645 /* SettingModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModalView.swift; sourceTree = "<group>"; };
-		A3BC4CF8285A18B000FCA48F /* ChartBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBarView.swift; sourceTree = "<group>"; };
+		A3B74A7D285AF49E00ED420D /* ChartPage2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage2.swift; sourceTree = "<group>"; };
+		A3B74A7E285AF49E00ED420D /* ChartPage6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage6.swift; sourceTree = "<group>"; };
+		A3B74A7F285AF49E00ED420D /* ChartPage4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage4.swift; sourceTree = "<group>"; };
+		A3B74A80285AF49E00ED420D /* ChartPage3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage3.swift; sourceTree = "<group>"; };
+		A3B74A81285AF49E00ED420D /* ChartPage1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage1.swift; sourceTree = "<group>"; };
+		A3B74A82285AF49E00ED420D /* ChartPage5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage5.swift; sourceTree = "<group>"; };
 		A3F850E02859FB590069B805 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A3F850E12859FB590069B805 /* LastOnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
 		A3F850E22859FB590069B805 /* FirstOnboradingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstOnboradingView.swift; sourceTree = "<group>"; };
@@ -248,7 +258,6 @@
 		9ABDCC152859FA2700225587 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				A3BC4CF8285A18B000FCA48F /* ChartBarView.swift */,
 				9A93370D2852B67600F7C587 /* ChartView.swift */,
 				9A890C572855F4A00013248D /* BarChartView.swift */,
 			);
@@ -285,6 +294,19 @@
 			path = Share;
 			sourceTree = "<group>";
 		};
+		A3B74A7C285AF49E00ED420D /* ChartPages */ = {
+			isa = PBXGroup;
+			children = (
+				A3B74A7D285AF49E00ED420D /* ChartPage2.swift */,
+				A3B74A7E285AF49E00ED420D /* ChartPage6.swift */,
+				A3B74A7F285AF49E00ED420D /* ChartPage4.swift */,
+				A3B74A80285AF49E00ED420D /* ChartPage3.swift */,
+				A3B74A81285AF49E00ED420D /* ChartPage1.swift */,
+				A3B74A82285AF49E00ED420D /* ChartPage5.swift */,
+			);
+			path = ChartPages;
+			sourceTree = "<group>";
+		};
 		A3BC4CF6285A17D900FCA48F /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +321,7 @@
 		A3BC4CF7285A17ED00FCA48F /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				A3B74A7C285AF49E00ED420D /* ChartPages */,
 				9A3934762850B61700393B19 /* RecordView.swift */,
 				34ABDFE32859A3E300E596FB /* RecordButton.swift */,
 			);
@@ -397,10 +420,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */,
+				A3B74A86285AF49E00ED420D /* ChartPage3.swift in Sources */,
 				735198FF2858625E0017A098 /* CreateUserView.swift in Sources */,
 				9A890C582855F4A00013248D /* BarChartView.swift in Sources */,
-				A3BC4CF9285A18B000FCA48F /* ChartBarView.swift in Sources */,
 				736A696E28532131001D0D44 /* ShareView.swift in Sources */,
+				A3B74A88285AF49E00ED420D /* ChartPage5.swift in Sources */,
 				735198F72858548A0017A098 /* CloudkitUser.swift in Sources */,
 				9A3934772850B61700393B19 /* RecordView.swift in Sources */,
 				A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */,
@@ -410,12 +434,14 @@
 				9AF3F485285863C200A7590D /* Month.swift in Sources */,
 				9A3934632850892A00393B19 /* Persistence.swift in Sources */,
 				9A39345C2850892800393B19 /* ContentView.swift in Sources */,
+				A3B74A87285AF49E00ED420D /* ChartPage1.swift in Sources */,
 				34662BAA285509380088A4B2 /* LottieView.swift in Sources */,
 				EC1985812859B4C1006D5242 /* CloudkitShareView.swift in Sources */,
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
 				A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */,
 				73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */,
 				9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */,
+				A3B74A83285AF49E00ED420D /* ChartPage2.swift in Sources */,
 				A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */,
 				A36369EC2854703800B7B645 /* SettingCard.swift in Sources */,
 				A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */,
@@ -424,6 +450,7 @@
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,
 				9AF3F4872858645400A7590D /* MonthDataStore.swift in Sources */,
+				A3B74A84285AF49E00ED420D /* ChartPage6.swift in Sources */,
 				34ABDFE42859A3E300E596FB /* RecordButton.swift in Sources */,
 				A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */,
 				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
@@ -432,6 +459,7 @@
 				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
 				73680F8F2859AEDC0093BA62 /* AppDelegate.swift in Sources */,
+				A3B74A85285AF49E00ED420D /* ChartPage4.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
