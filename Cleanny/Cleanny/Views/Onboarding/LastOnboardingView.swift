@@ -155,7 +155,7 @@ struct LastOnboardingView: View {
             let newUser = User(context: viewContext)
             newUser.name = userName
             newUser.totalPercentage = 99.9
-            newUser.denomirator = 1
+            newUser.denominator = 1
             newUser.numerator = 1
 
             do {

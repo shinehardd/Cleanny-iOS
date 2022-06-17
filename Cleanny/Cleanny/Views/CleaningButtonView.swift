@@ -24,7 +24,18 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-    @EnvironmentObject var monthData: MonthDataStore
+    
+    @Environment(\.managedObjectContext) private var viewContext
+   
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \MonthHistory.index, ascending: true),NSSortDescriptor(keyPath: \MonthHistory.monthName, ascending: true)
+                          ],
+        
+        animation: .default)
+
+    private var monthData: FetchedResults<MonthHistory>
+    
+   // @EnvironmentObject var monthData: MonthDataStore
     //    @ObservedObject var cleaning: Cleaning
     @ObservedObject var cleaning: Clean
     
@@ -57,13 +68,35 @@ struct CleaningButtonView: View {
                                      
                     .onEnded{ _ in
                         HapticManager.instance.notification(type: .success)
-                        monthData.addCnt(month: monthData.list[Int(cleaning.index)])
+                      //  monthData.addCnt(month: monthData.list[Int(cleaning.index)])
+                        let calendar = Calendar.current
+                        let date = Date()
+                        var currentMonth = Int(calendar.component(.month, from: date))
+                        var temp = currentMonth - 1
+                         
+                        temp = temp + Int(cleaning.index)*12
+                        
+                        monthData[temp].cleaningCount += Int64(1)
+                        
+                        
+                        do {
+                            try viewContext.save()
+                        }catch{
+                            viewContext.rollback()
+                        }
                         withAnimation {
-                            complateText = cleaning.name ?? "" + " 완료 ✅"
+                            let cleanName = cleaning.name ?? ""
+                            complateText = cleanName + " 완료 ✅"
                             cleaning.currentPercent = 100
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            complateText = ""
+                            isCleaning = false
                         }
                     }
                 )
         }
     }
+   
 }

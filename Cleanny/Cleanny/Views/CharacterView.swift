@@ -13,7 +13,10 @@ struct CharacterView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
         animation: .default)
     private var users: FetchedResults<User>
-    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \MonthHistory.index, ascending: true)],
+        animation: .default)
+    private var monthHistoryData: FetchedResults<MonthHistory>
 //    @FetchRequest(
 //        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
 //        animation: .default)
@@ -32,6 +35,8 @@ struct CharacterView: View {
     let screenHeight = UIScreen.main.bounds.size.height
     
     var body: some View {
+        if(monthHistoryData.isEmpty){}
+        else{
         ZStack(alignment: .top) {
             Color("MBackground").ignoresSafeArea()
             VStack {
@@ -59,6 +64,8 @@ struct CharacterView: View {
                 
                 Spacer(minLength: screenHeight / 6)
             }
+        }
+            
         }
 //        .onChange(of: returnTP()) { newValue in
 //            isUpdatingView.toggle()
