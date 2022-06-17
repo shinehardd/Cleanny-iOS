@@ -12,7 +12,8 @@ import AxisTabView
 struct ContentView: View {
     
     @AppStorage("firstLaunching") var firstLaunching: Bool = true
-    
+
+    @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var cleaning: CleaningDataStore
     @EnvironmentObject var userData: UserDataStore
     
@@ -89,7 +90,6 @@ struct ContentView: View {
             self.index = userData.update(cleaning: cleaning)
             isUpdatingView.toggle()
         }
-        //MARK: Onboarding
         .fullScreenCover(isPresented: $firstLaunching) {
             OnboardingView(firstLaunching: $firstLaunching)
         }
@@ -122,8 +122,7 @@ struct ContentView: View {
                 case 1:
                     RecordView()
                 case 2 :
-                    ShareView(onAdd: empty)
-                        .environmentObject(CloudkitUserViewModel())
+                    ShareView().environmentObject(CloudkitUserViewModel())
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
                 }
@@ -178,5 +177,6 @@ struct ContentView: View {
         var body: some View {
             content
         }
+        
     }
 }

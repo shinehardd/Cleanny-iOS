@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 public struct Styles {
     public static let lineChartStyleOne = ChartStyle(
         backgroundColor: Color.white,
@@ -26,14 +25,6 @@ public struct Styles {
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
-    public static let barChartStyleOrangeDark = ChartStyle(
-        backgroundColor: Color.black,
-        accentColor: Color.orange,
-        secondGradientColor: Color.orange,
-        textColor: Color.white,
-        legendTextColor: Color.gray,
-        dropShadowColor: Color.gray)
-    
     public static let barChartStyleNeonBlueLight = ChartStyle(
         backgroundColor: Color.white,
         accentColor: Color.orange,
@@ -42,44 +33,12 @@ public struct Styles {
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
-    public static let barChartStyleNeonBlueDark = ChartStyle(
-        backgroundColor: Color.black,
-        accentColor: Color.orange,
-        secondGradientColor: Color.orange,
-        textColor: Color.white,
-        legendTextColor: Color.gray,
-        dropShadowColor: Color.gray)
-    
-    //    public static let barChartMidnightGreenDark = ChartStyle(
-    //        backgroundColor: Color(hexString: "#36534D"), //3B5147, 313D34
-    //        accentColor: Color(hexString: "#FFD603"),
-    //        secondGradientColor: Color(hexString: "#FFCA04"),
-    //        textColor: Color.white,
-    //        legendTextColor: Color(hexString: "#D2E5E1"),
-    //        dropShadowColor: Color.gray)
-    //
-    //    public static let barChartMidnightGreenLight = ChartStyle(
-    //        backgroundColor: Color.white,
-    //        accentColor: Color(hexString: "#84A094"), //84A094 , 698378
-    //        secondGradientColor: Color(hexString: "#50675D"),
-    //        textColor: Color.black,
-    //        legendTextColor:Color.gray,
-    //        dropShadowColor: Color.gray)
-    
     public static let pieChartStyleOne = ChartStyle(
         backgroundColor: Color.white,
         accentColor: Color.orange,
         secondGradientColor: Color.orange,
         textColor: Color.black,
         legendTextColor: Color.gray,
-        dropShadowColor: Color.gray)
-    
-    public static let lineViewDarkMode = ChartStyle(
-        backgroundColor: Color.black,
-        accentColor: Color.orange,
-        secondGradientColor: Color.orange,
-        textColor: Color.white,
-        legendTextColor: Color.white,
         dropShadowColor: Color.gray)
 }
 
@@ -100,14 +59,13 @@ public struct BarChartCell : View {
     public var body: some View {
         VStack{
             ZStack {
-
                 RoundedCorner(radius: 50, corners:[.topLeft,.topRight,.bottomLeft,.bottomRight])
                     .fill(LinearGradient(gradient: gradient?.getGradient() ?? GradientColor(start: accentColor, end: accentColor).getGradient(), startPoint: .bottom, endPoint: .top))
-
             }
             .frame(width: CGFloat(self.cellWidth))
             .scaleEffect(CGSize(width: 1, height: self.scaleValue), anchor: .bottom)
             Text(self.month)
+                .foregroundColor(Color("MBlack"))
             
         }
         .onAppear(){
@@ -239,19 +197,6 @@ public struct ChartForm {
 #endif
 }
 
-//public struct GradientColors {
-//    public static let orange = GradientColor(start: Colors.OrangeStart, end: Colors.OrangeEnd)
-//    public static let blue = GradientColor(start: Colors.GradientPurple, end: Colors.GradientNeonBlue)
-//    public static let green = GradientColor(start: Color(hexString: "0BCDF7"), end: Color(hexString: "A2FEAE"))
-//    public static let blu = GradientColor(start: Color(hexString: "0591FF"), end: Color(hexString: "29D9FE"))
-//    public static let bluPurpl = GradientColor(start: Color(hexString: "4ABBFB"), end: Color(hexString: "8C00FF"))
-//    public static let purple = GradientColor(start: Color(hexString: "741DF4"), end: Color(hexString: "C501B0"))
-//    public static let prplPink = GradientColor(start: Color(hexString: "BC05AF"), end: Color(hexString: "FF1378"))
-//    public static let prplNeon = GradientColor(start: Color(hexString: "FE019A"), end: Color(hexString: "FE0BF4"))
-//    public static let orngPink = GradientColor(start: Color(hexString: "FF8E2D"), end: Color(hexString: "FF4E7A"))
-//}
-
-
 public class ChartData: ObservableObject, Identifiable {
     
     @Published var points: [(String,Double)]
@@ -322,7 +267,6 @@ public class ChartStyle {
         self.accentColor = Color.orange
         self.gradientColor = GradientColor(start: accentColor, end: Color.orange)
         self.accentColor = Color.blue
-        
         self.legendTextColor = Color.gray
         self.textColor = Color.black
         self.dropShadowColor = Color.gray
@@ -337,7 +281,6 @@ public struct BarChartView : View {
     public var title: String
     public var legend: String?
     public var style: ChartStyle
-    public var darkModeStyle: ChartStyle
     public var formSize:CGSize
     public var dropShadow: Bool
     public var cornerImage: Image?
@@ -362,7 +305,6 @@ public struct BarChartView : View {
         self.title = title
         self.legend = legend
         self.style = style
-        self.darkModeStyle = style.darkModeStyle != nil ? style.darkModeStyle! : Styles.barChartStyleOrangeDark
         self.formSize = form!
         self.dropShadow = dropShadow!
         self.cornerImage = cornerImage
@@ -373,7 +315,7 @@ public struct BarChartView : View {
     public var body: some View {
         ZStack{
             Rectangle()
-                .fill(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
+                .fill(self.style.backgroundColor)
                 .cornerRadius(20)
                 .shadow(color: Color("ShadowBlue"), radius: self.dropShadow ? 8 : 0, y: 4)
             VStack(alignment: .leading){
@@ -381,45 +323,41 @@ public struct BarChartView : View {
                     if(!showValue){
                         Text(self.title)
                             .font(.headline)
-                            .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.textColor : self.style.textColor)
+                            .foregroundColor(self.style.textColor)
                     }else{
                         Text("\(self.currentValue, specifier: self.valueSpecifier)")
                             .font(.headline)
-                            .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.textColor : self.style.textColor)
+                            .foregroundColor(self.style.textColor)
                     }
                     if(self.formSize == ChartForm.large && self.legend != nil && !showValue) {
                         Text(self.legend!)
                             .font(.callout)
-                            .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.accentColor : self.style.accentColor)
+                            .foregroundColor(self.style.accentColor)
                             .transition(.opacity)
                             .animation(.easeOut, value: formSize)
                     }
                     Spacer()
                     self.cornerImage
                         .imageScale(.large)
-                        .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor : self.style.legendTextColor)
+                        .foregroundColor(self.style.legendTextColor)
                 }.padding()
                 BarChartRow(data: data.points.map{$0.1}, month: data.points.map{$0.0},
-                            accentColor: self.colorScheme == .dark ? self.darkModeStyle.accentColor : Color("LSkyBlue"),
-                            gradient: self.colorScheme == .dark ? self.darkModeStyle.gradientColor : GradientColor(start:  Color("LSkyBlue"), end:  Color("LSkyBlue")),
+                            accentColor:Color("LSkyBlue"),
+                            gradient: GradientColor(start:  Color("LSkyBlue"), end:  Color("LSkyBlue")),
                             touchLocation: self.$touchLocation)
                 if self.legend != nil  && self.formSize == ChartForm.medium && !self.showLabelValue{
                     Text(self.legend!)
                         .font(.headline)
-                        .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor : self.style.legendTextColor)
+                        .foregroundColor(self.style.legendTextColor)
                         .padding()
                 }else if (self.data.valuesGiven && self.getCurrentValue() != nil) {
                     LabelView(arrowOffset: self.getArrowOffset(touchLocation: self.touchLocation),
                               title: .constant(self.getCurrentValue()!.0))
                     .offset(x: self.getLabelViewOffset(touchLocation: self.touchLocation), y: -6)
-                    .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor : self.style.legendTextColor)
+                    .foregroundColor(self.style.legendTextColor)
                 }
-                
             }
-        }.frame(minWidth:self.formSize.width,
-                maxWidth: self.isFullWidth ? .infinity : self.formSize.width,
-                minHeight:self.formSize.height,
-                maxHeight:self.formSize.height)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
         .gesture(DragGesture()
             .onChanged({ value in
                 self.touchLocation = value.location.x/self.formSize.width
@@ -470,15 +408,3 @@ public struct BarChartView : View {
         return self.data.points[index]
     }
 }
-/*
- #if DEBUG
- struct ChartView_Previews : PreviewProvider {
- static var previews: some View {
- BarChartView(data: TestData.values ,
- title: "Model 3 sales",
- legend: "Quarterly",
- valueSpecifier: "%.0f")
- }
- }
- #endif
- */
