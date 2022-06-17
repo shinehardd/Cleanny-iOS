@@ -37,6 +37,22 @@ struct Cleaning: Hashable {
     func getPrecentage() -> Double{
         return percentage
     }
+    func getKorean() -> String {
+        switch self.name {
+        case "DisposeTrash":
+            return "분리수거"
+        case "Laundary":
+            return "빨래"
+        case "ToiletCleaning":
+            return "욕실청소"
+        case "FloorCleaning":
+            return "바닥청소"
+        case "DishWashing":
+            return "설거지"
+        default:
+            return "정리정돈"
+        }
+    }
 }
     
 var Cleanings : [Cleaning] = [Cleaning(name:"DisposeTrash",cycle: 3, decreaseRate:0.0003858, percentage: 100, activated: true),

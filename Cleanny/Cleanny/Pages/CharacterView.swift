@@ -10,6 +10,7 @@ import SwiftUI
 struct CharacterView: View {
     @State private var complateText = ""
     @State private var showModal = false
+    @State private var isCleaning = false
     
     // 임시 데이터
     
@@ -51,7 +52,7 @@ struct CharacterView: View {
                 Text("\(complateText)")
                     .padding(.bottom)
                 
-                LottieView(charcterArr.randomElement()!)
+                LottieView(name: isCleaning ? "Cleaning" : charcterArr.randomElement()!)
                 
                 Spacer()
                 
@@ -61,7 +62,7 @@ struct CharacterView: View {
                             ForEach(row, id:\.self) { cleaningItem in
                                 ZStack {
                                     CircularProgress()
-                                    CleaningButtonView(complateText: $complateText, cleaningItem: cleaningItem)
+                                    CleaningButtonView(complateText: $complateText, isCleaning: $isCleaning, cleaningItem: cleaningItem)
                                 }
                             }
                         }
