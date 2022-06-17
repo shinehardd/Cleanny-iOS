@@ -217,7 +217,7 @@ struct CardView: View {
                         .padding()
                         .padding()
                     
-                    Image("Heit")
+                    Image(getCatImage(percentage: percentage))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(minWidth:100, maxWidth: 150)
@@ -232,6 +232,19 @@ struct CardView: View {
             }
         }
     }
+    
+    private func getCatImage(percentage: Double) -> String {
+        if (percentage > 0.75) {
+            return "Love"
+        } else if (percentage > 0.5) {
+            return "Laugh"
+        } else if (percentage > 0.25) {
+            return "Cry"
+        } else {
+            return "Heit"
+        }
+    }
+    
 }
 
 struct ProgressBar: View {
