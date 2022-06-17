@@ -17,10 +17,17 @@ struct ShareView: View {
         animation: .default)
     var user: FetchedResults<User>
     
+    @EnvironmentObject private var viewModel: CloudkitUserViewModel
+    
+    @State private var me: CloudkitUser?
+    @State private var friends: [String] = []
+    @State private var percentageDic: [String:Double] = [:]
+    
     @State private var isSharing = false
     @State private var isProcessingShare = false
     @State private var activeShare: CKShare?
     @State private var activeContainer: CKContainer?
+    
     @State private var showAlert: Bool = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -45,25 +52,26 @@ struct ShareView: View {
                                    spacing: nil,
                                    pinnedViews: [],
                                    content: {
-                            if (!UserDefaults.standard.bool(forKey: "notDoneSetting")) {
-                                CardView(name: user[0].name!, percentage: user[0].totalPercentage)
+                            if (me != nil) {
+                                CardView(name: me!.name, percentage: me!.totalPercentage)
                                     .aspectRatio(10/13, contentMode: .fit)
                                     .padding(.horizontal)
                                     .padding(.top)
                                     .onTapGesture {
                                         alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
-                                            user[0].name = text
-                                            updateUser()
+                                            me!.name = text
+//                                            user[0].name = text
+                                            viewModel.updateUser(user: me!, name: text, totalPercentage: me!.totalPercentage)
                                         } secondaryAction: {}
                                     }
                             }
-//                            ForEach(friends, id: \.self) {
-//                                friend in
-//                                CardView(name: friend, percentage: percentageDic[friend]!)
-//                                    .aspectRatio(10/13, contentMode: .fit)
-//                                    .padding(.horizontal)
-//                                    .padding(.top)
-//                            }
+                            ForEach(friends, id: \.self) {
+                                friend in
+                                CardView(name: friend, percentage: percentageDic[friend]!)
+                                    .aspectRatio(10/13, contentMode: .fit)
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                            }
                         })
                         Spacer(minLength: 50)
                     }
@@ -76,40 +84,66 @@ struct ShareView: View {
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(
-                            action: { Task { if(!UserDefaults.standard.bool(forKey: "notDoneSetting")) {
-//                                try? await shareUser(user[0])
-                            }} }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
+                            action: { Task { if (me != nil) {
+                                try? await shareUser(me!)
+                            } } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
                                 .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
                             .sheet(isPresented: $isSharing, content: { shareView() })
                     }
                 }
             }
-        }
-    }
-    
-    private func updateUser() {
-        do {
-            try viewContext.save()
-        } catch  {
-            viewContext.rollback()
+            .onAppear {
+                Task {
+                    try await viewModel.initialize()
+                    try await viewModel.refresh()
+                    try await loadFriends()
+                }
+            }
         }
     }
     
     private func loadFriends() async throws {
 
+        switch viewModel.state {
+            
+        case let .loaded(me: me, friends: friends):
+            
+            if (me.isEmpty) {
+                try await viewModel.addUser(name: "이름을 입력해주세요", totalPercentage: 100)
+                try await viewModel.refresh()
+                try await loadFriends()
+            } else {
+                self.me = me[0]
+            }
+            
+            friends.forEach { friend in
+                self.friends.append(friend.name)
+                self.percentageDic[friend.name] = friend.totalPercentage
+            }
+            
+        case .error(_):
+            return
+            
+        case .loading:
+            return
+            
+        }
     }
     
-//    private func shareUser(_ user: User) async throws {
-//        isProcessingShare = true
-//        coreDataStack.save()
-//        let container = CoreDataStack.shared.ckContainer
-//        let share = coreDataStack.getShare(user)
-//        isProcessingShare = false
-//        activeShare = share
-//        activeContainer = container
-//        isSharing = true
-//    }
-    
+    private func shareUser(_ user: CloudkitUser) async throws {
+        isProcessingShare = true
+        try await viewModel.refresh()
+        
+        do {
+            let (share, container) = try await viewModel.fetchOrCreateShare(user: user)
+            isProcessingShare = false
+            activeShare = share
+            activeContainer = container
+            isSharing = true
+        } catch {
+            debugPrint("Error sharing contact record: \(error)")
+        }
+    }
     
     private func shareView() -> CloudkitShareView? {
         guard let share = activeShare, let container = activeContainer else { return nil }
