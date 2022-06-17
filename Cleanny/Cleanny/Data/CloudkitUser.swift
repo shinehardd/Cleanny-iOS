@@ -13,6 +13,10 @@ struct CloudkitUser: Identifiable {
     var name: String
     var totalPercentage: Double
     let associatedRecord: CKRecord
+    
+    mutating func setName(name : String){
+        self.name = name
+    }
 }
 
 extension CloudkitUser {

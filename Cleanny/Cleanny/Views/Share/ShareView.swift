@@ -60,7 +60,11 @@ struct ShareView: View {
                                     .onTapGesture {
                                         alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
                                             me!.name = text
-//                                            user[0].name = text
+                                            let _ = print(me!.name)
+                                            me!.setName(name: text)
+                                            if (!user.isEmpty) {
+                                                user[0].name = text
+                                            }
                                             viewModel.updateUser(user: me!, name: text, totalPercentage: me!.totalPercentage)
                                         } secondaryAction: {}
                                     }
@@ -84,9 +88,12 @@ struct ShareView: View {
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(
-                            action: { Task { if (me != nil) {
-                                try? await shareUser(me!)
-                            } } }, label: { Image(uiImage: UIImage(named: "AddFriend")!)
+                            action: { if (me != nil) {
+                                Task {
+                                    let _ = print(me!.name)
+                                    try? await shareUser(me!)
+                                }
+                            } } , label: { Image(uiImage: UIImage(named: "AddFriend")!)
                                 .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
                             .sheet(isPresented: $isSharing, content: { shareView() })
                     }
@@ -109,9 +116,15 @@ struct ShareView: View {
         case let .loaded(me: me, friends: friends):
             
             if (me.isEmpty) {
-                try await viewModel.addUser(name: "이름을 입력해주세요", totalPercentage: 100)
-                try await viewModel.refresh()
-                try await loadFriends()
+                if (!user.isEmpty) {
+                    try await viewModel.addUser(name: user[0].name ?? "이름을 입력해주세요", totalPercentage: user[0].totalPercentage)
+                    try await viewModel.refresh()
+                    try await loadFriends()
+                } else {
+                    try await viewModel.addUser(name: "이름을 입력해주세요", totalPercentage: 100)
+                    try await viewModel.refresh()
+                    try await loadFriends()
+                }
             } else {
                 self.me = me[0]
             }

@@ -81,7 +81,8 @@ final class CloudkitUserViewModel: ObservableObject {
     func fetchOrCreateShare(user: CloudkitUser) async throws -> (CKShare, CKContainer) {
         guard let existingShare = user.associatedRecord.share else {
             let share = CKShare(rootRecord: user.associatedRecord)
-            share[CKShare.SystemFieldKey.title] = "\(user.name)의 청소 상태를 공유받으세요!ㅎㅁㅎ"
+            let _ = print(user.name)
+            share[CKShare.SystemFieldKey.title] = "친구의 청소 상태를 공유받으세요!ㅎㅁㅎ"
             _ = try await database.modifyRecords(saving: [user.associatedRecord, share], deleting: [])
             return(share, container)
         }
