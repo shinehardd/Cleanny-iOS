@@ -45,3 +45,33 @@ struct CardView: View {
         }
     }
 }
+struct ProgressBar: View {
+    
+    let screenWidth = UIScreen.main.bounds.size.width
+    var percentage: Double
+    
+    var body: some View {
+        
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                Capsule()
+                    .fill(Color("LGray"))
+                    .frame(height: 14)
+                    .overlay(
+                        Capsule()
+                            .stroke(.white, lineWidth: 4)
+                            .shadow(color: Color("MBlack").opacity(0.2), radius: 4, x: 3, y: 4)
+                            .clipShape(Capsule())
+                            .shadow(color: .white.opacity(0.3), radius: 4, x: -3, y: -4)
+                            .clipShape(Capsule())
+                    )
+                
+                Capsule()
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color(percentage > 0.25 ? "GMBlue" : "GMRed"), Color(percentage > 0.25 ? "MBlue" : "MRed")]), startPoint: .leading, endPoint: .trailing))
+                    .frame(height: 10)
+                    .frame(maxWidth: geometry.size.width * percentage)
+            }
+        }
+        .frame(height: 10)
+    }
+}

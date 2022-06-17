@@ -8,12 +8,12 @@
 import SwiftUI
 import CloudKit
 
+/*
 struct SharingView: View {
     
     let sharingZone = CKRecordZone(zoneName: "com.apple.coredata.cloudkit.zone")
     
     @Environment(\.managedObjectContext) private var viewContext
-    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
         animation: .default)
@@ -29,8 +29,7 @@ struct SharingView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -226,4 +225,4 @@ struct ProgressBar: View {
 enum Config {
     static let containerIdentifier = "iCloud.com.Loudy.Cleanny.elie"
 }
-
+*/

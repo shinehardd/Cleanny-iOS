@@ -121,9 +121,8 @@ struct ContentView: View {
                 case 1:
                     RecordView()
                 case 2 :
-//                    ShareView(onAdd: empty)
-//                        .environmentObject(CloudkitUserViewModel())
-                    SharingView()
+                    ShareView()
+//                    SharingView()
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
                 }
@@ -133,6 +132,9 @@ struct ContentView: View {
             }, select: {
                 TabButton(constant: $constant, selection: $selection, tag: tag, isSelection: true, systemName: systemName)
             })
+            .onAppear{
+                //TODO: 클라우드에 User 데이터 있다면 코어User에 정보 받아오기 아니라면 User 생성 후 코어&클라우드에 추가
+            }
         }
         
         private func empty(name: String, totalPercentage: Double) async throws {}

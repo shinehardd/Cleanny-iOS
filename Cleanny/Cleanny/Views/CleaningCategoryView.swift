@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CleaningCategoryView: View {
     
-//    @EnvironmentObject var cleaning: CleaningDataStore
+    @EnvironmentObject var cleaning: CleaningDataStore
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],

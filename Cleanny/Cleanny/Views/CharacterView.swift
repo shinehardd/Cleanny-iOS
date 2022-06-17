@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CharacterView: View {
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
-        animation: .default)
-    private var users: FetchedResults<User>
-    
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
+//        animation: .default)
+//    private var users: FetchedResults<User>
+//
 //    @FetchRequest(
 //        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
 //        animation: .default)
@@ -61,9 +61,6 @@ struct CharacterView: View {
                 Spacer(minLength: screenHeight / 6)
             }
         }
-//        .onChange(of: users[0].totalPercentage) { newValue in
-//            isUpdatingView.toggle()
-//        }
         .onChange(of: userData.totalPercentage) { newValue in
             isUpdatingView.toggle()
         }

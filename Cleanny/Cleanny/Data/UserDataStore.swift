@@ -14,17 +14,20 @@ class UserDataStore: Identifiable, ObservableObject {
     var name : String
     var numerator : Double
     var denominator : Int
+    var state: String
     
     init() {
         self.name = "이름을 설정해주세요"
         self.totalPercentage = 99
         self.numerator = 0
         self.denominator = 1
+        self.state = "Love"
     }
     
     func update(cleaning : CleaningDataStore) -> Int{
         self.numerator = 0
         self.denominator = 0
+        //TODO: totalPercentage검사해서 state변경하는 함수 추가하기
         
         for oneCleaing in cleaning.list{
             if(oneCleaing.activated){
