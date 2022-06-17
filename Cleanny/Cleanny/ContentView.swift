@@ -12,7 +12,6 @@ import AxisTabView
 struct ContentView: View {
     
     @AppStorage("firstLaunching") var firstLaunching: Bool = true
-    @AppStorage("isDoneSetting") var isDoneSetting: Bool = false
 
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var cleaning: CleaningDataStore
@@ -94,29 +93,6 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $firstLaunching) {
             OnboardingView(firstLaunching: $firstLaunching)
         }
-        .onAppear {
-            if (UserDefaults.standard.bool(forKey: "notDoneSetting")) {
-                addNewUser()
-            }
-        }
-    }
-    
-    private func addNewUser() {
-
-        let newUser = User(context: viewContext)
-        newUser.name = "이름을 설정해주세요"
-        newUser.totalPercentage = 99.9
-        newUser.denomirator = 1
-        newUser.numerator = 1
-
-       do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-        
-        UserDefaults.standard.set(false, forKey: "notDoneSetting")
     }
     
     struct ControlView: View {
@@ -146,7 +122,7 @@ struct ContentView: View {
                 case 1:
                     RecordView()
                 case 2 :
-                    ShareView()
+                    ShareView().environmentObject(CloudkitUserViewModel())
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
                 }
@@ -201,5 +177,6 @@ struct ContentView: View {
         var body: some View {
             content
         }
+        
     }
 }

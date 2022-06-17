@@ -2,7 +2,7 @@
 //  LastOnboardingView.swift
 //  Cleanny
 //
-//  Created by 한경준 on 2022/06/15.
+//  Created by 이채민 on 2022/06/17.
 //
 
 import SwiftUI
@@ -124,31 +124,32 @@ struct LastOnboardingView: View {
                     .cornerRadius(10)
             }
             List {
-                ForEach(users) {user in
-                    HStack{
-                        Text(user.name ?? "nil")
-                        Text(String(user.totalPercentage))
-                        Text(String(user.numerator))
-                        Text(String(user.denomirator))
-                    }
-                }.onDelete(perform: deleteUsers)
+//                ForEach(users) {user in
+//                    HStack{
+//                        Text(user.name ?? "nil")
+//                        Text(String(user.totalPercentage))
+//                        Text(String(user.numerator))
+//                        Text(String(user.denomirator))
+//                    }
+//                }.onDelete(perform: deleteUsers)
             }.frame(height: 100)
             List{
-                ForEach(cleans) {clean in
-                    HStack{
-                        Text(clean.name ?? "nil")
-                        Text(clean.imageName ?? "nil")
-                        Text(String(clean.activated))
-                        Text(String(clean.cycle))
-                        Text(String(clean.decreaseRate))
-                        Text(String(clean.currentPercent))
-//                            Text(String(clean.savedTime))
-                        Text(String(clean.index))
-                    }
-                }.onDelete(perform: deleteCleans)
+//                ForEach(cleans) {clean in
+//                    HStack{
+//                        Text(clean.name ?? "nil")
+//                        Text(clean.imageName ?? "nil")
+//                        Text(String(clean.activated))
+//                        Text(String(clean.cycle))
+//                        Text(String(clean.decreaseRate))
+//                        Text(String(clean.currentPercent))
+////                            Text(String(clean.savedTime))
+//                        Text(String(clean.index))
+//                    }
+//                }.onDelete(perform: deleteCleans)
             }
         }
     }
+    
     func addUser(userName: String) {
         withAnimation {
             let newUser = User(context: viewContext)

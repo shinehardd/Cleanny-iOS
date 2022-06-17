@@ -60,19 +60,19 @@ struct CharacterView: View {
                 Spacer(minLength: screenHeight / 6)
             }
         }
-        .onChange(of: returnTP()) { newValue in
-            isUpdatingView.toggle()
-        }
+//        .onChange(of: returnTP()) { newValue in
+//            isUpdatingView.toggle()
+//        }
 //        .onChange(of: userData.totalPercentage) { newValue in
 //            isUpdatingView.toggle()
 //        }
     }
     
-    private func returnTP() -> Double {
-        if(!UserDefaults.standard.bool(forKey: "notDoneSetting")) {
-            return users[0].totalPercentage
-        } else {
-            return 0.0
-        }
-    }
+//    private func returnTP() -> Double {
+//        if(!UserDefaults.standard.bool(forKey: "notDoneSetting")) {
+//            return users[0].totalPercentage
+//        } else {
+//            return 0.0
+//        }
+//    }
 }
