@@ -57,7 +57,7 @@ struct CleaningButtonView: View {
                 .onEnded{ _ in
                     HapticManager.instance.notification(type: .success)
                     withAnimation {
-                        complateText = cleaningItem.getKorean() + " 완료 ✅"
+                        complateText = cleaningItem.getKoreanName() + " 완료 ✅"
                         //cleaning.currentPercent = 100
                     }
                     

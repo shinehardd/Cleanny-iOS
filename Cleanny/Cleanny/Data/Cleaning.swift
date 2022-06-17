@@ -37,7 +37,7 @@ struct Cleaning: Hashable {
     func getPrecentage() -> Double{
         return percentage
     }
-    func getKorean() -> String {
+    func getKoreanName() -> String {
         switch self.name {
         case "DisposeTrash":
             return "분리수거"
