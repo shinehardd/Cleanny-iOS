@@ -54,6 +54,10 @@
 		A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E82854703800B7B645 /* SettingSlider.swift */; };
 		A36369EC2854703800B7B645 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E92854703800B7B645 /* SettingCard.swift */; };
 		A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369EA2854703800B7B645 /* SettingModalView.swift */; };
+		A398EF51285C598100D87096 /* CharactorOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398EF50285C598100D87096 /* CharactorOnboardingView.swift */; };
+		A398EF53285C6D2700D87096 /* GraphOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398EF52285C6D2700D87096 /* GraphOnboardingView.swift */; };
+		A398EF55285C708100D87096 /* ShareOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398EF54285C708100D87096 /* ShareOnboardingView.swift */; };
+		A398EF57285C730F00D87096 /* CompleteOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398EF56285C730F00D87096 /* CompleteOnboardingView.swift */; };
 		A3B74A83285AF49E00ED420D /* ChartPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A7D285AF49E00ED420D /* ChartPage2.swift */; };
 		A3B74A84285AF49E00ED420D /* ChartPage6.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A7E285AF49E00ED420D /* ChartPage6.swift */; };
 		A3B74A85285AF49E00ED420D /* ChartPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B74A7F285AF49E00ED420D /* ChartPage4.swift */; };
@@ -110,6 +114,10 @@
 		A36369E82854703800B7B645 /* SettingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSlider.swift; sourceTree = "<group>"; };
 		A36369E92854703800B7B645 /* SettingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		A36369EA2854703800B7B645 /* SettingModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModalView.swift; sourceTree = "<group>"; };
+		A398EF50285C598100D87096 /* CharactorOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactorOnboardingView.swift; sourceTree = "<group>"; };
+		A398EF52285C6D2700D87096 /* GraphOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphOnboardingView.swift; sourceTree = "<group>"; };
+		A398EF54285C708100D87096 /* ShareOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareOnboardingView.swift; sourceTree = "<group>"; };
+		A398EF56285C730F00D87096 /* CompleteOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOnboardingView.swift; sourceTree = "<group>"; };
 		A3B74A7D285AF49E00ED420D /* ChartPage2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage2.swift; sourceTree = "<group>"; };
 		A3B74A7E285AF49E00ED420D /* ChartPage6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage6.swift; sourceTree = "<group>"; };
 		A3B74A7F285AF49E00ED420D /* ChartPage4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPage4.swift; sourceTree = "<group>"; };
@@ -276,6 +284,10 @@
 			isa = PBXGroup;
 			children = (
 				A3F850E22859FB590069B805 /* FirstOnboradingView.swift */,
+				A398EF50285C598100D87096 /* CharactorOnboardingView.swift */,
+				A398EF56285C730F00D87096 /* CompleteOnboardingView.swift */,
+				A398EF52285C6D2700D87096 /* GraphOnboardingView.swift */,
+				A398EF54285C708100D87096 /* ShareOnboardingView.swift */,
 				A3F850E02859FB590069B805 /* OnboardingView.swift */,
 			);
 			path = Onboarding;
@@ -420,11 +432,13 @@
 				A3B74A86285AF49E00ED420D /* ChartPage3.swift in Sources */,
 				735198FF2858625E0017A098 /* CreateUserView.swift in Sources */,
 				9A890C582855F4A00013248D /* BarChartView.swift in Sources */,
+				A398EF53285C6D2700D87096 /* GraphOnboardingView.swift in Sources */,
 				736A696E28532131001D0D44 /* ShareView.swift in Sources */,
 				A3B74A88285AF49E00ED420D /* ChartPage5.swift in Sources */,
 				735198F72858548A0017A098 /* CloudkitUser.swift in Sources */,
 				9A3934772850B61700393B19 /* RecordView.swift in Sources */,
 				A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */,
+				A398EF57285C730F00D87096 /* CompleteOnboardingView.swift in Sources */,
 				3446010228562E1600B2E740 /* CleaningCategoryProgress.swift in Sources */,
 				341F6572285A1FD600CAC44A /* LaunchView.swift in Sources */,
 				9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */,
@@ -436,6 +450,7 @@
 				EC1985812859B4C1006D5242 /* CloudkitShareView.swift in Sources */,
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
 				A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */,
+				A398EF55285C708100D87096 /* ShareOnboardingView.swift in Sources */,
 				73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */,
 				9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */,
 				A3B74A83285AF49E00ED420D /* ChartPage2.swift in Sources */,
@@ -455,6 +470,7 @@
 				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
 				73680F8F2859AEDC0093BA62 /* AppDelegate.swift in Sources */,
+				A398EF51285C598100D87096 /* CharactorOnboardingView.swift in Sources */,
 				A3B74A85285AF49E00ED420D /* ChartPage4.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
 			);
