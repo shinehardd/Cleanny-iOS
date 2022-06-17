@@ -12,7 +12,10 @@ struct RecordView: View {
     
     @EnvironmentObject var cleaning: CleaningDataStore
     @State var index: Int = 0
-    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \MonthHistory.index, ascending: true)],
+        animation: .default)
+    private var monthHistoryData: FetchedResults<MonthHistory>
     init() {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -26,6 +29,8 @@ struct RecordView: View {
     ]
     
     var body: some View {
+        if(monthHistoryData.isEmpty){}
+        else{
         NavigationView{
             VStack{
                 Spacer()
@@ -60,7 +65,7 @@ struct RecordView: View {
                 .navigationBarTitleDisplayMode(.inline)
             
         }
-    }
+        }}
 }
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
