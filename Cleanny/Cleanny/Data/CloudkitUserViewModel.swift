@@ -157,5 +157,5 @@ final class CloudkitUserViewModel: ObservableObject {
 }
 
 enum Config {
-    static let containerIdentifier = "iCloud.testCloud.juju"
+    static let containerIdentifier = "iCloud.com.Loudy.Cleanny.elie"
 }

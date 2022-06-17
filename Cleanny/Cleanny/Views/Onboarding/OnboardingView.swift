@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
-
 struct OnboardingView: View {
+    //Clean CoreData
+    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject private var vm: CloudkitUserViewModel
     @Binding var firstLaunching: Bool
     
     @State private var selection = 0
@@ -57,6 +59,8 @@ struct OnboardingView: View {
                     withAnimation(.easeIn(duration: 1)){
                         if selection == (numberOfPage-1) {
                             firstLaunching.toggle()
+                            addUser(userName: "이름을 설정해주세요")
+                            addBasicClean()
                         } else {
                             selection += 1
                         }
@@ -72,6 +76,52 @@ struct OnboardingView: View {
                         .animation(nil, value: selection)
                 }
                 .padding(.bottom)
+            }
+        }
+    }
+    func addBasicClean() {
+        let list = [
+            Cleaning(name: "분리수거", imageName:"DisposeTrash", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 99.999, index: 0),
+            Cleaning(name: "세탁", imageName:"Laundary", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 99.999, index: 1),
+            Cleaning(name: "욕실청소", imageName:"ToiletCleaning", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 99.999, index: 2),
+            Cleaning(name: "바닥청소", imageName:"FloorCleaning", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 99.999,index: 3),
+            Cleaning(name: "설거지", imageName:"DishWashing", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 99.999,index: 4),
+            Cleaning(name: "정리정돈", imageName:"TidyUp", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 99.999,index: 5)
+        ]
+        withAnimation {
+            list.forEach { cleaning in
+                let newClean = Clean(context: viewContext)
+                newClean.name = cleaning.name
+                newClean.imageName = cleaning.imageName
+                newClean.activated = cleaning.activated
+                newClean.cycle = cleaning.cycle
+                newClean.decreaseRate = cleaning.decreaseRate
+                newClean.currentPercent = cleaning.currentPercent
+                newClean.savedTime = cleaning.savedTime
+                newClean.index = Int16(cleaning.index)
+                
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
+            }
+        }
+    }
+    func addUser(userName: String) {
+        withAnimation {
+            let newUser = User(context: viewContext)
+            newUser.name = userName
+            newUser.totalPercentage = 99.9
+            newUser.denomirator = 1
+            newUser.numerator = 1
+
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
