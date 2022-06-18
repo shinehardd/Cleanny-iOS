@@ -58,9 +58,9 @@
 		EC02DC83285A722300DC1FAE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC02DC82285A722300DC1FAE /* CardView.swift */; };
 		EC282885285CE35C00AFDC00 /* CloudSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC282884285CE35C00AFDC00 /* CloudSharingView.swift */; };
 		EC282887285CE43600AFDC00 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC282886285CE43600AFDC00 /* UserViewModel.swift */; };
-		EC282889285CE44D00AFDC00 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC282888285CE44D00AFDC00 /* Config.swift */; };
 		EC28288B285CEBE900AFDC00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28288A285CEBE900AFDC00 /* AppDelegate.swift */; };
 		EC28288D285CECDB00AFDC00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28288C285CECDB00AFDC00 /* SceneDelegate.swift */; };
+		EC282890285DBC6200AFDC00 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28288F285DBC6200AFDC00 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,10 +112,10 @@
 		EC02DC82285A722300DC1FAE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		EC282884285CE35C00AFDC00 /* CloudSharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSharingView.swift; sourceTree = "<group>"; };
 		EC282886285CE43600AFDC00 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		EC282888285CE44D00AFDC00 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EC28288A285CEBE900AFDC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC28288C285CECDB00AFDC00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EC28288E285D0A7F00AFDC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EC28288F285DBC6200AFDC00 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,9 +246,9 @@
 				9AF3F484285863C200A7590D /* Month.swift */,
 				9AF3F4862858645400A7590D /* MonthDataStore.swift */,
 				EC282886285CE43600AFDC00 /* UserViewModel.swift */,
-				EC282888285CE44D00AFDC00 /* Config.swift */,
 				EC28288A285CEBE900AFDC00 /* AppDelegate.swift */,
 				EC28288C285CECDB00AFDC00 /* SceneDelegate.swift */,
+				EC28288F285DBC6200AFDC00 /* Config.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -449,8 +449,8 @@
 				A3F850E42859FB590069B805 /* LastOnboardingView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
 				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
+				EC282890285DBC6200AFDC00 /* Config.swift in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
-				EC282889285CE44D00AFDC00 /* Config.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

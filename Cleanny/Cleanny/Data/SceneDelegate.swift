@@ -9,7 +9,9 @@ import UIKit
 import SwiftUI
 import CloudKit
 
-class SceneDelegate: /*UIResponder*/NSObject, UIWindowSceneDelegate {
+class SceneDelegate: NSObject, UIWindowSceneDelegate {
+    
+    let persistenceController = PersistenceController.shared
     var userViewModel = UserViewModel()
 
     var window: UIWindow?
@@ -19,7 +21,7 @@ class SceneDelegate: /*UIResponder*/NSObject, UIWindowSceneDelegate {
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: contentView.environment(\.managedObjectContext, persistenceController.container.viewContext))
             self.window = window
             window.makeKeyAndVisible()
         }
