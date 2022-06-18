@@ -164,8 +164,9 @@ struct ContentView: View {
                 switch(tag){
                 case 0 :
                     CharacterView(index: $index, isCleaning: $isCleaning)
+                        .environmentObject(CleaningDataStore())
                 case 1:
-                    RecordView()
+                    RecordView().environmentObject(CleaningDataStore())
                 case 2 :
                     ShareView().environmentObject(CloudkitUserViewModel())
                 default:

@@ -22,7 +22,7 @@ struct CloudkitShareView: UIViewControllerRepresentable {
         let sharingController = UICloudSharingController(share: share, container: container)
         sharingController.availablePermissions = [.allowReadWrite, .allowPrivate]
         sharingController.delegate = context.coordinator
-        sharingController.modalPresentationStyle = .formSheet
+        sharingController.modalPresentationStyle = .none
         return sharingController
     }
 
