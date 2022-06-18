@@ -13,7 +13,10 @@ struct CharacterView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
         animation: .default)
     private var users: FetchedResults<User>
-    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \MonthHistory.index, ascending: true)],
+        animation: .default)
+    private var monthHistoryData: FetchedResults<MonthHistory>
 //    @FetchRequest(
 //        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
 //        animation: .default)
@@ -32,6 +35,8 @@ struct CharacterView: View {
     let screenHeight = UIScreen.main.bounds.size.height
     
     var body: some View {
+        if(monthHistoryData.isEmpty){}
+        else{
         ZStack(alignment: .top) {
             Color("MBackground").ignoresSafeArea()
             VStack {
@@ -45,20 +50,26 @@ struct CharacterView: View {
                     }
                     .sheet(isPresented: self.$showModal) {
                         SettingModalView(showModal: $showModal)
+                            .interactiveDismissDisabled()
                     }
                 }
-                
+                if(index < 0){
+                    Text("주기를 설정해주세요").foregroundColor(Color("MBlack"))
+                }
+                else{
                 ZStack {
                     LottieView(name: isCleaning ? "Cleaning" : cleaning.charcterArr[index])
-                    Text("\(complateText)")
+                    Text("\(complateText)").foregroundColor(Color("MBlack"))
                         .offset(y: -screenHeight / 5)
                 }
                 .frame(maxHeight: screenHeight / 2.5)
-                
+                }
                 CleaningCategoryProgress(index: $index, isCleaning: $isCleaning, complateText: $complateText)
                 
                 Spacer(minLength: screenHeight / 6)
             }
+        }
+            
         }
 //        .onChange(of: returnTP()) { newValue in
 //            isUpdatingView.toggle()

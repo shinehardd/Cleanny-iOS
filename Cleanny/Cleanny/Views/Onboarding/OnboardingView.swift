@@ -61,6 +61,7 @@ struct OnboardingView: View {
                             firstLaunching.toggle()
                             addUser(userName: "이름을 설정해주세요")
                             addBasicClean()
+                            addMonthHistory()
                         } else {
                             selection += 1
                         }
@@ -114,7 +115,7 @@ struct OnboardingView: View {
             let newUser = User(context: viewContext)
             newUser.name = userName
             newUser.totalPercentage = 99.9
-            newUser.denomirator = 1
+            newUser.denominator = 1.0
             newUser.numerator = 1
 
             do {
@@ -125,6 +126,31 @@ struct OnboardingView: View {
             }
         }
     }
+    func addMonthHistory() {
+        let indexArr = [0,1,2,3,4,5]
+        let monthNameArr = [1,2,3,4,5,6,7,8,9,10,11,12]
+        
+        withAnimation {
+            indexArr.forEach{
+                index in
+                monthNameArr.forEach{
+                    name in
+                    let newMonthHistory = MonthHistory(context: viewContext)
+                    newMonthHistory.monthName = Int64(name) 
+                    newMonthHistory.index = Int64(index)
+                    newMonthHistory.cleaningCount = 0
+                }
+            }
+
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+
 }
 //
 //struct OnboardingView_Previews: PreviewProvider {
