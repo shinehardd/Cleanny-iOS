@@ -74,9 +74,7 @@ struct ShareView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar{
                     ToolbarItem(placement: .principal) {
-                        Text("공유")
-                            .font(.headline)
-                            .frame(width: 150)
+                        Text("공유").font(.headline).foregroundColor(Color("MBlack")).frame(width: 150)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(
@@ -209,7 +207,7 @@ struct CardView: View {
                 .padding(.top)
                 
                 Text(name)
-                    .bold()
+                    .bold().foregroundColor(Color("MBlack"))
                 
                 ProgressBar(percentage: percentage)
                     .padding([.bottom, .trailing, .leading])
