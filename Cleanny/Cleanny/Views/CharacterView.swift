@@ -61,6 +61,9 @@ struct CharacterView: View {
                 Spacer(minLength: screenHeight / 6)
             }
         }
+//        .onChange(of: users[0].totalPercentage) { newValue in
+//            isUpdatingView.toggle()
+//        }
         .onChange(of: userData.totalPercentage) { newValue in
             isUpdatingView.toggle()
         }

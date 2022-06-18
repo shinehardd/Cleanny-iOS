@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct CleannyApp: App {
+    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
+
     @StateObject var cleaning =  CleaningDataStore()
     @StateObject var userData = UserDataStore()
     @StateObject var MonthData = MonthDataStore()
+    @StateObject var userViewModel = UserViewModel()
+    
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
@@ -20,6 +24,8 @@ struct CleannyApp: App {
                 .environmentObject(cleaning)
                 .environmentObject(userData)
                 .environmentObject(MonthData)
+                .environmentObject(userViewModel)
+            
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

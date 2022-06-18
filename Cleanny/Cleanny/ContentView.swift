@@ -15,6 +15,7 @@ struct ContentView: View {
     
     @EnvironmentObject var cleaning: CleaningDataStore
     @EnvironmentObject var userData: UserDataStore
+    @EnvironmentObject var userViewModel: UserViewModel
     
     @State var index: Int = 3
     @State private var isUpdatingView: Bool = false
@@ -51,6 +52,8 @@ struct ContentView: View {
                             tag: 0,
                             systemName: "Home",
                             safeArea: proxy.safeAreaInsets)
+                .environmentObject(userViewModel)
+                .environmentObject(userData)
                 ControlView(index: $index,
                             selection: $selection,
                             constant: $constant,
@@ -62,6 +65,8 @@ struct ContentView: View {
                             tag: 1,
                             systemName: "Chart",
                             safeArea: proxy.safeAreaInsets)
+                .environmentObject(userViewModel)
+                .environmentObject(userData)
                 ControlView(index: $index,
                             selection: $selection,
                             constant: $constant,
@@ -73,6 +78,8 @@ struct ContentView: View {
                             tag: 2,
                             systemName: "Share",
                             safeArea: proxy.safeAreaInsets)
+                .environmentObject(userViewModel)
+                .environmentObject(userData)
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
         }
@@ -90,7 +97,7 @@ struct ContentView: View {
             isUpdatingView.toggle()
         }
         .fullScreenCover(isPresented: $firstLaunching) {
-            OnboardingView(firstLaunching: $firstLaunching)
+            OnboardingView(firstLaunching: $firstLaunching).environmentObject(userViewModel)
         }
     }
     
@@ -104,6 +111,9 @@ struct ContentView: View {
         @Binding var depth: CGFloat
         @Binding var color: Color
         @Binding var marbleColor: Color
+        
+        @EnvironmentObject var userViewModel: UserViewModel
+        @EnvironmentObject var userData: UserDataStore
         
         @State var isCleaning = false
         
@@ -122,6 +132,8 @@ struct ContentView: View {
                     RecordView()
                 case 2 :
                     ShareView()
+                        .environmentObject(userViewModel)
+                        .environmentObject(userData)
 //                    SharingView()
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
@@ -132,8 +144,14 @@ struct ContentView: View {
             }, select: {
                 TabButton(constant: $constant, selection: $selection, tag: tag, isSelection: true, systemName: systemName)
             })
-            .onAppear{
-                //TODO: 클라우드에 User 데이터 있다면 코어User에 정보 받아오기 아니라면 User 생성 후 코어&클라우드에 추가
+//            .onAppear{
+//                //TODO: 클라우드에 User 데이터 있다면 코어User에 정보 받아오기 아니라면 User 생성 후 코어&클라우드에 추가
+//            }
+            .onAppear {
+                Task {
+                    try await userViewModel.initialize()
+                    try await userViewModel.refresh()
+                }
             }
         }
         

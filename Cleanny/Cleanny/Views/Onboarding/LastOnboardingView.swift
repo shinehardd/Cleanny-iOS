@@ -85,7 +85,9 @@ struct LastOnboardingView: View {
     @Binding var firstLaunching: Bool
     
     @StateObject private var vm = GetCloudName()
+    
     @Environment(\.managedObjectContext) private var viewContext
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
         animation: .default)
@@ -95,6 +97,8 @@ struct LastOnboardingView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
         animation: .default)
     private var cleans: FetchedResults<Clean>
+    
+    let onAdd: ((String, Double) async throws -> Void)?
     
     var body: some View {
         VStack {
@@ -106,7 +110,8 @@ struct LastOnboardingView: View {
             Text("NAME: \(vm.userName)")
             
             Button {
-                addUser(userName: vm.userName)
+//                Task { try? await onAdd?("이름을 입력하세요", 99.9) }
+                addUser(userName: "이름을 입력하세요")
                 addBasicClean()
             } label: {
                 Text("등록하기")
@@ -150,7 +155,9 @@ struct LastOnboardingView: View {
             }
         }
     }
+
     func addUser(userName: String) {
+        Task { try? await onAdd?("이름을 입력하세요", 99.9) }
         withAnimation {
             let newUser = User(context: viewContext)
             newUser.name = userName
@@ -167,6 +174,7 @@ struct LastOnboardingView: View {
             }
         }
     }
+    
     func addBasicClean() {
         let list = [
             Cleaning(name: "분리수거", imageName:"DisposeTrash", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 99.999, index: 0),

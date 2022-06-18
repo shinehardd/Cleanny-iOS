@@ -25,8 +25,6 @@
 		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		34ABDFE42859A3E300E596FB /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ABDFE32859A3E300E596FB /* RecordButton.swift */; };
 		34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */; };
-		73680F8F2859AEDC0093BA62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73680F8E2859AEDC0093BA62 /* AppDelegate.swift */; };
-		73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73680F902859AEE00093BA62 /* SceneDelegate.swift */; };
 		736A696E28532131001D0D44 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736A696D28532131001D0D44 /* ShareView.swift */; };
 		739488EA285713360088DE1E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739488E9285713360088DE1E /* CloudKit.framework */; };
 		9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EB0F328521B62003BD148 /* CircularProgressView.swift */; };
@@ -45,7 +43,7 @@
 		9A93370C2852B64100F7C587 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9A93370B2852B64100F7C587 /* SwiftUICharts */; };
 		9A93370E2852B67600F7C587 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A93370D2852B67600F7C587 /* ChartView.swift */; };
 		9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A961109285746E60028C7C8 /* UserDataStore.swift */; };
-		9AE62C282853349700FEDB9C /* _User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE62C272853349700FEDB9C /* _User.swift */; };
+		9AE62C282853349700FEDB9C /* CKUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE62C272853349700FEDB9C /* CKUser.swift */; };
 		9AF3F485285863C200A7590D /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3F484285863C200A7590D /* Month.swift */; };
 		9AF3F4872858645400A7590D /* MonthDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3F4862858645400A7590D /* MonthDataStore.swift */; };
 		A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3318C552853646500B5166F /* CleaningButtonView.swift */; };
@@ -58,6 +56,11 @@
 		A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F850E22859FB590069B805 /* FirstOnboradingView.swift */; };
 		EC02DC81285A710F00DC1FAE /* SharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC02DC80285A710F00DC1FAE /* SharingView.swift */; };
 		EC02DC83285A722300DC1FAE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC02DC82285A722300DC1FAE /* CardView.swift */; };
+		EC282885285CE35C00AFDC00 /* CloudSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC282884285CE35C00AFDC00 /* CloudSharingView.swift */; };
+		EC282887285CE43600AFDC00 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC282886285CE43600AFDC00 /* UserViewModel.swift */; };
+		EC282889285CE44D00AFDC00 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC282888285CE44D00AFDC00 /* Config.swift */; };
+		EC28288B285CEBE900AFDC00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28288A285CEBE900AFDC00 /* AppDelegate.swift */; };
+		EC28288D285CECDB00AFDC00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28288C285CECDB00AFDC00 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +80,6 @@
 		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		34ABDFE32859A3E300E596FB /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
-		73680F8E2859AEDC0093BA62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		73680F902859AEE00093BA62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		736A696D28532131001D0D44 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		739488E8285713240088DE1E /* Cleanny.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cleanny.entitlements; sourceTree = "<group>"; };
 		739488E9285713360088DE1E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -96,7 +97,7 @@
 		9A890C572855F4A00013248D /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		9A93370D2852B67600F7C587 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		9A961109285746E60028C7C8 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
-		9AE62C272853349700FEDB9C /* _User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _User.swift; sourceTree = "<group>"; };
+		9AE62C272853349700FEDB9C /* CKUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKUser.swift; sourceTree = "<group>"; };
 		9AF3F484285863C200A7590D /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		9AF3F4862858645400A7590D /* MonthDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDataStore.swift; sourceTree = "<group>"; };
 		A3318C552853646500B5166F /* CleaningButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningButtonView.swift; sourceTree = "<group>"; };
@@ -109,6 +110,12 @@
 		A3F850E22859FB590069B805 /* FirstOnboradingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstOnboradingView.swift; sourceTree = "<group>"; };
 		EC02DC80285A710F00DC1FAE /* SharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingView.swift; sourceTree = "<group>"; };
 		EC02DC82285A722300DC1FAE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		EC282884285CE35C00AFDC00 /* CloudSharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSharingView.swift; sourceTree = "<group>"; };
+		EC282886285CE43600AFDC00 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		EC282888285CE44D00AFDC00 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		EC28288A285CEBE900AFDC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC28288C285CECDB00AFDC00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EC28288E285D0A7F00AFDC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +187,7 @@
 		9A3934582850892800393B19 /* Cleanny */ = {
 			isa = PBXGroup;
 			children = (
+				EC28288E285D0A7F00AFDC00 /* Info.plist */,
 				739488E8285713240088DE1E /* Cleanny.entitlements */,
 				344600FE2855DD9300B2E740 /* CoreData */,
 				9A7145D428532B2100AD9B45 /* Data */,
@@ -231,14 +239,16 @@
 		9A7145D428532B2100AD9B45 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				73680F8E2859AEDC0093BA62 /* AppDelegate.swift */,
-				73680F902859AEE00093BA62 /* SceneDelegate.swift */,
 				9A7145D528532B3200AD9B45 /* Cleaning.swift */,
 				344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */,
-				9AE62C272853349700FEDB9C /* _User.swift */,
+				9AE62C272853349700FEDB9C /* CKUser.swift */,
 				9A961109285746E60028C7C8 /* UserDataStore.swift */,
 				9AF3F484285863C200A7590D /* Month.swift */,
 				9AF3F4862858645400A7590D /* MonthDataStore.swift */,
+				EC282886285CE43600AFDC00 /* UserViewModel.swift */,
+				EC282888285CE44D00AFDC00 /* Config.swift */,
+				EC28288A285CEBE900AFDC00 /* AppDelegate.swift */,
+				EC28288C285CECDB00AFDC00 /* SceneDelegate.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -279,6 +289,7 @@
 				736A696D28532131001D0D44 /* ShareView.swift */,
 				EC02DC80285A710F00DC1FAE /* SharingView.swift */,
 				EC02DC82285A722300DC1FAE /* CardView.swift */,
+				EC282884285CE35C00AFDC00 /* CloudSharingView.swift */,
 			);
 			path = Share;
 			sourceTree = "<group>";
@@ -410,19 +421,22 @@
 				3446010228562E1600B2E740 /* CleaningCategoryProgress.swift in Sources */,
 				341F6572285A1FD600CAC44A /* LaunchView.swift in Sources */,
 				9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */,
+				EC282885285CE35C00AFDC00 /* CloudSharingView.swift in Sources */,
 				9AF3F485285863C200A7590D /* Month.swift in Sources */,
 				9A3934632850892A00393B19 /* Persistence.swift in Sources */,
 				9A39345C2850892800393B19 /* ContentView.swift in Sources */,
 				34662BAA285509380088A4B2 /* LottieView.swift in Sources */,
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
+				EC28288D285CECDB00AFDC00 /* SceneDelegate.swift in Sources */,
 				A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */,
-				73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */,
 				9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */,
 				A3F850E52859FB590069B805 /* FirstOnboradingView.swift in Sources */,
 				A36369EC2854703800B7B645 /* SettingCard.swift in Sources */,
 				A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */,
 				9A93370E2852B67600F7C587 /* ChartView.swift in Sources */,
-				9AE62C282853349700FEDB9C /* _User.swift in Sources */,
+				EC28288B285CEBE900AFDC00 /* AppDelegate.swift in Sources */,
+				EC282887285CE43600AFDC00 /* UserViewModel.swift in Sources */,
+				9AE62C282853349700FEDB9C /* CKUser.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				EC02DC83285A722300DC1FAE /* CardView.swift in Sources */,
@@ -436,7 +450,7 @@
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
 				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
-				73680F8F2859AEDC0093BA62 /* AppDelegate.swift in Sources */,
+				EC282889285CE44D00AFDC00 /* Config.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,9 +585,10 @@
 				DEVELOPMENT_TEAM = L3A22T43UF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Cleanny/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -602,9 +617,10 @@
 				DEVELOPMENT_TEAM = L3A22T43UF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Cleanny/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

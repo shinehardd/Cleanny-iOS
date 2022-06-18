@@ -17,7 +17,7 @@ class UserDataStore: Identifiable, ObservableObject {
     var state: String
     
     init() {
-        self.name = "이름을 설정해주세요"
+        self.name = "이름을 설정하세요"
         self.totalPercentage = 99
         self.numerator = 0
         self.denominator = 1

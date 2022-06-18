@@ -11,6 +11,8 @@ struct OnboardingView: View {
     @Binding var firstLaunching: Bool
     @State private var selection = 0
     
+    @EnvironmentObject private var userViewModel: UserViewModel
+    
     var body: some View {
         VStack {
             if selection < 10 {
@@ -29,7 +31,7 @@ struct OnboardingView: View {
             TabView(selection: $selection) {
                 FirstOnboradingView(firstLaunching: $firstLaunching, number:1) .tag(0)
                 FirstOnboradingView(firstLaunching: $firstLaunching, number:2) .tag(1)
-                LastOnboardingView(firstLaunching: $firstLaunching) .tag(10)
+                LastOnboardingView(firstLaunching: $firstLaunching, onAdd: userViewModel.addUser(name:totalPercentage:)) .tag(10)
             }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
