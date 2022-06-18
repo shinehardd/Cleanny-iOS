@@ -23,9 +23,16 @@ struct LaunchView: View {
                 
                 if !removeGIF {
                     ZStack {
+                        VStack {
                             AnimatedImage(url: getLogoURL())
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
+                            Text("Cleanny")
+                                .padding()
+                                .foregroundColor(Color("SBlue"))
+                                .font(.bold(.title)())
+                        }
+                        
                     }
                     .animation(.none, value: animationFinished)
                 }

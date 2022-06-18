@@ -27,6 +27,8 @@
 		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		34ABDFE42859A3E300E596FB /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ABDFE32859A3E300E596FB /* RecordButton.swift */; };
 		34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */; };
+		34EC0836285DCC9900C526F2 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC0835285DCC9900C526F2 /* CustomAlertView.swift */; };
+		731AEDC4285DFB7700838560 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731AEDC3285DFB7700838560 /* CustomTextField.swift */; };
 		735198F72858548A0017A098 /* CloudkitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198F62858548A0017A098 /* CloudkitUser.swift */; };
 		735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198F82858555C0017A098 /* CloudkitUserViewModel.swift */; };
 		735198FF2858625E0017A098 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198FE2858625E0017A098 /* CreateUserView.swift */; };
@@ -92,6 +94,8 @@
 		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		34ABDFE32859A3E300E596FB /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		34EC0835285DCC9900C526F2 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		731AEDC3285DFB7700838560 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		735198F62858548A0017A098 /* CloudkitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUser.swift; sourceTree = "<group>"; };
 		735198F82858555C0017A098 /* CloudkitUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUserViewModel.swift; sourceTree = "<group>"; };
 		735198FE2858625E0017A098 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
@@ -305,6 +309,8 @@
 				735198FE2858625E0017A098 /* CreateUserView.swift */,
 				EC1985802859B4C1006D5242 /* CloudkitShareView.swift */,
 				736A696D28532131001D0D44 /* ShareView.swift */,
+				34EC0835285DCC9900C526F2 /* CustomAlertView.swift */,
+				731AEDC3285DFB7700838560 /* CustomTextField.swift */,
 			);
 			path = Share;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 				EC1985812859B4C1006D5242 /* CloudkitShareView.swift in Sources */,
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
 				A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */,
+				34EC0836285DCC9900C526F2 /* CustomAlertView.swift in Sources */,
 				A398EF55285C708100D87096 /* ShareOnboardingView.swift in Sources */,
 				73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */,
 				9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */,
@@ -477,6 +484,7 @@
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
 				341F657E285B85EE00CAC44A /* LastOnboardingView.swift in Sources */,
 				341F6580285B860900CAC44A /* CoreDataStack.swift in Sources */,
+				731AEDC4285DFB7700838560 /* CustomTextField.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,

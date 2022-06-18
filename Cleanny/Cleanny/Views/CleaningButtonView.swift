@@ -86,7 +86,7 @@ struct CleaningButtonView: View {
                         }
                         withAnimation {
                             let cleanName = cleaning.name ?? ""
-                            complateText = cleanName + " 완료 ✅"
+                            complateText = "🤍 " + cleanName + " 완료 🤍"
                             cleaning.currentPercent = 100
                         }
                         

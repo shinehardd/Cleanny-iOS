@@ -35,7 +35,7 @@ struct OnboardingView: View {
                                 .animation(nil)
                         }
                         
-                        .foregroundColor(Color("MBlue"))
+                        .foregroundColor(Color("SBlue"))
                     }
                     .padding(.horizontal)
                     .frame(height: 42.0)
