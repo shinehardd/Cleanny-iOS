@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct LoginView: View {
+    // Log Status
+    @AppStorage("log_status") var logStatus: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            if logStatus {
+                ContentView()
+                    .navigationBarHidden(true)
+            }
+            else {
+                LoginPage()
+                    .navigationBarHidden(true)
+            }
+        }
+        .navigationTitle("")
+        .navigationBarHidden(true)
     }
 }
 

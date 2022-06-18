@@ -11,6 +11,8 @@
 		3446010228562E1600B2E740 /* CleaningCategoryProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3446010128562E1600B2E740 /* CleaningCategoryProgress.swift */; };
 		34662BA52854FFEE0088A4B2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 34662BA42854FFEE0088A4B2 /* Lottie */; };
 		34662BAA285509380088A4B2 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34662BA9285509380088A4B2 /* LottieView.swift */; };
+		3477642F285DA20600128924 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3477642E285DA20600128924 /* FirebaseAuth */; };
+		34776431285DA20600128924 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 34776430285DA20600128924 /* FirebaseFirestore */; };
 		348A4EFA285756F10058D53A /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF6285756F10058D53A /* Love.json */; };
 		348A4EFD285756F10058D53A /* Heit.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4EF9285756F10058D53A /* Heit.json */; };
 		348A4F03285853EE0058D53A /* Cleaning.json in Resources */ = {isa = PBXBuildFile; fileRef = 348A4F02285853EE0058D53A /* Cleaning.json */; };
@@ -20,6 +22,11 @@
 		34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */; };
 		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */; };
+		34EC082A285DA66800C526F2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC0829285DA66800C526F2 /* LoginViewModel.swift */; };
+		34EC082C285DA68100C526F2 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC082B285DA68100C526F2 /* LoginPage.swift */; };
+		34EC082E285DA6DB00C526F2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC082D285DA6DB00C526F2 /* LoginView.swift */; };
+		34EC0832285DA83500C526F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34EC0831285DA83500C526F2 /* GoogleService-Info.plist */; };
+		34EC0834285DB13500C526F2 /* LogSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC0833285DB13500C526F2 /* LogSettingView.swift */; };
 		736A696E28532131001D0D44 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736A696D28532131001D0D44 /* ShareView.swift */; };
 		9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EB0F328521B62003BD148 /* CircularProgressView.swift */; };
 		9A39345A2850892800393B19 /* CleannyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934592850892800393B19 /* CleannyApp.swift */; };
@@ -61,6 +68,11 @@
 		34A30AB52854919200DFFB3F /* CleaningCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningCategoryView.swift; sourceTree = "<group>"; };
 		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		34EC0829285DA66800C526F2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		34EC082B285DA68100C526F2 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		34EC082D285DA6DB00C526F2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		34EC0831285DA83500C526F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		34EC0833285DB13500C526F2 /* LogSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSettingView.swift; sourceTree = "<group>"; };
 		736A696D28532131001D0D44 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		9A0EB0F328521B62003BD148 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		9A3934562850892800393B19 /* Cleanny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleanny.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,9 +105,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A93370C2852B64100F7C587 /* SwiftUICharts in Frameworks */,
+				3477642F285DA20600128924 /* FirebaseAuth in Frameworks */,
 				9A3934722850B33200393B19 /* AxisTabView in Frameworks */,
 				9A39346F28508CEB00393B19 /* AxisTabView in Frameworks */,
 				34662BA52854FFEE0088A4B2 /* Lottie in Frameworks */,
+				34776431285DA20600128924 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				9A0EB0F328521B62003BD148 /* CircularProgressView.swift */,
+				34EC0831285DA83500C526F2 /* GoogleService-Info.plist */,
 				9A3934582850892800393B19 /* Cleanny */,
 				9A3934572850892800393B19 /* Products */,
 				9A39346C28508BFA00393B19 /* Frameworks */,
@@ -180,8 +195,11 @@
 				9A3934782850B67F00393B19 /* CharacterView.swift */,
 				3446010128562E1600B2E740 /* CleaningCategoryProgress.swift */,
 				34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */,
+				34EC082B285DA68100C526F2 /* LoginPage.swift */,
+				34EC082D285DA6DB00C526F2 /* LoginView.swift */,
 				9A93370D2852B67600F7C587 /* ChartView.swift */,
 				736A696D28532131001D0D44 /* ShareView.swift */,
+				34EC0833285DB13500C526F2 /* LogSettingView.swift */,
 				A36369EA2854703800B7B645 /* SettingModalView.swift */,
 				34A30AB72854932A00DFFB3F /* SettingSliderView.swift */,
 				A36369E82854703800B7B645 /* SettingSlider.swift */,
@@ -200,6 +218,7 @@
 			children = (
 				9A7145D528532B3200AD9B45 /* Cleaning.swift */,
 				344600FF2855DE3F00B2E740 /* CleaningDataStore.swift */,
+				34EC0829285DA66800C526F2 /* LoginViewModel.swift */,
 				9AE62C272853349700FEDB9C /* User.swift */,
 				9A961109285746E60028C7C8 /* UserDataStore.swift */,
 				9AF3F484285863C200A7590D /* Month.swift */,
@@ -229,6 +248,8 @@
 				9A3934712850B33200393B19 /* AxisTabView */,
 				9A93370B2852B64100F7C587 /* SwiftUICharts */,
 				34662BA42854FFEE0088A4B2 /* Lottie */,
+				3477642E285DA20600128924 /* FirebaseAuth */,
+				34776430285DA20600128924 /* FirebaseFirestore */,
 			);
 			productName = Cleanny;
 			productReference = 9A3934562850892800393B19 /* Cleanny.app */;
@@ -263,6 +284,7 @@
 				9A3934702850B33200393B19 /* XCRemoteSwiftPackageReference "AxisTabView" */,
 				9A93370A2852B64100F7C587 /* XCRemoteSwiftPackageReference "ChartView" */,
 				34662BA32854FFEE0088A4B2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				3477642D285DA20600128924 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 9A3934572850892800393B19 /* Products */;
 			projectDirPath = "";
@@ -279,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				348A4F142858E7A90058D53A /* Cry.json in Resources */,
+				34EC0832285DA83500C526F2 /* GoogleService-Info.plist in Resources */,
 				9A3934612850892A00393B19 /* Preview Assets.xcassets in Resources */,
 				9A39345E2850892A00393B19 /* Assets.xcassets in Resources */,
 				348A4EFD285756F10058D53A /* Heit.json in Resources */,
@@ -308,6 +331,7 @@
 				9A39345C2850892800393B19 /* ContentView.swift in Sources */,
 				34662BAA285509380088A4B2 /* LottieView.swift in Sources */,
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
+				34EC0834285DB13500C526F2 /* LogSettingView.swift in Sources */,
 				9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */,
 				A36369EC2854703800B7B645 /* SettingCard.swift in Sources */,
 				A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */,
@@ -316,12 +340,15 @@
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				A372BB8B28587EBA0083E2FC /* OnboardingView.swift in Sources */,
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,
+				34EC082A285DA66800C526F2 /* LoginViewModel.swift in Sources */,
+				34EC082E285DA6DB00C526F2 /* LoginView.swift in Sources */,
 				9AF3F4872858645400A7590D /* MonthDataStore.swift in Sources */,
 				A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */,
 				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
 				348A4F172858E8960058D53A /* TabStyle.swift in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
+				34EC082C285DA68100C526F2 /* LoginPage.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +482,7 @@
 				DEVELOPMENT_TEAM = K6B59X6MS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -485,6 +513,7 @@
 				DEVELOPMENT_TEAM = K6B59X6MS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -535,6 +564,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		3477642D285DA20600128924 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		9A39346D28508CEB00393B19 /* XCRemoteSwiftPackageReference "AxisTabView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jasudev/AxisTabView.git";
@@ -566,6 +603,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 34662BA32854FFEE0088A4B2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		3477642E285DA20600128924 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3477642D285DA20600128924 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		34776430285DA20600128924 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3477642D285DA20600128924 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		9A39346E28508CEB00393B19 /* AxisTabView */ = {
 			isa = XCSwiftPackageProductDependency;

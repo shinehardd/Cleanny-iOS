@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct CleannyApp: App {
@@ -14,9 +15,14 @@ struct CleannyApp: App {
     @StateObject var MonthData = MonthDataStore()
     let persistenceController = PersistenceController.shared
 
+    init(){
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
+//            ContentView()
                 .environmentObject(cleaning)
                 .environmentObject(userData)
                 .environmentObject(MonthData)

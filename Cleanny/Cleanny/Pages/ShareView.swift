@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ShareView: View {
+    
+    @AppStorage("log_status") var logStatus: Bool = false
+    
+    @State var showLogSetting: Bool = false
     
     var friends = ["주주", "쿠키", "치콩", "엘리", "할로겐", "네이스", "버킬", "창브로", "밀키"]
     var percentageDic = ["주주": 0.8, "쿠키": 0.6, "치콩": 0.3, "엘리": 0.2, "할로겐": 1, "네이스": 0.7, "버킬": 0.5, "창브로": 0.1, "밀키": 0.9]
@@ -22,31 +27,65 @@ struct ShareView: View {
             ZStack {
                 Color("MBackground")
                     .ignoresSafeArea()
-                VStack {
-                    Spacer()
-                    ScrollView() {
-                        LazyVGrid (columns: columns) {
-                            ForEach(friends, id: \.self) { friend in
-                                CardView(name: friend, percentage: percentageDic[friend]!)
+                
+                if logStatus {
+                    VStack {
+                        Spacer()
+                        ScrollView() {
+                            LazyVGrid (columns: columns) {
+                                ForEach(friends, id: \.self) { friend in
+                                    CardView(name: friend, percentage: percentageDic[friend]!)
+                                }
+                            }
+                            .padding(.horizontal)
+                            Spacer(minLength: 50)
+                        }
+                        Spacer(minLength: 60)
+                    }
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar{
+                        ToolbarItem(placement: .principal) {
+                            Text("공유").font(.headline)
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                // 친구 추가 모달 or 알림
+                            } label: {
+                                Image(uiImage: UIImage(named: "AddFriend")!)
+                                    .foregroundColor(Color("MBlue"))
                             }
                         }
-                        .padding(.horizontal)
-                        Spacer(minLength: 50)
-                    }
-                    Spacer(minLength: 60)
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar{
-                    ToolbarItem(placement: .principal) {
-                        Text("공유").font(.headline)
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            // 친구 추가 모달 or 알림
-                        } label: {
-                            Image(uiImage: UIImage(named: "AddFriend")!)
-                                .foregroundColor(Color("MBlue"))
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: { self.showLogSetting = true })
+                            {
+                                Image("Setting")
+                                    .foregroundColor(Color("MBlue"))
+                                    .padding()
+                            }
+                            .sheet(isPresented: self.$showLogSetting) {
+                                LogSettingView()
+                            }
                         }
+                    }
+                } else {
+                    VStack {
+                        NavigationLink{
+                            LoginPage()
+                                .navigationBarHidden(true)
+                        } label: {
+                            Text("로그인")
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .padding()
+                                .hCenter()
+                                .background {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(Color("MBlue"))
+                                }
+                        }
+                        .padding()
+                        Text("공유 기능을 사용하려면 로그인을 하세요.")
+                            .foregroundColor(Color("MBlack"))
                     }
                 }
             }
