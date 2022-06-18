@@ -34,19 +34,28 @@ struct ChartPage2: View {
         let currentMonth = Int(calendar.component(.month, from: date))
         var chartData:Array<(String,Double)> = []
         var tempMonth = 0
-        var i:Int = 5
+        var i:Int = 11
         
         while i >= 0 {
-            tempMonth = (currentMonth - 1)
-            tempMonth -= i
-            i -= 1
-            if(tempMonth < 0){
-                tempMonth += 12
+            if(i>5){
+                tempMonth = (currentMonth - 1)
+                tempMonth -= i
+                i -= 1
+                if(tempMonth < 0){
+                    tempMonth += 12
+                }
+                tempMonthArr[1 * 12 + tempMonth].cleaningCount = 0
             }
-            
-            chartData.append(("\(tempMonthArr[1 * 12 + tempMonth].monthName)",Double(tempMonthArr[1 * 12 + tempMonth].cleaningCount)))
-          
-//            chartData.append(("\tempMonthArr[(index * 12) + tempMonth].monthName", Int(tempMonthArr[(index * 12) + tempMonth].cleaningCount)))
+            else{
+                tempMonth = (currentMonth - 1)
+                tempMonth -= i
+                i -= 1
+                if(tempMonth < 0){
+                    tempMonth += 12
+                }
+                
+                chartData.append(("\(tempMonthArr[1 * 12 + tempMonth].monthName)",Double(tempMonthArr[1 * 12 + tempMonth].cleaningCount)))
+            }
         }
       
         return chartData
