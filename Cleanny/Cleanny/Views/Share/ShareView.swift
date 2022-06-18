@@ -29,13 +29,12 @@ struct ShareView: View {
     @State private var activeContainer: CKContainer?
     
     @State private var showAlert: Bool = false
-    @State private var text: String = ""
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: -10),
+        GridItem(.flexible(), spacing: -10)
     ]
     
     var body: some View {
@@ -46,20 +45,15 @@ struct ShareView: View {
                     .ignoresSafeArea()
                 VStack {
                     Spacer()
-                    
                     ScrollView(showsIndicators: false) {
-                        LazyVGrid (columns: columns,
-                                   alignment: .center,
-                                   spacing: nil,
-                                   pinnedViews: [],
-                                   content: {
+                        LazyVGrid (columns: columns) {
                             if (me != nil) {
                                 CardView(name: me!.name, percentage: me!.totalPercentage)
                                     .aspectRatio(10/13, contentMode: .fit)
                                     .padding(.horizontal)
                                     .padding(.top)
                                     .onTapGesture {
-                                        showAlert.toggle()
+                                        showAlert = true
                                     }
                             }
                             ForEach(friends, id: \.self) {
@@ -69,7 +63,7 @@ struct ShareView: View {
                                     .padding(.horizontal)
                                     .padding(.top)
                             }
-                        })
+                        }
                         Spacer(minLength: 50)
                     }
                     Spacer(minLength: 60)
@@ -77,13 +71,14 @@ struct ShareView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar{
                     ToolbarItem(placement: .principal) {
-                        Text("공유").font(.headline)
+                        Text("공유")
+                            .font(.headline)
+                            .frame(width: 150)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(
                             action: { if (me != nil) {
                                 Task {
-                                    let _ = print(me!.name)
                                     try? await shareUser(me!)
                                 }
                             } } , label: { Image(uiImage: UIImage(named: "AddFriend")!)
@@ -91,7 +86,17 @@ struct ShareView: View {
                             .sheet(isPresented: $isSharing, content: { shareView() })
                     }
                 }
-                CustomAlertView(showAlert: $showAlert, text: $text)
+                Color.black.opacity(showAlert ? 0.3 : 0).ignoresSafeArea(.all)
+                CustomAlertView(showAlert: $showAlert, updateAction: { text in
+                    if (me != nil) {
+                        me!.name = text
+                        me!.setName(name: text)
+                        if (!user.isEmpty) {
+                            user[0].name = text
+                        }
+                        viewModel.updateUser(user: me!, name: text, totalPercentage: me!.totalPercentage)
+                    }
+                })
             }
             .onAppear {
                 Task {
@@ -102,6 +107,18 @@ struct ShareView: View {
             }
         }
     }
+    
+//    func updateName(name: String) {
+//        print(name)
+//        if (me != nil) {
+//            me!.name = name
+//            me!.setName(name: name)
+//            if (!user.isEmpty) {
+//                user[0].name = name
+//            }
+//            viewModel.updateUser(user: me!, name: name, totalPercentage: me!.totalPercentage)
+//        }
+//    }
     
     private func loadFriends() async throws {
 
@@ -160,8 +177,8 @@ struct ShareView: View {
 }
 
 struct CardView: View {
-    var name: String
-    var percentage: Double
+    @State var name: String
+    @State var percentage: Double
     
     var body: some View {
         ZStack() {
@@ -195,6 +212,10 @@ struct CardView: View {
                     .padding([.bottom, .trailing, .leading])
             }
         }
+    }
+    
+    func updateCard(name: String) {
+        self.name = name
     }
     
     private func getCatImage(percentage: Double) -> String {
