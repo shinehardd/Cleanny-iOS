@@ -102,12 +102,12 @@ struct ContentView: View {
             if(monthHistoryData.isEmpty){}
             else{
             for index in 0...5 {
-                cleans[index].currentPercent
-                let useTime = Int(Date().timeIntervalSince(cleans[index].savedTime!))
+                var useTime = Int(Date().timeIntervalSince(cleans[index].savedTime!))
+                if(useTime < 0){ useTime = 0 }
                 cleans[index].currentPercent = cleans[index].currentPercent - (Double(useTime) * cleans[index].decreaseRate)
                 cleans[index].savedTime = Date()
                 if(cleans[index].currentPercent < 0) {cleans[index].currentPercent = 0}
-                
+            
             }
             
             users[0].numerator = 0
@@ -122,7 +122,7 @@ struct ContentView: View {
             
             users[0].totalPercentage = users[0].denominator == 0 ? -100 : (users[0].numerator / users[0].denominator)
             index = Int(users[0].totalPercentage) / 25
-          
+          print("--------->",index)
             
             do {
                 try viewContext.save()

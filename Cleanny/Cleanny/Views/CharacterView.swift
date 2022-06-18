@@ -50,16 +50,20 @@ struct CharacterView: View {
                     }
                     .sheet(isPresented: self.$showModal) {
                         SettingModalView(showModal: $showModal)
+                            .interactiveDismissDisabled()
                     }
                 }
-                
+                if(index < 0){
+                    Text("주기를 설정해주세요").foregroundColor(Color("MBlack"))
+                }
+                else{
                 ZStack {
                     LottieView(name: isCleaning ? "Cleaning" : cleaning.charcterArr[index])
-                    Text("\(complateText)")
+                    Text("\(complateText)").foregroundColor(Color("MBlack"))
                         .offset(y: -screenHeight / 5)
                 }
                 .frame(maxHeight: screenHeight / 2.5)
-                
+                }
                 CleaningCategoryProgress(index: $index, isCleaning: $isCleaning, complateText: $complateText)
                 
                 Spacer(minLength: screenHeight / 6)
