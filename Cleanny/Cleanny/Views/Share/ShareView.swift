@@ -29,6 +29,7 @@ struct ShareView: View {
     @State private var activeContainer: CKContainer?
     
     @State private var showAlert: Bool = false
+    @State private var text: String = ""
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -58,15 +59,7 @@ struct ShareView: View {
                                     .padding(.horizontal)
                                     .padding(.top)
                                     .onTapGesture {
-                                        alertTF(title: "닉네임 변경", message: "새로운 닉네임을 설정해주세요", hintText: "이름", primaryTitle: "저장", secondaryTitle: "취소") { text in
-                                            me!.name = text
-                                            let _ = print(me!.name)
-                                            me!.setName(name: text)
-                                            if (!user.isEmpty) {
-                                                user[0].name = text
-                                            }
-                                            viewModel.updateUser(user: me!, name: text, totalPercentage: me!.totalPercentage)
-                                        } secondaryAction: {}
+                                        showAlert.toggle()
                                     }
                             }
                             ForEach(friends, id: \.self) {
@@ -98,6 +91,7 @@ struct ShareView: View {
                             .sheet(isPresented: $isSharing, content: { shareView() })
                     }
                 }
+                CustomAlertView(showAlert: $showAlert, text: $text)
             }
             .onAppear {
                 Task {
@@ -162,36 +156,6 @@ struct ShareView: View {
         guard let share = activeShare, let container = activeContainer else { return nil }
         
         return CloudkitShareView(container: container, share: share)
-    }
-}
-
-extension View {
-    func alertTF(title: String, message: String, hintText: String, primaryTitle: String, secondaryTitle: String, primaryAction: @escaping (String) -> (), secondaryAction: @escaping () -> ()) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        alert.addTextField { field in
-            field.placeholder = hintText
-        }
-        
-        alert.addAction(.init(title: secondaryTitle, style: .default, handler: { _ in
-            secondaryAction()
-        }))
-        
-        alert.addAction(.init(title: primaryTitle, style: .default, handler: { _ in
-            if let text = alert.textFields?[0].text {
-                primaryAction(text)
-            } else {
-                primaryAction("")
-            }
-        }))
-        rootController().present(alert, animated: true, completion: nil)
-    }
-    
-    func rootController () -> UIViewController {
-        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return.init() }
-        guard let root = screen.windows.first?.rootViewController else { return.init() }
-        
-        return root
     }
 }
 

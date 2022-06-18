@@ -27,6 +27,7 @@
 		34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A30AB72854932A00DFFB3F /* SettingSliderView.swift */; };
 		34ABDFE42859A3E300E596FB /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ABDFE32859A3E300E596FB /* RecordButton.swift */; };
 		34B2CD5A28546EAA00739D47 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */; };
+		34EC0836285DCC9900C526F2 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC0835285DCC9900C526F2 /* CustomAlertView.swift */; };
 		735198F72858548A0017A098 /* CloudkitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198F62858548A0017A098 /* CloudkitUser.swift */; };
 		735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198F82858555C0017A098 /* CloudkitUserViewModel.swift */; };
 		735198FF2858625E0017A098 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735198FE2858625E0017A098 /* CreateUserView.swift */; };
@@ -92,6 +93,7 @@
 		34A30AB72854932A00DFFB3F /* SettingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSliderView.swift; sourceTree = "<group>"; };
 		34ABDFE32859A3E300E596FB /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		34B2CD5928546EAA00739D47 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		34EC0835285DCC9900C526F2 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		735198F62858548A0017A098 /* CloudkitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUser.swift; sourceTree = "<group>"; };
 		735198F82858555C0017A098 /* CloudkitUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUserViewModel.swift; sourceTree = "<group>"; };
 		735198FE2858625E0017A098 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				735198FE2858625E0017A098 /* CreateUserView.swift */,
 				EC1985802859B4C1006D5242 /* CloudkitShareView.swift */,
 				736A696D28532131001D0D44 /* ShareView.swift */,
+				34EC0835285DCC9900C526F2 /* CustomAlertView.swift */,
 			);
 			path = Share;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				EC1985812859B4C1006D5242 /* CloudkitShareView.swift in Sources */,
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
 				A3F850E32859FB590069B805 /* OnboardingView.swift in Sources */,
+				34EC0836285DCC9900C526F2 /* CustomAlertView.swift in Sources */,
 				A398EF55285C708100D87096 /* ShareOnboardingView.swift in Sources */,
 				73680F912859AEE00093BA62 /* SceneDelegate.swift in Sources */,
 				9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */,
@@ -623,7 +627,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
-				DEVELOPMENT_TEAM = 99K458V69X;
+				DEVELOPMENT_TEAM = K6B59X6MS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cleanny/Info.plist;
@@ -636,7 +640,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.juju;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.Neis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -654,7 +658,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleanny/Preview Content\"";
-				DEVELOPMENT_TEAM = 99K458V69X;
+				DEVELOPMENT_TEAM = K6B59X6MS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cleanny/Info.plist;
@@ -667,7 +671,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.juju;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.Neis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
