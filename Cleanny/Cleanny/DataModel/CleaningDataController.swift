@@ -29,19 +29,18 @@ class CleaningDataController: ObservableObject {
         }
     }
     
-    func initCleaning(context: NSManagedObjectContext) {
+    func initCleaning(idx: Int, context: NSManagedObjectContext) {
         let cleaning = CleaningData(context: context)
         let cleaningName = ["DisposeTrash", "Laundary", "ToiletCleaning", "FloorCleaning", "DishWashing", "TidyUp"]
         
-        (cleaningName).forEach { name in
-            cleaning.id = UUID()
-            cleaning.cleaningType = name
-            cleaning.characterState = 100
-            cleaning.cleaingState = 100
-            cleaning.actived = true
-            cleaning.cycle = 1
-            cleaning.decreaseRate = 30
-        }
+        cleaning.id = UUID()
+        cleaning.cleaningType = cleaningName[idx]
+        cleaning.characterState = 100
+        cleaning.cleaingState = 100
+        cleaning.actived = true
+        cleaning.cycle = 1
+        cleaning.decreaseRate = 30
+        
         save(context: context)
     }
     

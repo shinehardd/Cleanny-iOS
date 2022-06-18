@@ -24,64 +24,50 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
-    @Environment(\.managedObjectContext) var ManagedObjContext
-    @FetchRequest(sortDescriptors: []) var cleaning: FetchedResults<CleaningData>
-    
-    
     @Binding var complateText: String
     @Binding var isCleaning: Bool
-    
+
     @GestureState var tap = false
     
     let cleaningItem: Cleaning
     
     var body: some View {
         VStack {
-        Circle()
-            .foregroundColor(.white)
-            .frame(width: 60, height: 60)
-            .shadow(color: Color("SBlue").opacity(0.3), radius: 4, x: 1, y: 1)
-            .scaleEffect(tap ? 1.1 : 1)
-            .overlay(
-                Image(cleaningItem.name)
-                    .foregroundColor(Color("MBlue"))
-            )
-            .onTapGesture {
-                isCleaning = false
-            }
-            .simultaneousGesture(LongPressGesture(minimumDuration: 1.5)
-                .updating($tap) { currentState, gestureState, transition in
-                    gestureState = currentState
+            Circle()
+                .foregroundColor(.white)
+                .frame(width: 60, height: 60)
+                .shadow(color: Color("SBlue").opacity(0.3), radius: 4, x: 1, y: 1)
+                .scaleEffect(tap ? 1.1 : 1)
+                .overlay(
+                    Image(cleaningItem.name)
+                        .foregroundColor(Color("MBlue"))
+                )
+                .onTapGesture {
+                    isCleaning = false
                 }
-                                 
-                .onChanged { _ in
-                    HapticManager.instance.impact(style: .heavy)
-                    isCleaning = true
-                }
-                                 
-                .onEnded{ _ in
-                    HapticManager.instance.notification(type: .success)
-                    withAnimation {
-                        complateText = cleaningItem.getKoreanName() + " 완료 ✅"
-                        //cleaning.currentPercent = 100
+                .simultaneousGesture(LongPressGesture(minimumDuration: 1.5)
+                    .updating($tap) { currentState, gestureState, transition in
+                        gestureState = currentState
                     }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        complateText = ""
-                        isCleaning = false
+                                     
+                    .onChanged { _ in
+                        HapticManager.instance.impact(style: .heavy)
+                        isCleaning = true
                     }
-                }
-            )
-            Text("\(cleaning.first?.cleaningType)")
-            Button {
-                if cleaning.isEmpty {
-                    CleaningDataController().initCleaning(context: ManagedObjContext)
-                }
-                print(cleaning.first?.cleaningType)
-            } label: {
-                Text("hello")
-            }
-
+                                     
+                    .onEnded{ _ in
+                        HapticManager.instance.notification(type: .success)
+                        withAnimation {
+                            complateText = cleaningItem.getKoreanName() + " 완료 ✅"
+                            //cleaning.currentPercent = 100
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            complateText = ""
+                            isCleaning = false
+                        }
+                    }
+                )
         }
     }
 }
