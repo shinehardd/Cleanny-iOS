@@ -24,6 +24,10 @@ class HapticManager {
 }
 
 struct CleaningButtonView: View {
+    @Environment(\.managedObjectContext) var ManagedObjContext
+    @FetchRequest(sortDescriptors: []) var cleaning: FetchedResults<CleaningData>
+    
+    
     @Binding var complateText: String
     @Binding var isCleaning: Bool
     
@@ -32,6 +36,7 @@ struct CleaningButtonView: View {
     let cleaningItem: Cleaning
     
     var body: some View {
+        VStack {
         Circle()
             .foregroundColor(.white)
             .frame(width: 60, height: 60)
@@ -67,5 +72,16 @@ struct CleaningButtonView: View {
                     }
                 }
             )
+            Text("\(cleaning.first?.cleaningType)")
+            Button {
+                if cleaning.isEmpty {
+                    CleaningDataController().initCleaning(context: ManagedObjContext)
+                }
+                print(cleaning.first?.cleaningType)
+            } label: {
+                Text("hello")
+            }
+
+        }
     }
 }

@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct CleannyApp: App {
-    let persistenceController = PersistenceController.shared
-
+    @StateObject private var cleaningDataController = CleaningDataController()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-               // .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, cleaningDataController.container.viewContext)
         }
     }
 }

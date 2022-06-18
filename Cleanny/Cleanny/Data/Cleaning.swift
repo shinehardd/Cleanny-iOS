@@ -15,8 +15,6 @@ struct Cleaning: Hashable {
     var percentage: Double
     var activated : Bool
     
-    
-    
     init(name: String,cycle: Int, decreaseRate : Double, percentage : Double, activated : Bool){
         self.name = name
         self.cycle = cycle

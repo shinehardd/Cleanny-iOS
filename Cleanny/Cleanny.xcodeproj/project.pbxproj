@@ -22,7 +22,7 @@
 		9A39345E2850892A00393B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A39345D2850892A00393B19 /* Assets.xcassets */; };
 		9A3934612850892A00393B19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A3934602850892A00393B19 /* Preview Assets.xcassets */; };
 		9A3934632850892A00393B19 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934622850892A00393B19 /* Persistence.swift */; };
-		9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934642850892A00393B19 /* Cleanny.xcdatamodeld */; };
+		9A3934662850892A00393B19 /* CleannyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934642850892A00393B19 /* CleannyModel.xcdatamodeld */; };
 		9A39346F28508CEB00393B19 /* AxisTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 9A39346E28508CEB00393B19 /* AxisTabView */; };
 		9A3934722850B33200393B19 /* AxisTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 9A3934712850B33200393B19 /* AxisTabView */; };
 		9A3934752850B5C100393B19 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934742850B5C100393B19 /* CalendarView.swift */; };
@@ -41,6 +41,7 @@
 		A3CD1495285CBFFC004EDA7B /* Heit.json in Resources */ = {isa = PBXBuildFile; fileRef = A3CD1490285CBFFC004EDA7B /* Heit.json */; };
 		A3CD1496285CBFFC004EDA7B /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = A3CD1491285CBFFC004EDA7B /* Love.json */; };
 		A3CD1497285CBFFC004EDA7B /* Cry.json in Resources */ = {isa = PBXBuildFile; fileRef = A3CD1492285CBFFC004EDA7B /* Cry.json */; };
+		A3DD89CF285D9ABB009AE6F8 /* CleaningDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DD89CE285D9ABB009AE6F8 /* CleaningDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		A3CD1490285CBFFC004EDA7B /* Heit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heit.json; sourceTree = "<group>"; };
 		A3CD1491285CBFFC004EDA7B /* Love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Love.json; sourceTree = "<group>"; };
 		A3CD1492285CBFFC004EDA7B /* Cry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cry.json; sourceTree = "<group>"; };
+		A3DD89CE285D9ABB009AE6F8 /* CleaningDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		9A3934582850892800393B19 /* Cleanny */ = {
 			isa = PBXGroup;
 			children = (
+				A3DD89CD285D9A05009AE6F8 /* DataModel */,
 				9A7145D428532B2100AD9B45 /* Data */,
 				9A3934732850B5AC00393B19 /* Pages */,
 				9A3934592850892800393B19 /* CleannyApp.swift */,
@@ -132,8 +135,6 @@
 				34A30AB12854882000DFFB3F /* CleaningCategory.swift */,
 				34A30AB3285488CF00DFFB3F /* CleaningCategoryList.json */,
 				9A39345D2850892A00393B19 /* Assets.xcassets */,
-				9A3934622850892A00393B19 /* Persistence.swift */,
-				9A3934642850892A00393B19 /* Cleanny.xcdatamodeld */,
 				9A39345F2850892A00393B19 /* Preview Content */,
 			);
 			path = Cleanny;
@@ -183,6 +184,16 @@
 				9AE62C272853349700FEDB9C /* User.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		A3DD89CD285D9A05009AE6F8 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				9A3934622850892A00393B19 /* Persistence.swift */,
+				9A3934642850892A00393B19 /* CleannyModel.xcdatamodeld */,
+				A3DD89CE285D9ABB009AE6F8 /* CleaningDataController.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 				736A696E28532131001D0D44 /* ShareView.swift in Sources */,
 				9A3934752850B5C100393B19 /* CalendarView.swift in Sources */,
 				9A3934772850B61700393B19 /* RecordView.swift in Sources */,
+				A3DD89CF285D9ABB009AE6F8 /* CleaningDataController.swift in Sources */,
 				A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */,
 				9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */,
 				9A3934632850892A00393B19 /* Persistence.swift in Sources */,
@@ -292,7 +304,7 @@
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
 				A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */,
 				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
-				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
+				9A3934662850892A00393B19 /* CleannyModel.xcdatamodeld in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
 			);
@@ -557,13 +569,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		9A3934642850892A00393B19 /* Cleanny.xcdatamodeld */ = {
+		9A3934642850892A00393B19 /* CleannyModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				9A3934652850892A00393B19 /* Cleanny.xcdatamodel */,
 			);
 			currentVersion = 9A3934652850892A00393B19 /* Cleanny.xcdatamodel */;
-			path = Cleanny.xcdatamodeld;
+			path = CleannyModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

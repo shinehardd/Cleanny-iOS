@@ -10,6 +10,7 @@ import SwiftUI
 struct User{
     var name : String
     var totalPercentage : Double
+    
     //분자
     var numerator : Double
     //분모
