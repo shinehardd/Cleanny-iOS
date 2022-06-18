@@ -30,6 +30,8 @@ struct ShareView: View {
     
     @State private var showAlert: Bool = false
     
+    @FocusState var isFocused: Bool
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let columns: [GridItem] = [
@@ -54,6 +56,7 @@ struct ShareView: View {
                                     .padding(.top)
                                     .onTapGesture {
                                         showAlert = true
+                                        isFocused = true
                                     }
                             }
                             ForEach(friends, id: \.self) {
@@ -96,7 +99,7 @@ struct ShareView: View {
                         }
                         viewModel.updateUser(user: me!, name: text, totalPercentage: me!.totalPercentage)
                     }
-                })
+                }, isFocused: _isFocused)
             }
             .onAppear {
                 Task {

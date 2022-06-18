@@ -14,6 +14,7 @@ struct CustomAlertView: View {
     @Binding var showAlert: Bool
     @State var updateAction: (String) -> ()
     @State var text: String = ""
+    @FocusState var isFocused: Bool
     var onDone: (String) -> Void = { _ in }
     var onCancel: () -> Void = { }
     
@@ -24,7 +25,10 @@ struct CustomAlertView: View {
                 .font(.headline)
             Text("새로운 닉네임을 설정해주세요")
                 .bold()
-            CustomTextField(text: $text, isFirstResponder: $showAlert)
+//            CustomTextField(text: $text, isFirstResponder: $showAlert)
+            TextField("", text: $text)
+                .focused($isFocused)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             HStack(spacing: 20) {
                 Button(action: {
                     self.showAlert = false
