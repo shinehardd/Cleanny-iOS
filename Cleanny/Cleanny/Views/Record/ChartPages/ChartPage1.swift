@@ -43,7 +43,6 @@ struct ChartPage1: View {
             if(tempMonth < 0){
                 tempMonth += 12
             }
-            
             chartData.append(("\(tempMonthArr[0 * 12 + tempMonth].monthName)",Double(tempMonthArr[0 * 12 + tempMonth].cleaningCount)))
           
 //            chartData.append(("\tempMonthArr[(index * 12) + tempMonth].monthName", Int(tempMonthArr[(index * 12) + tempMonth].cleaningCount)))
