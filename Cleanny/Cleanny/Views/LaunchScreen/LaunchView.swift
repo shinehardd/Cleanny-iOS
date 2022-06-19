@@ -27,10 +27,10 @@ struct LaunchView: View {
                             AnimatedImage(url: getLogoURL())
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                            Text("Cleanny")
-                                .padding()
-                                .foregroundColor(Color("SBlue"))
-                                .font(.bold(.title)())
+                            Image("LaunchText")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .padding(.horizontal, 100)
                         }
                         
                     }
