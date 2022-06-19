@@ -34,10 +34,10 @@ struct ChartPage1: View {
         let currentMonth = Int(calendar.component(.month, from: date))
         var chartData:Array<(String,Double)> = []
         var tempMonth = 0
-        var i:Int = 11
+        var i:Int = 5
         
         while i >= 0 {
-            if(i>5){
+        if(i>5){
                 tempMonth = (currentMonth - 1)
                 tempMonth -= i
                 i -= 1
