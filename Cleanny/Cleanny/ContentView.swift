@@ -137,7 +137,7 @@ struct ContentView: View {
             
         }
         .fullScreenCover(isPresented: $firstLaunching) {
-           // OnboardingView(firstLaunching: $firstLaunching)
+            OnboardingView(firstLaunching: $firstLaunching)
         }
     }
     
