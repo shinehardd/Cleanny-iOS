@@ -61,6 +61,10 @@ struct CleaningButtonView: View {
                     isCleaning = false
                 }
                 .simultaneousGesture(LongPressGesture(minimumDuration: 1.5)
+                    .updating($tap) { currentState, gestureState, transition in
+                        gestureState = currentState
+                    }
+                                     
                     .onChanged { _ in
                         HapticManager.instance.impact(style: .heavy)
                         isCleaning = true
