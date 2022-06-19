@@ -22,7 +22,7 @@ struct ShareOnboardingView: View {
                 .padding(.vertical)
             Spacer()
                 .frame(height: 20.0)
-            Image("iPhone13")
+            Image("Onboard_Share")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Spacer()

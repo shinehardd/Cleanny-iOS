@@ -22,7 +22,7 @@ struct CompleteOnboardingView: View {
                 .padding(.vertical)
             Spacer()
                 .frame(height: 20.0)
-            Image("iPhone13")
+            Image("Onboard_Character")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Spacer()

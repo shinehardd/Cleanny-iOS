@@ -22,7 +22,7 @@ struct GraphOnboardingView: View {
                 .padding(.vertical)
             Spacer()
                 .frame(height: 20.0)
-            Image("iPhone13")
+            Image("Onboard_Chart")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Spacer()
