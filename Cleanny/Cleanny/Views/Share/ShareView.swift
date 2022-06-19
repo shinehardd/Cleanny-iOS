@@ -50,7 +50,7 @@ struct ShareView: View {
                     ScrollView(showsIndicators: false) {
                         LazyVGrid (columns: columns) {
                             if (me != nil) {
-                                CardView(name: me!.name, percentage: me!.totalPercentage)
+                                CardView(name: me!.name, percentage: me!.totalPercentage / 100)
                                     .aspectRatio(10/13, contentMode: .fit)
                                     .padding(.horizontal)
                                     .padding(.top)
@@ -61,7 +61,7 @@ struct ShareView: View {
                             }
                             ForEach(friends, id: \.self) {
                                 friend in
-                                CardView(name: friend, percentage: percentageDic[friend]!)
+                                CardView(name: friend, percentage: percentageDic[friend]! / 100)
                                     .aspectRatio(10/13, contentMode: .fit)
                                     .padding(.horizontal)
                                     .padding(.top)
@@ -139,10 +139,6 @@ struct ShareView: View {
                 }
             } else {
                 self.me = me[0]
-                if (!user.isEmpty) {
-                    self.me!.totalPercentage = user[0].totalPercentage
-                    viewModel.updateUser(user: self.me!, name: user[0].name!, totalPercentage: user[0].totalPercentage)
-                }
             }
             
             friends.forEach { friend in
