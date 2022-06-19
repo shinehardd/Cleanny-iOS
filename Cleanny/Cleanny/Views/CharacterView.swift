@@ -10,12 +10,10 @@ import SwiftUI
 struct CharacterView: View {
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
-        animation: .default)
+        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)])
     private var users: FetchedResults<User>
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \MonthHistory.index, ascending: true)],
-        animation: .default)
+        sortDescriptors: [NSSortDescriptor(keyPath: \MonthHistory.index, ascending: true)])
     private var monthHistoryData: FetchedResults<MonthHistory>
 //    @FetchRequest(
 //        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
@@ -48,6 +46,8 @@ struct CharacterView: View {
                             .foregroundColor(Color("MBlue"))
                             .padding()
                     }
+                    .rotationEffect(.degrees(showModal ? 0 : 360))
+                    .animation(Animation.easeInOut(duration: 0.5), value: showModal)
                     .sheet(isPresented: self.$showModal) {
                         SettingModalView(showModal: $showModal)
                             .interactiveDismissDisabled()
