@@ -122,7 +122,7 @@ struct ContentView: View {
             
             users[0].totalPercentage = users[0].denominator == 0 ? -100 : (users[0].numerator / users[0].denominator)
             index = Int(users[0].totalPercentage) / 25
-          print("--------->",index)
+       
             
             do {
                 try viewContext.save()
@@ -133,9 +133,11 @@ struct ContentView: View {
             
             
             isUpdatingView.toggle()
-            }}
+            }
+            
+        }
         .fullScreenCover(isPresented: $firstLaunching) {
-            OnboardingView(firstLaunching: $firstLaunching)
+           // OnboardingView(firstLaunching: $firstLaunching)
         }
     }
     

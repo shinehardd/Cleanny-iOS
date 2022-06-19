@@ -58,7 +58,7 @@ struct CharacterView: View {
                 }
                 else{
                 ZStack {
-                    LottieView(name: isCleaning ? "Cleaning" : cleaning.characterArr[index])
+                   LottieView(name: isCleaning ? "Cleaning" : cleaning.characterArr[index])
                     Text("\(complateText)").foregroundColor(Color("MBlack"))
                         .offset(y: -screenHeight / 5)
                 }
