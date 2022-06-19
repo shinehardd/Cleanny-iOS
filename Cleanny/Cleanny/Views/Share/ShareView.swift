@@ -139,6 +139,10 @@ struct ShareView: View {
                 }
             } else {
                 self.me = me[0]
+                if (!user.isEmpty) {
+                    self.me!.totalPercentage = user[0].totalPercentage
+                    viewModel.updateUser(user: self.me!, name: user[0].name!, totalPercentage: user[0].totalPercentage)
+                }
             }
             
             friends.forEach { friend in

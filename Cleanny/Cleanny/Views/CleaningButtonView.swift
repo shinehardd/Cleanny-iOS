@@ -55,7 +55,7 @@ struct CleaningButtonView: View {
                 .scaleEffect(tap ? 1.1 : 1)
                 .overlay(
                     Image(cleaning.imageName ?? "")
-                        .foregroundColor(progress < 25 ? Color("MRed"): Color("MBlue"))
+                        .foregroundColor(progress < 50 ? Color("MRed"): Color("MBlue"))
                 )
                 .onTapGesture {
                     isCleaning = false
