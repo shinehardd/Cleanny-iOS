@@ -52,6 +52,7 @@ struct ShareView: View {
                     Spacer()
                     ScrollView(showsIndicators: false) {
                         if loading {
+                            Spacer()
                             ProgressView()
                         } else {
                             LazyVGrid (columns: columns) {
