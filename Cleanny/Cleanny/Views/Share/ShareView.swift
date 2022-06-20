@@ -23,12 +23,15 @@ struct ShareView: View {
     @State private var friends: [String] = []
     @State private var percentageDic: [String:Double] = [:]
     
+    @State private var loading = true
     @State private var isSharing = false
     @State private var isProcessingShare = false
     @State private var activeShare: CKShare?
     @State private var activeContainer: CKContainer?
     
     @State private var showAlert: Bool = false
+    @State private var showError: Bool = false
+    @State private var shareTouched: Int = 0
     
     @FocusState var isFocused: Bool
     
@@ -48,25 +51,31 @@ struct ShareView: View {
                 VStack {
                     Spacer()
                     ScrollView(showsIndicators: false) {
-                        LazyVGrid (columns: columns) {
-                            if (me != nil) {
-                                CardView(name: me!.name, percentage: me!.totalPercentage / 100)
-                                    .aspectRatio(10/13, contentMode: .fit)
-                                    .padding(.horizontal)
-                                    .padding(.top)
-                                    .onTapGesture {
-                                        showAlert = true
-                                        isFocused = true
-                                    }
+                        if loading {
+                            ProgressView()
+                        } else {
+                            LazyVGrid (columns: columns) {
+                                if (me != nil) {
+                                    CardView(name: me!.name, percentage: me!.totalPercentage / 100)
+                                        .aspectRatio(10/13, contentMode: .fit)
+                                        .padding(.horizontal)
+                                        .padding(.top)
+                                        .onTapGesture {
+                                            showAlert = true
+                                            isFocused = true
+                                        }
+                                }
+                                ForEach(friends, id: \.self) {
+                                    friend in
+                                    CardView(name: friend, percentage: percentageDic[friend]! / 100)
+                                        .aspectRatio(10/13, contentMode: .fit)
+                                        .padding(.horizontal)
+                                        .padding(.top)
+                                }
                             }
-                            ForEach(friends, id: \.self) {
-                                friend in
-                                CardView(name: friend, percentage: percentageDic[friend]! / 100)
-                                    .aspectRatio(10/13, contentMode: .fit)
-                                    .padding(.horizontal)
-                                    .padding(.top)
-                            }
+                            
                         }
+                        
                         Spacer(minLength: 50)
                     }
                     Spacer(minLength: 60)
@@ -78,13 +87,29 @@ struct ShareView: View {
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(
-                            action: { if (me != nil) {
-                                Task {
-                                    try? await shareUser(me!)
+                            action: {
+                                if (me != nil) {
+                                    shareTouched += 1
+                                    Task {
+                                        try? await shareUser(user: me!, shareTouched: shareTouched)
+                                    }
                                 }
-                            } } , label: { Image(uiImage: UIImage(named: "AddFriend")!)
-                                .foregroundColor(Color("MBlue")) }).buttonStyle(BorderlessButtonStyle())
+                            } ,
+                            label: {
+                                Image(uiImage: UIImage(named: "AddFriend")!)
+                                .foregroundColor(Color("MBlue"))
+                            }).buttonStyle(BorderlessButtonStyle())
                             .sheet(isPresented: $isSharing, content: { shareView() })
+                            .alert(isPresented: $showError) {
+                                let doneButton = Alert.Button.cancel(Text("확인")) {
+                                    showAlert = false
+                                    showError = false
+                                }
+                                return Alert(
+                                    title: Text("정보를 불러오는 중"),
+                                    message: Text("다시 시도해주세요."),
+                                    dismissButton: doneButton)
+                            }
                     }
                 }
                 Color.black.opacity(showAlert ? 0.3 : 0).ignoresSafeArea(.all)
@@ -109,17 +134,11 @@ struct ShareView: View {
         }
     }
     
-//    func updateName(name: String) {
-//        print(name)
-//        if (me != nil) {
-//            me!.name = name
-//            me!.setName(name: name)
-//            if (!user.isEmpty) {
-//                user[0].name = name
-//            }
-//            viewModel.updateUser(user: me!, name: name, totalPercentage: me!.totalPercentage)
-//        }
-//    }
+    private func errorAction(alertTouched: Int) {
+        if (alertTouched == 1) {
+            showAlert = false
+        }
+    }
     
     private func loadFriends() async throws {
 
@@ -146,6 +165,8 @@ struct ShareView: View {
                 self.percentageDic[friend.name] = friend.totalPercentage
             }
             
+            loading = false
+            
         case .error(_):
             return
             
@@ -155,7 +176,7 @@ struct ShareView: View {
         }
     }
     
-    private func shareUser(_ user: CloudkitUser) async throws {
+    private func shareUser(user: CloudkitUser, shareTouched: Int) async throws {
         isProcessingShare = true
         try await viewModel.refresh()
         
@@ -165,6 +186,10 @@ struct ShareView: View {
             activeShare = share
             activeContainer = container
             isSharing = true
+            if (shareTouched == 1) {
+                isSharing = false
+                showError = true
+            }
         } catch {
             debugPrint("Error sharing contact record: \(error)")
         }
